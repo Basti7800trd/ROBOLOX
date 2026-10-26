@@ -11,6 +11,14 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Bag starts empty + drag & drop
+- **Manuel:** "make the bag empty, and i can put items per drag on drop in and outside the bag".
+- **Changed:** `StarterPlayerScripts.Inventory`. The hotbar and the bag now hold **different** items (before, the bag showed everything).
+  - The bag starts **empty** ("Your bag is empty. Drag items here from your hotbar."). New items fill the first free hotbar slot and only go into the bag when all 10 slots are full.
+  - **Drag & drop** (mouse or finger): hotbar slot → open bag = store it · bag item → a hotbar slot = put it there (what was there goes into the bag) · bag item → anywhere outside the bag = first free slot · slot → slot = swap. The slot you're over glows light blue. A normal click still holds the item.
+  - Items are remembered by seed type, so the layout stays when you respawn. It is **not** saved when you leave the game (new items just fill the hotbar again).
+- **Test:** slot 2 → bag ✔, bag → slot 5 (swap) ✔, bag → outside → free slot 2 ✔, slot 1 ↔ slot 3 ✔, click still equips ✔, fresh start = empty bag ✔. 0 errors.
+
 ### Our own hotbar + bag
 - **Manuel** (2 screenshots from another game): "img1 is the hotbar, img2 is the opened bag, but dont add 'sprays, potions, cleanse, tools'".
 - **New:** `StarterPlayerScripts.Inventory` (LocalScript). Roblox's own backpack is switched off.
