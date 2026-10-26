@@ -146,6 +146,33 @@ For the seed tools from the slot machine. Not in UIAssets yet: when they're made
 - [ ] **seed.olive**: A small paper seed packet with olives on the front, STYLE
 - [ ] **seed.basil**: A small paper seed packet with basil leaves on the front, STYLE
 
+## New: the 24 new seeds (2026-10-26) · 24
+One picture per seed: the vegetable/fruit itself (256x256). It's used on the hotbar, the bag, the slot machine and the odds board. In UIAssets: `ing.<id>`.
+- [ ] **ing.spinach**: A bunch of fresh dark-green spinach leaves, STYLE
+- [ ] **ing.carrot**: An orange carrot with green leaves on top, STYLE
+- [ ] **ing.potato**: A round brown potato with small spots, STYLE
+- [ ] **ing.cucumber**: A green cucumber with a bumpy skin, STYLE
+- [ ] **ing.chili**: A bright red chili pepper with a curly green stem, STYLE
+- [ ] **ing.garlic**: A white garlic bulb with one clove next to it, STYLE
+- [ ] **ing.strawberry**: A shiny red strawberry with green leaves, STYLE
+- [ ] **ing.broccoli**: A small green broccoli tree, STYLE
+- [ ] **ing.banana**: A yellow banana, STYLE
+- [ ] **ing.eggplant**: A shiny purple eggplant with a green cap, STYLE
+- [ ] **ing.watermelon**: A slice of watermelon with black seeds, STYLE
+- [ ] **ing.kiwi**: A kiwi cut in half, bright green inside, STYLE
+- [ ] **ing.cocoa**: An open cocoa pod with cocoa beans and a small chocolate bar, STYLE
+- [ ] **ing.grapes**: A bunch of purple grapes with a leaf, STYLE
+- [ ] **ing.ghost_pepper**: A wrinkly orange-red ghost pepper with small flames around it, STYLE
+- [ ] **ing.dragonfruit**: A pink dragon fruit with green spikes, cut open showing white inside with black seeds, STYLE
+- [ ] **ing.starfruit**: A yellow star-shaped fruit slice with sparkles, STYLE
+- [ ] **ing.candy_corn**: Three candy corn sweets (yellow, orange, white stripes), STYLE
+- [ ] **ing.golden_apple**: A shiny golden apple with sparkles and a gold leaf, STYLE
+- [ ] **ing.rainbow_carrot**: A carrot with rainbow stripes and green leaves, STYLE
+- [ ] **ing.moon_melon**: A round pale-blue melon with a glowing crescent moon pattern, STYLE
+- [ ] **ing.ghost_pumpkin**: A white glowing pumpkin with a cute ghost face, STYLE
+- [ ] **ing.crystal_berry**: A berry made of shiny light-blue crystal, STYLE
+- [ ] **ing.galaxy_mushroom**: A mushroom with a dark purple cap full of stars, like a galaxy, STYLE
+
 ---
 
 **Related:** [[Manuel Home]] · [[Manuel Changelog]] · [[MANUEL]]

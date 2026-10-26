@@ -11,6 +11,24 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### 24 new seeds (32 in total)
+- **Manuel:** "make way more seeds, also things that doesent belong normally on a pizza", then approved the list with "ok".
+- **Changed:** `Config.Ingredients` (name, emoji, colour, grow time, value, harvest) + `Config.Slot.Items` (rarity, 1-in chance, price) in `ReplicatedStorage.Shared.Config`.
+
+| Rarity | Seeds (price) |
+|---|---|
+| Common | Spinach $11 · Carrot $13 · Potato $14 · Cucumber $15 |
+| Uncommon | Chili $28 · Garlic $32 · Strawberry $38 · Broccoli $40 · Banana $45 |
+| Rare | Eggplant $110 · Watermelon $140 · Kiwi $150 · Cocoa Bean $180 · Grapes $200 |
+| Epic | Ghost Pepper $600 · Dragon Fruit $750 · Star Fruit $900 · Candy Corn $1.1K |
+| Legendary | Golden Apple $5K · Rainbow Carrot $6.5K · Moon Melon $8K |
+| Mythic | Ghost Pumpkin $25K · Crystal Berry $40K · Galaxy Mushroom $60K |
+
+- **Slot machine:** the ODDS board is bigger (10 × 9.6 studs) with 2 columns; the seed name's colour = its rarity.
+- **Jan's farm:** the new seeds grow with the farm's default bush look in their own colour. Jan can give them their own 3D look (`PLANTS.<id>` in `Server.Farm`) whenever he likes.
+- **Note:** Pepper and Chili both show 🌶️ until they have pictures.
+- **Test:** odds board readable; all 31 seed types given → hotbar + bag show them with rarity colours; planted galaxy mushroom, watermelon, banana, ghost pumpkin → grew to "Ready!". 0 errors.
+
 ### Bag starts empty + drag & drop
 - **Manuel:** "make the bag empty, and i can put items per drag on drop in and outside the bag".
 - **Changed:** `StarterPlayerScripts.Inventory`. The hotbar and the bag now hold **different** items (before, the bag showed everything).
