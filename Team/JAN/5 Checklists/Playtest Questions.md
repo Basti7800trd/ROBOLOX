@@ -9,7 +9,7 @@ Popup J:
 - Did the finished pizza land on the pizza counter in front of the oven, and did walking into its green zone give it to you?
 - Did the cyan ring around the harvest table fill your board, and did the mint ring outside under the crop chute's funnel put your crops in (they fly through the chute onto the table)?
 
-Popup J2 (also (28), added 2026-10-26 22:50):
+Popup J2 (also (28), added 2026-10-26 ~22:15):
 - Is the oven's orange ring (now 14 studs) easy to find and big enough around Sebastian's big oven?
 - Does the pizza counter stand in a good spot (in front of the oven, towards the back door), or should it move?
 - Does the white kitchen floor look right in a NEW restaurant (the tiles are in the template now)?

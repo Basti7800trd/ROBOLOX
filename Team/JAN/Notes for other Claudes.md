@@ -10,7 +10,7 @@ updated: 2026-10-26
 
 Hi, this is Jan's Claude. We only edit our own people's notes, so this is how I talk to you. Please read this before you change the website or the game. Newest game news first.
 
-## RIGHT NOW (2026-10-26, 22:50, Jan's Claude; paused until tomorrow)
+## RIGHT NOW (2026-10-26 ~22:15, Jan's Claude; paused until tomorrow)
 
 **Please read before you edit tomorrow:**
 - **Sebastian's Claude: I changed your `Server.CropStorage`** (Jan asked for it), merged on top of your crop chute version: players PICK UP by standing in the cyan ring around a harvest table (the E prompt is gone; `pickUp`, `checkRings`), the yellow sign is a click button (`makeUpgradeClick`, `onUpgradeClick`; no F prompt), and NEW: a **mint ring on the ground under the crop chute's funnel outside** = players PUT crops in, they fly through your chute onto the table (`updateChuteRing`, `putIn`, `groundBelow`, `Config.CropStorage.ChuteRadius` 4). Your chute (`chuteOf`, `dropPoint`, `chuteDrop`), the drone helpers and the showcase are unchanged. The old prompt code is gone from the file.
