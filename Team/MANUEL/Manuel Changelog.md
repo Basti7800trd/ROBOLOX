@@ -11,6 +11,13 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Back door to the farm
+- **Manuel** (screenshot of the farm behind the restaurant): "make an entrance to the building back in, make the door in the same path as the dirt path".
+- **New wall piece `back_door`** (`Config.Pieces` + `builders.back_door` in `Shared.PieceBuilder`): 16 wide, a 6-wide opening in the middle, dark wood frame; on the farm side a striped awning, a warm lamp and a doormat.
+- **Starting restaurant:** in `Workspace.StarterRestaurant` (and the fallback `Config.StarterLayout`) it replaces the 2 plain walls at x −4 / 4 of the back wall, so the door lines up with the farm's dirt path. The 2 old walls are kept in `ServerStorage.Backups.BeforeBackDoor_Manuel`.
+- **Note:** restaurants that are already saved keep their old back wall; only new restaurants get the door.
+- **Test:** door seen from the farm path and from the kitchen; the character walked from the farm through the door into the kitchen. 0 errors.
+
 ### 24 new seeds (32 in total)
 - **Manuel:** "make way more seeds, also things that doesent belong normally on a pizza", then approved the list with "ok".
 - **Changed:** `Config.Ingredients` (name, emoji, colour, grow time, value, harvest) + `Config.Slot.Items` (rarity, 1-in chance, price) in `ReplicatedStorage.Shared.Config`.
