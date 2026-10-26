@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 19:50 (Vienna) · 84 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 19:54 (Vienna) · 85 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -49,7 +49,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Manuel** | Head pizzaiolo | **382** | 0 | 0 | 34 | 699 |
+| 🥇 | **Manuel** | Head pizzaiolo | **392** | 0 | 0 | 35 | 704 |
 | 🥈 | **Jan** | Sous-chef | **334** | 0 | 0 | 22 | 1471 |
 | 🥉 | **Sebastian** | Dishwasher | **317** | 3 | 0 | 13 | 4109 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
@@ -70,6 +70,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 19:53 | Manuel | Manuel Changelog: plot ends at the farm fence | +5 −0 |
 | 26 Oct 19:49 | Manuel | Manuel Changelog: farm fence, garden grows with upgrade | +5 −0 |
 | 26 Oct 19:46 | Manuel | Manuel Changelog: garden one tile further back | +6 −0 |
 | 26 Oct 19:28 | Manuel | Manuel Changelog: no plants inside the restaurant | +5 −0 |
@@ -84,7 +85,6 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 | 26 Oct 18:01 | Jan | vault backup: 2026-10-26 17:01:33 | +8 −0 |
 | 26 Oct 17:52 | Jan | vault backup: 2026-10-26 16:52:55 | +15 −0 |
 | 26 Oct 17:45 | Manuel | Manuel: 32 seed pictures in the game (changelog + checklist) | +7 −0 |
-| 26 Oct 17:45 | Manuel | vault backup: 2026-10-26 17:45:03 | +32 −32 |
 
 ---
 
