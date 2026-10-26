@@ -11,6 +11,14 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Test tools: speed slider + infinite money (Studio only)
+- **Manuel:** "add a slide bar on the side so i can move faster while testing, also give me infinite money".
+- **New (both switch themselves off outside Studio, `RunService:IsStudio()`, so real players never get them):**
+  - `ServerScriptService.DevTestTools` (Script): keeps every player's Cash at **$1,000,000,000,000** (tops it up every second when it drops below $100B). "Earned" isn't touched, so the leaderboards stay honest.
+  - `StarterPlayerScripts.DevSpeed` (LocalScript): a **SPEED** slider on the right side of the screen, 16 (normal) to 150. Drag the knob or click the bar; the speed stays after respawning.
+- To test without the money: select DevTestTools in Explorer > Properties > untick **Enabled**.
+- **Test:** slider dragged to 109 → walk speed 109; money $1T. 0 errors.
+
 ### The slot machine gives SEEDS (for Jan's garden)
 - **Manuel:** "remove the ingredients, add seeds that i can plant in the garden jan is making right now … the player has to pull on the machine for seeds, plant those seeds in the garden, harvest the fruits and vegetables and make the pizza, u and me just should focus on the slot machine and the seeds now".
 - **Manuel's choices:** non-plants (dough, sauce, cheese, meat, gold leaf) are Jan's part, skip them · seeds go into the **hotbar**, and into the **backpack** when the hotbar is full (Manuel sends a picture of the bag later) · the **PC stays until Jan's garden works**.
