@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 15:29 (Vienna) · 54 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 15:34 (Vienna) · 55 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -37,7 +37,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Jan** | Head pizzaiolo | **263** | 0 | 0 | 16 | 1325 |
+| 🥇 | **Jan** | Head pizzaiolo | **273** | 0 | 0 | 17 | 1331 |
 | 🥈 | **Sebastian** | Sous-chef | **175** | 1 | 0 | 10 | 3981 |
 | 🥉 | **Manuel** | Dishwasher | **163** | 0 | 0 | 13 | 482 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 15:33 | Jan | vault backup: 2026-10-26 14:33:01 | +3 −3 |
 | 26 Oct 15:27 | Jan | vault backup: 2026-10-26 14:27:40 | +23 −3 |
 | 26 Oct 15:25 | Jan | vault backup: 2026-10-26 14:25:33 | +43 −21 |
 | 26 Oct 15:24 | Jan | vault backup: 2026-10-26 14:24:27 | +20 −0 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 13:16 | Jan | vault backup: 2026-10-26 12:16:04 | +57 −3 |
 | 26 Oct 13:03 | Jan | vault backup: 2026-10-26 12:03:58 | +5 −5 |
 | 26 Oct 13:00 | Manuel | Manuel Changelog: 9 reels opening from the middle | +6 −0 |
-| 26 Oct 12:56 | Manuel | Manuel Changelog: slot machine reels with covers | +9 −0 |
 
 ---
 
