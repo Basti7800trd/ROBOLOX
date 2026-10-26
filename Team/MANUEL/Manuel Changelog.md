@@ -11,6 +11,11 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Fence after the beds, garden grows with the upgrade
+- **Manuel** (marked the empty part of the farm): "cut the marked part, after the 8 beds should be a fence, after upgrading it should expand".
+- `Server.Farm`: a wooden fence stands right behind the last row of beds. The paths, arches and flowers behind it are hidden. Upgrading to Level 2 shows the next part of the garden (2 new bed rows) and moves the fence back. Nothing was deleted.
+- **Test:** Level 1 = 8 beds + fence; Level 2 = 16 beds, garden bigger, fence further back. 0 errors.
+
 ### Garden moved one floor tile further back
 - **Manuel:** "move the whole garden a bit further 1 chunk (1 chunk = 1 floor size)".
 - Everything of the farm moved 16 studs back on all 6 plots: bed spots (rows now z 104 / 120 / 136 / 152), starter beds + Jan's preview, paths, stones, grass edges, arches. Trees/bushes/flowers around stay.
