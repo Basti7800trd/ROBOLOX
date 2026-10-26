@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 17:21 (Vienna) · 69 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 17:46 (Vienna) · 71 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -48,7 +48,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **1**
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Jan** | Head pizzaiolo | **302** | 0 | 0 | 19 | 1434 |
-| 🥈 | **Manuel** | Sous-chef | **273** | 0 | 0 | 24 | 555 |
+| 🥈 | **Manuel** | Sous-chef | **299** | 0 | 0 | 26 | 626 |
 | 🥉 | **Sebastian** | Dishwasher | **197** | 1 | 0 | 11 | 4103 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
@@ -68,6 +68,8 @@ Open **7** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 17:45 | Manuel | Manuel: 32 seed pictures in the game (changelog + checklist) | +7 −0 |
+| 26 Oct 17:45 | Manuel | vault backup: 2026-10-26 17:45:03 | +32 −32 |
 | 26 Oct 17:20 | Manuel | Manuel Changelog: slot results appear together | +6 −0 |
 | 26 Oct 17:15 | Manuel | Manuel Changelog: slot machine double size, no odds board | +6 −0 |
 | 26 Oct 17:06 | Sebastian | Sebastian Changelog + Game overview/Todo: weather, farm, harvest table, crop drone, sign, bigger plots | +119 −3 |
@@ -81,8 +83,6 @@ Open **7** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 15:59 | Manuel | Manuel Changelog: slot machine moved into the office | +7 −0 |
 | 26 Oct 15:56 | Jan | vault backup: 2026-10-26 14:56:31 | +42 −3 |
 | 26 Oct 15:44 | Manuel | vault backup: 2026-10-26 15:44:14 | +6 −0 |
-| 26 Oct 15:34 | Manuel | Manuel Changelog: back door to the farm | +7 −0 |
-| 26 Oct 15:33 | Jan | vault backup: 2026-10-26 14:33:01 | +3 −3 |
 
 ---
 
