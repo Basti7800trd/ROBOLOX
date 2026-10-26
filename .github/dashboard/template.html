@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pizza Kitchen Progress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one column of kitchen "stations" — progress pass, ticket rail, staff board, order log. Tickets are the recurring object. */
+:root {
+  --bg: #f6efe3;          /* flour-dusted counter */
+  --panel: #fffaf1;       /* order ticket paper */
+  --ink: #2a211c;
+  --muted: #7a6a5e;
+  --line: #e3d6c3;
+  --tomato: #ce3e32;      /* the game's sign red, rgb(206,62,50) */
+  --basil: #3d8a4c;
+  --cheese: #e9a92a;
+  --char: #5b4a40;
+  --rail: #d9cbb6;
+  --display: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1b1613; --panel: #262019; --ink: #f3e9dc; --muted: #a8988a; --line: #3a3029;
+  --tomato: #ec5e4f; --basil: #63b673; --cheese: #f2bd4c; --char: #cbb9a8; --rail: #3d332b; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1b1613; --panel: #262019; --ink: #f3e9dc; --muted: #a8988a; --line: #3a3029;
+  --tomato: #ec5e4f; --basil: #63b673; --cheese: #f2bd4c; --char: #cbb9a8; --rail: #3d332b; color-scheme: dark }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 var(--body);
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.15; margin: 0; text-wrap: balance; }
+h2 { font-size: 1.45rem; }
+.eyebrow { font: 600 .72rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+section { display: grid; gap: 16px; min-width: 0; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- header / pass */
+header { display: grid; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.brand svg { flex: none; }
+h1 { font-size: clamp(1.9rem, 4.5vw, 2.9rem); font-weight: 700; }
+h1 em { font-style: normal; color: var(--tomato); }
+.meta { color: var(--muted); font-size: .92rem; }
+.pass { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 14px; }
+.pass-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.big { font: 700 2.4rem/1 var(--display); }
+.big small { font: 500 1rem var(--body); color: var(--muted); margin-left: 6px; }
+.bar { height: 14px; border-radius: 999px; background: var(--line); overflow: hidden; display: flex; }
+.bar span { height: 100%; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .9rem; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.s-open { background: var(--char); } .s-doing { background: var(--cheese); }
+.s-blocked { background: var(--tomato); } .s-done { background: var(--basil); }
+
+/* ---------- ticket rail */
+.rail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.col { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.col-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 2px;
+  border-bottom: 3px solid var(--rail); font: 600 1rem var(--display); }
+.col-head .count { font: 600 .8rem var(--mono); color: var(--muted); }
+.ticket { background: var(--panel); border: 1px solid var(--line); border-radius: 4px 4px 10px 10px; padding: 12px 12px 10px;
+  display: grid; gap: 8px; position: relative; min-width: 0; }
+.ticket::before { content: ""; position: absolute; left: 10px; right: 10px; top: -1px; height: 4px; border-radius: 0 0 4px 4px; }
+.col[data-s="open"] .ticket::before { background: var(--char); }
+.col[data-s="doing"] .ticket::before { background: var(--cheese); }
+.col[data-s="blocked"] .ticket::before { background: var(--tomato); }
+.col[data-s="done"] .ticket::before { background: var(--basil); }
+.col[data-s="done"] .ticket .t-title { text-decoration: line-through; text-decoration-color: var(--muted); color: var(--muted); }
+.t-title { overflow-wrap: anywhere; }
+.t-foot { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font: .74rem var(--mono); color: var(--muted); }
+.chip { font: 600 .72rem/1 var(--mono); letter-spacing: .04em; padding: 4px 7px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink); background: var(--bg); }
+.empty { border: 1.5px dashed var(--line); border-radius: 10px; padding: 14px; color: var(--muted); font-size: .9rem; }
+.empty code { font: .82rem var(--mono); color: var(--ink); overflow-wrap: anywhere; }
+
+/* ---------- crew */
+.crew { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.member { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.member h3 { font-size: 1.15rem; display: flex; align-items: center; gap: 10px; }
+.avatar { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 700 .95rem var(--display);
+  color: #fff; flex: none; }
+.stat-row { display: flex; justify-content: space-between; gap: 8px; font-size: .9rem; }
+.stat-row b { font-variant-numeric: tabular-nums; }
+.mini { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.mini span { display: block; height: 100%; background: var(--basil); }
+
+/* ---------- leaderboard */
+.board { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.row { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 18px;
+  border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.rank { font: 700 1.7rem/1 var(--display); color: var(--muted); text-align: center; }
+.row.r1 .rank { color: var(--cheese); }
+.row.r1 { background: color-mix(in srgb, var(--cheese) 10%, transparent); }
+.who { display: grid; gap: 2px; min-width: 0; }
+.who strong { font: 600 1.15rem var(--display); }
+.who .title { font-size: .85rem; color: var(--muted); }
+.who .break { font: .74rem var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+.pts { font: 700 1.6rem/1 var(--display); text-align: right; }
+.pts small { display: block; font: 600 .7rem var(--mono); color: var(--muted); letter-spacing: .1em; margin-top: 4px; }
+.awards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.award { border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: grid; gap: 4px; background: var(--bg); min-width: 0; }
+.award strong { font: 600 1rem var(--display); }
+.award span { font-size: .88rem; color: var(--muted); overflow-wrap: anywhere; }
+.rules { font-size: .85rem; color: var(--muted); }
+
+/* ---------- log */
+.log { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+.log-item { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 12px; padding: 11px 16px; border-top: 1px solid var(--line);
+  align-items: baseline; font-size: .93rem; }
+.log-item:first-child { border-top: 0; }
+.log-item .h { font: .78rem var(--mono); color: var(--muted); }
+.log-item .msg { overflow-wrap: anywhere; }
+.log-item .by { color: var(--muted); font-size: .85rem; }
+.log-item .diff { font: .75rem var(--mono); white-space: nowrap; }
+.add { color: var(--basil); } .del { color: var(--tomato); }
+footer { color: var(--muted); font-size: .85rem; }
+footer a, .meta a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--tomato); outline-offset: 2px; }
+
+@media (max-width: 860px) { .rail { grid-template-columns: repeat(2, minmax(0, 1fr)); } .crew { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  .rail { grid-template-columns: 1fr; }
+  .row { grid-template-columns: 40px minmax(0, 1fr) auto; padding: 12px 14px; }
+  .log-item { grid-template-columns: minmax(0, 1fr) auto; } .log-item .h { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) { .bar span, .mini span { transition: width .6s ease; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+        <path d="M23 3 L43 40 Q23 47 3 40 Z" fill="var(--cheese)"/>
+        <path d="M3 40 Q23 47 43 40 L41 36 Q23 42 5 36 Z" fill="var(--char)"/>
+        <circle cx="21" cy="20" r="3.4" fill="var(--tomato)"/><circle cx="16" cy="31" r="3.4" fill="var(--tomato)"/>
+        <circle cx="29" cy="31" r="3.4" fill="var(--tomato)"/><circle cx="25" cy="25" r="1.6" fill="var(--basil)"/>
+      </svg>
+      <div>
+        <div class="eyebrow">ROBOLOX · team progress</div>
+        <h1>Automate Your <em>Pizza</em> Restaurant</h1>
+      </div>
+    </div>
+    <div class="meta" id="meta"></div>
+    <div class="pass" id="pass"></div>
+  </header>
+
+  <section aria-labelledby="h-rail">
+    <div class="sec-head"><h2 id="h-rail">Order rail</h2><span class="eyebrow">from Todo.md</span></div>
+    <div class="rail" id="rail"></div>
+  </section>
+
+  <section aria-labelledby="h-crew">
+    <div class="sec-head"><h2 id="h-crew">Kitchen crew</h2><span class="eyebrow">tasks · personal checklists</span></div>
+    <div class="crew" id="crew"></div>
+  </section>
+
+  <section aria-labelledby="h-board">
+    <div class="sec-head"><h2 id="h-board">Employee of the month</h2><span class="eyebrow">extremely scientific</span></div>
+    <div class="board" id="board"></div>
+    <div class="awards" id="awards"></div>
+    <p class="rules">Points: finished task 50 · ticked box on your own page 15 · commit 10 + 1 per 10 lines changed (max 20 per commit, so spamming
+      “AYOOOO” doesn’t win). Settings files don’t count.</p>
+  </section>
+
+  <section aria-labelledby="h-log">
+    <div class="sec-head"><h2 id="h-log">Order log</h2><span class="eyebrow">latest changes</span></div>
+    <div class="log" id="log"></div>
+  </section>
+
+  <footer>Rebuilt automatically on every push to the vault. Add tasks in <code>Todo.md</code> as
+    <code>- [ ] Task — [[JAN]] #doing</code>.</footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const D = DATA || { built: new Date().toISOString(), team: ["JAN","MANUEL","SEBASTIAN"], tasks: [], checklists: {}, board: [], awards: [], recent: [], commit_count: 0, repo: "" };
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const S = ["open","doing","blocked","done"];
+const LABEL = { open: "Open", doing: "In the oven", blocked: "Blocked", done: "Served" };
+const COLOR = { JAN: "var(--tomato)", MANUEL: "var(--basil)", SEBASTIAN: "var(--cheese)" };
+const TITLES = ["Head pizzaiolo", "Sous-chef", "Dishwasher", "Delivery drone"];
+const ago = (iso) => {
+  const s = (Date.now() - new Date(iso)) / 1000;
+  if (s < 90) return "just now"; if (s < 3600) return Math.round(s/60) + " min ago";
+  if (s < 86400) return Math.round(s/3600) + " h ago"; return Math.round(s/86400) + " d ago";
+};
+const name = (p) => p ? p.charAt(0) + p.slice(1).toLowerCase() : "";
+
+// meta
+$("meta").innerHTML = `Updated <span title="${esc(D.built)}">${ago(D.built)}</span> · ${D.commit_count} changes so far` +
+  (D.repo ? ` · <a href="https://github.com/${esc(D.repo)}">${esc(D.repo)}</a>` : "");
+
+// pass
+const count = Object.fromEntries(S.map(s => [s, D.tasks.filter(t => t.status === s).length]));
+const total = D.tasks.length;
+const pct = total ? Math.round(100 * count.done / total) : 0;
+$("pass").innerHTML = `
+  <div class="pass-top"><div class="big num">${pct}%<small>${count.done} of ${total} tasks served</small></div>
+  <div class="eyebrow">kitchen status</div></div>
+  <div class="bar" role="img" aria-label="${count.done} done, ${count.doing} in progress, ${count.blocked} blocked, ${count.open} open">
+    ${total ? S.slice().reverse().map(s => `<span class="s-${s}" style="width:${100*count[s]/total}%"></span>`).join("") : ""}</div>
+  <div class="legend">${S.map(s => `<span><i class="dot s-${s}"></i>${LABEL[s]} <b class="num">${count[s]}</b></span>`).join("")}</div>`;
+
+// rail
+$("rail").innerHTML = S.map(s => {
+  const list = D.tasks.filter(t => t.status === s);
+  const items = list.length ? list.map(t => `
+    <article class="ticket"><div class="t-title">${esc(t.title)}</div>
+      <div class="t-foot">${t.owners.map(o => `<span class="chip">${esc(name(o))}</span>`).join("") || "<span>no owner</span>"}
+      ${t.due ? `<span>due ${esc(t.due)}</span>` : ""}</div></article>`).join("")
+    : (s === "open" && !total ? `<div class="empty">No orders yet. Add one to <code>Todo.md</code>:<br><code>- [ ] Build the drone menu — [[MANUEL]] #open</code></div>`
+       : `<div class="empty">Nothing here.</div>`);
+  return `<div class="col" data-s="${s}"><div class="col-head"><span>${LABEL[s]}</span><span class="count num">${list.length}</span></div>${items}</div>`;
+}).join("");
+
+// crew
+$("crew").innerHTML = D.team.map(p => {
+  const mine = D.tasks.filter(t => t.owners.includes(p));
+  const by = Object.fromEntries(S.map(s => [s, mine.filter(t => t.status === s).length]));
+  const cl = D.checklists[p] || { done: 0, total: 0 };
+  const clp = cl.total ? Math.round(100 * cl.done / cl.total) : 0;
+  return `<div class="member"><h3><span class="avatar" style="background:${COLOR[p] || "var(--char)"}">${esc(p[0])}</span>${esc(name(p))}</h3>
+    <div class="stat-row"><span>Tasks served</span><b>${by.done} / ${mine.length}</b></div>
+    <div class="stat-row"><span>In the oven · blocked</span><b>${by.doing} · ${by.blocked}</b></div>
+    <div class="stat-row"><span>Own checklist</span><b>${cl.total ? `${cl.done} / ${cl.total}` : "—"}</b></div>
+    <div class="mini" aria-hidden="true"><span style="width:${clp}%"></span></div></div>`;
+}).join("");
+
+// leaderboard
+$("board").innerHTML = D.board.length ? D.board.map((r, i) => `
+  <div class="row r${i+1}"><div class="rank num">${i+1}</div>
+    <div class="who"><strong>${esc(D.team.includes(r.name) ? name(r.name) : r.name)}</strong>
+      <span class="title">${TITLES[Math.min(i, TITLES.length-1)]}</span>
+      <span class="break">${r.tasks_done} tasks · ${r.boxes} boxes · ${r.commits} commits · ${r.lines} lines</span></div>
+    <div class="pts num">${r.points}<small>PTS</small></div></div>`).join("")
+  : `<div class="row"><div class="rank">–</div><div class="who"><strong>Nobody has cooked yet</strong></div><div></div></div>`;
+$("awards").innerHTML = D.awards.map(a => `<div class="award"><span class="eyebrow">${esc(a.title)}</span>
+  <strong>${esc(D.team.includes(a.who) ? name(a.who) : a.who)}</strong><span>${esc(a.why)}</span></div>`).join("");
+
+// log
+$("log").innerHTML = D.recent.length ? D.recent.map(c => `
+  <div class="log-item"><span class="h">${esc(c.hash)}</span>
+    <div><div class="msg">${esc(c.subject)}</div><div class="by">${esc(c.person ? name(c.person) : c.author)} · ${ago(c.date)}</div></div>
+    <span class="diff num"><span class="add">+${c.added}</span> <span class="del">−${c.deleted}</span></span></div>`).join("")
+  : `<div class="log-item"><div></div><div class="msg">No changes yet.</div><div></div></div>`;
+</script>
+</body>
+</html>

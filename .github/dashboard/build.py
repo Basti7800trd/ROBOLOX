@@ -202,4 +202,10 @@ for c in commits[:15]:
 L.append("")
 L += ["---", "", "**Related:** [[Home]] · [[Todo]] · [[Team]]", ""]
 open(os.path.join(ROOT, "Dashboard.md"), "w", encoding="utf-8").write("\n".join(L))
+
+# ---------- write the website (_site/index.html) for GitHub Pages
+os.makedirs(os.path.join(ROOT, "_site"), exist_ok=True)
+html = open(os.path.join(HERE, "template.html"), encoding="utf-8").read()
+payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+open(os.path.join(ROOT, "_site", "index.html"), "w", encoding="utf-8").write(html.replace("/*__DATA__*/null", payload))
 print(f"tasks={len(tasks)} commits={len(commits)} leader={board[0]['name']}")

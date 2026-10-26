@@ -22,7 +22,7 @@ The team vault for **Automate Your Pizza Restaurant**: one note per topic, all l
   - [[Plots and restaurant code]] — plot frames and the restaurant builder
   - [[Limits and safe use]] — read this before running any code
 - [[Todo]] — shared tasks, who does what
-- [[Dashboard]] — progress and the leaderboard (updates itself)
+- [[Dashboard]] — progress and the leaderboard (updates itself) · website: https://basti7800trd.github.io/ROBOLOX/
 
 ## Team
 
