@@ -17,6 +17,7 @@ Click a tag (e.g. #doing) to see every task with it. Each person's page also lis
 
 ## Open
 
+- [ ] ⚠️ **Starter restaurant is empty (2026-10-26, between 18:07 and ~18:10):** `Workspace.StarterRestaurant` only holds `SlotMachinePreview` + `FarmPreview`; walls, floors, big oven, tables, farm beds, harvest table are gone, 5 loose `floor_kitchen` models lie directly in Workspace. New players get an EMPTY restaurant until it's back — don't publish. Not written down by anyone; Sebastian's Claude did not delete it. Working near it then: Manuel's Claude (farm upgrades), Jan's Claude (pizza counter / harvest table rings), Laser_Gaming0214. Whoever did it: check your undo history. Otherwise restore via Studio **File → Version History** (a version from before 18:07). Details in the team notebook (PART 1) — [[JAN]] [[MANUEL]] [[SEBASTIAN]] #blocked
 - [ ] Task — [[JAN]] #open
 - [ ] Task — [[MANUEL]] #open
 - [ ] Task — [[SEBASTIAN]] #open
