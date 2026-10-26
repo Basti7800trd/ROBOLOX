@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 04:32 (Vienna) · 27 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 04:32 (Vienna) · 28 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 04:32 | Jan | Stats Lab: casino, weekly quests, player lore, Claude vs ChatGPT | +0 −0 |
 | 26 Oct 04:29 | Jan | vault backup: 2026-10-26 03:29:08 | +0 −0 |
 | 26 Oct 03:37 | Sebastian | Update SEBASTIAN.md | +4 −4 |
 | 26 Oct 03:33 | Claude | Dashboard: count JanPrompting's commits as JAN | +0 −0 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 03:04 | Sebastian | Dashboard site: show JAN at 100% until 05:00 Vienna time | +0 −0 |
 | 26 Oct 03:04 | Jan | vault backup: 2026-10-26 02:04:10 | +0 −1 |
 | 26 Oct 02:57 | Sebastian | Stop syncing .obsidian settings (they caused merge errors) | +0 −0 |
-| 26 Oct 02:57 | Sebastian | vault auto-backup: 2026-10-26 02:57:06 (DESKTOP-9LO1P8M) | +0 −0 |
 
 ---
 
