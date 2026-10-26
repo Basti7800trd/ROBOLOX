@@ -19,6 +19,8 @@ Some changes touch scripts other people own (Jan's `Server.Farm`, the shared `Sh
 - **In the game:** `ServerScriptService.Werewolf` starts one for everyone. The howl is a 3D sound you hear up to ~320 studs away. Set `ENABLED = false` in that script to take it out.
 - **In Edit mode:** `Werewolf.startEditPreview()` puts one under your own camera: only you see and hear it, and it's never saved. It runs until Studio closes. To have it start on its own, install the small local plugin `Werewolf.lua` in your Roblox Plugins folder.
 - **Test:** play test: it walks at 9 studs/s, sound loads, 0 errors. The Edit-mode one is running.
+- **Update:** "only roams our plot which we constantly work on": it now only walks on Plot 1 (TestBuildPizzaHut): restaurant, yard and farm (`onPlot` / `plan`, plot x −56..56, z −56..182). It howls at the end of about half of its walks.
+- **Update:** "it should do the griddy when near it": when a player (in Edit mode: your camera) comes within 25 studs (`GRIDDY_RANGE`), it stops, turns to face them and does the griddy (quick knee lifts, pumping arms, bounce and sway, and every 4 s the "goggles" hands). It walks on when they leave. Play-tested with a player 12 studs away, 0 errors.
 
 ### Big oven: indoors, no roof or lamps
 - Rebuilt `builders.big_oven` after Sebastian's reference picture: a round cream stone body, 4 arched mouths with fire, hearth ledges with firewood niches, 4 stone chimneys with terracotta caps and smoke, ivy, barrels, a sack and a pot, on a cobbled base (20 × 20). Then "the oven is indoor and doesn't need either a roof nor lamps": the tile roof and the lanterns are gone; the top is a flat stone crown with a rim. Jan's names (`Shelf`, `Spot1`–`Spot4`, `Mouth`, `Chimney`) are kept.
