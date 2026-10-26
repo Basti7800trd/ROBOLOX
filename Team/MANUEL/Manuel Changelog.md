@@ -11,6 +11,13 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot machine size, 2nd try: back to full size, shorter lever
+- **Manuel** (new reference picture, player standing right next to the machine): "try again, here is a new pic".
+- **Measured** against the player (~5 studs): the reference machine is ~12 studs tall, its drum ~6.5–7 high, its reels ~1.9 wide. That's our **original** size, so the first guess (0.65, from an angled picture) was too small. `SCALE` is back to **1**.
+- Only the **lever** was too tall: now ~5 studs to the top of the ball (was ~7), about as tall as a player; the click area was made to match.
+- **Position:** back along the office's outer wall (`PLACE` 42.3 / 37.3), odds board at the front end, upgrade board at the back end. Studio preview rebuilt.
+- **Test:** 7 rolls → all 7 front pictures = results. 0 errors.
+
 ### Slot machine smaller (size from a reference picture)
 - **Manuel** (screenshot from another game, player standing in front of its slot machine): "take the img. as a reference for the slot machine size, match it exactly like in the img."
 - **Changed:** `Server.SlotMachine`: a new number `SCALE = 0.65` shrinks the whole machine (drum, boards, lever, results, click areas). Now 8.3 studs tall, drum about 4.2 high, lever about as tall as a player. Measured against the character and lever in the picture (an estimate, a picture can't give exact studs). Change `SCALE` to make it bigger or smaller.
