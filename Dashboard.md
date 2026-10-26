@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 02:57 (Vienna) · 14 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 03:04 (Vienna) · 15 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -57,6 +57,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 03:04 | Sebastian | Dashboard site: show JAN at 100% until 05:00 Vienna time | +0 −0 |
 | 26 Oct 02:57 | Sebastian | Stop syncing .obsidian settings (they caused merge errors) | +0 −0 |
 | 26 Oct 02:57 | Sebastian | vault auto-backup: 2026-10-26 02:57:06 (DESKTOP-9LO1P8M) | +0 −0 |
 | 26 Oct 02:53 | Sebastian | Update SEBASTIAN.md | +4 −0 |
