@@ -15,6 +15,7 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 - **Manuel:** "lock all the toppings in the computer, so that the player doesent know what toppings exist".
 - **Changed:** `ClientMain` (`Views.pc.card` + `Views.pc.update`): a topping you haven't unlocked shows a **"?"** instead of its picture, **"???"** as name and price, the lock and "🎰 slot machine". Locked cards move to the end of the list; when one is unlocked it shows normally again. The "+" message now says "Unlock this topping at the 🎰 slot machine first" without the name.
 - **Test:** a new player's PC shows Dough, Sauce, Cheese, Tomato, then only "?" cards. 0 errors.
+- **Later the same day (Manuel: "remove the text 'slot machine' and the emoji"):** the "🎰 slot machine" line on mystery cards is gone; they only show "?", "???", "???" and the lock.
 - **Still shows the toppings:** the slot machine's odds board and drum, and the Recipe Book (topping icons of locked pizzas).
 
 ### Topping slot machine (replaces buying recipes)
