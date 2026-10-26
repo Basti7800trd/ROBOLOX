@@ -11,6 +11,11 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Farm levels counted from 1
+- **Manuel:** "lvl1 is 4 fields, lvl2 8, lvl3 12 with 4 on 2nd floor, lvl 4 is 8 fields".
+- The farm already worked like that; only the sign counted from Level 0. Now it shows **Level 1/4: 4 beds** → **2: 8 beds** → **3: 12 beds (4 upstairs)** → **4: 16 beds (8 upstairs)**, MAX after that. (Texts in `Config.Farm.Upgrades` + `Server.Farm`; saves are unchanged.)
+- **Test:** all 4 levels: 4 / 8 / 12 (8 + 4) / 16 (8 + 8) beds, sign texts right. 0 errors.
+
 ### Garden moved behind the white floor
 - **Manuel** (top-down screenshot, the beds overlapping the white floor behind the restaurant): "move the field a bit more outwards, so the whole garden starts after the white floor".
 - The white floor (loose `floor_kitchen` pieces in Workspace) ends at z 76; the garden's front path started at z 70 and the beds at z 74.
