@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 16:17 (Vienna) · 62 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 16:28 (Vienna) · 63 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -38,7 +38,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Jan** | Head pizzaiolo | **287** | 0 | 0 | 18 | 1376 |
-| 🥈 | **Manuel** | Sous-chef | **223** | 0 | 0 | 19 | 522 |
+| 🥈 | **Manuel** | Sous-chef | **233** | 0 | 0 | 20 | 530 |
 | 🥉 | **Sebastian** | Dishwasher | **175** | 1 | 0 | 10 | 3981 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 16:27 | Manuel | Manuel Changelog: slot machine visible in Edit mode | +8 −0 |
 | 26 Oct 16:16 | Manuel | vault backup: 2026-10-26 16:16:20 | +7 −0 |
 | 26 Oct 16:10 | Manuel | Manuel Changelog: new slot drum look | +7 −0 |
 | 26 Oct 16:03 | Manuel | Manuel Changelog: slot drum matches the result | +6 −0 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 14:50 | Manuel | Manuel: 24 new seeds (changelog + picture checklist) | +45 −0 |
 | 26 Oct 14:33 | Manuel | Manuel Changelog: bag starts empty + drag and drop | +8 −0 |
 | 26 Oct 14:13 | Manuel | Manuel Changelog: own hotbar + bag | +9 −0 |
-| 26 Oct 13:59 | Manuel | Manuel Changelog: Studio test tools (speed slider, infinite money) | +8 −0 |
 
 ---
 
