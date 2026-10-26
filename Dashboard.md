@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 13:42 (Vienna) · 45 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 13:50 (Vienna) · 46 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -29,7 +29,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | --- | --- |
 | [[JAN]] | 0 / 0 | 0 | 0 | — |
 | [[MANUEL]] | 0 / 0 | 0 | 0 | — |
-| [[SEBASTIAN]] | 1 / 1 | 0 | 0 | `░░░░░░░░░░` 0/15 |
+| [[SEBASTIAN]] | 1 / 1 | 0 | 0 | `░░░░░░░░░░` 0/16 |
 
 ## Employee of the month
 
@@ -38,7 +38,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Jan** | Head pizzaiolo | **223** | 0 | 0 | 13 | 1215 |
-| 🥈 | **Sebastian** | Sous-chef | **165** | 1 | 0 | 9 | 3973 |
+| 🥈 | **Sebastian** | Sous-chef | **175** | 1 | 0 | 10 | 3981 |
 | 🥉 | **Manuel** | Dishwasher | **106** | 0 | 0 | 8 | 376 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 13:49 | Sebastian | SEBASTIAN: idea for later - buy weather chances with Robux | +8 −0 |
 | 26 Oct 13:40 | Jan | vault backup: 2026-10-26 12:40:55 | +22 −0 |
 | 26 Oct 13:34 | Claude | Dashboard: count MonsterAddicted's commits as MANUEL | +0 −0 |
 | 26 Oct 13:16 | Jan | vault backup: 2026-10-26 12:16:04 | +57 −3 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 12:22 | Sebastian | vault backup: 2026-10-26 12:22:58 | +4 −4 |
 | 26 Oct 12:05 | Manuel | vault backup: 2026-10-26 12:05:30 | +0 −0 |
 | 26 Oct 11:55 | Manuel | Manuel's folder: Manuel Home, Manuel Changelog, Picture Checklist, Manuel Setup and Fixes; MANUEL.md links to them (like JAN) | +261 −30 |
-| 26 Oct 11:09 | Manuel | Manuel's page: today's game changes (drone boards, tutorial customers, hotbar Build, buttons) + setup | +30 −1 |
 
 ---
 
