@@ -31,16 +31,16 @@ cute chunky cartoon game icon, thick dark-brown outline, soft cel shading, light
 - [ ] **ing.cheese**: A yellow wedge of cheese with round holes, STYLE
 - [ ] **ing.pepperoni**: Three round red pepperoni slices stacked, STYLE
 - [ ] **ing.ham**: A pink slice of ham with a light edge, STYLE
-- [ ] **ing.tomato**: A shiny red tomato with a green leaf top, STYLE
-- [ ] **ing.pineapple**: A small whole pineapple with spiky green leaves, STYLE
-- [ ] **ing.mushroom**: A cute brown-capped mushroom, STYLE
-- [ ] **ing.pepper**: A shiny green pepper, STYLE
-- [ ] **ing.onion**: A purple and white onion with a little sprout, STYLE
-- [ ] **ing.olive**: Two dark green olives on a small leaf, STYLE
+- [x] **ing.tomato**: A shiny red tomato with a green leaf top, STYLE
+- [x] **ing.pineapple**: A small whole pineapple with spiky green leaves, STYLE
+- [x] **ing.mushroom**: A cute brown-capped mushroom, STYLE
+- [x] **ing.pepper**: A shiny green pepper, STYLE
+- [x] **ing.onion**: A purple and white onion with a little sprout, STYLE
+- [x] **ing.olive**: Two dark green olives on a small leaf, STYLE
 - [ ] **ing.chicken**: A golden roasted chicken drumstick, STYLE
 - [ ] **ing.bacon**: A wavy strip of crispy bacon, STYLE
-- [ ] **ing.corn**: A yellow corn cob with green husk leaves, STYLE
-- [ ] **ing.basil**: A sprig of fresh green basil leaves, STYLE
+- [x] **ing.corn**: A yellow corn cob with green husk leaves, STYLE
+- [x] **ing.basil**: A sprig of fresh green basil leaves, STYLE
 - [ ] **ing.gold**: A sparkly sheet of edible gold leaf with tiny stars around it, STYLE
 
 ## Pizzas (512x512) · 11
@@ -148,30 +148,30 @@ For the seed tools from the slot machine. Not in UIAssets yet: when they're made
 
 ## New: the 24 new seeds (2026-10-26) · 24
 One picture per seed: the vegetable/fruit itself (256x256). It's used on the hotbar, the bag, the slot machine and the odds board. In UIAssets: `ing.<id>`.
-- [ ] **ing.spinach**: A bunch of fresh dark-green spinach leaves, STYLE
-- [ ] **ing.carrot**: An orange carrot with green leaves on top, STYLE
-- [ ] **ing.potato**: A round brown potato with small spots, STYLE
-- [ ] **ing.cucumber**: A green cucumber with a bumpy skin, STYLE
-- [ ] **ing.chili**: A bright red chili pepper with a curly green stem, STYLE
-- [ ] **ing.garlic**: A white garlic bulb with one clove next to it, STYLE
-- [ ] **ing.strawberry**: A shiny red strawberry with green leaves, STYLE
-- [ ] **ing.broccoli**: A small green broccoli tree, STYLE
-- [ ] **ing.banana**: A yellow banana, STYLE
-- [ ] **ing.eggplant**: A shiny purple eggplant with a green cap, STYLE
-- [ ] **ing.watermelon**: A slice of watermelon with black seeds, STYLE
-- [ ] **ing.kiwi**: A kiwi cut in half, bright green inside, STYLE
-- [ ] **ing.cocoa**: An open cocoa pod with cocoa beans and a small chocolate bar, STYLE
-- [ ] **ing.grapes**: A bunch of purple grapes with a leaf, STYLE
-- [ ] **ing.ghost_pepper**: A wrinkly orange-red ghost pepper with small flames around it, STYLE
-- [ ] **ing.dragonfruit**: A pink dragon fruit with green spikes, cut open showing white inside with black seeds, STYLE
-- [ ] **ing.starfruit**: A yellow star-shaped fruit slice with sparkles, STYLE
-- [ ] **ing.candy_corn**: Three candy corn sweets (yellow, orange, white stripes), STYLE
-- [ ] **ing.golden_apple**: A shiny golden apple with sparkles and a gold leaf, STYLE
-- [ ] **ing.rainbow_carrot**: A carrot with rainbow stripes and green leaves, STYLE
-- [ ] **ing.moon_melon**: A round pale-blue melon with a glowing crescent moon pattern, STYLE
-- [ ] **ing.ghost_pumpkin**: A white glowing pumpkin with a cute ghost face, STYLE
-- [ ] **ing.crystal_berry**: A berry made of shiny light-blue crystal, STYLE
-- [ ] **ing.galaxy_mushroom**: A mushroom with a dark purple cap full of stars, like a galaxy, STYLE
+- [x] **ing.spinach**: A bunch of fresh dark-green spinach leaves, STYLE
+- [x] **ing.carrot**: An orange carrot with green leaves on top, STYLE
+- [x] **ing.potato**: A round brown potato with small spots, STYLE
+- [x] **ing.cucumber**: A green cucumber with a bumpy skin, STYLE
+- [x] **ing.chili**: A bright red chili pepper with a curly green stem, STYLE
+- [x] **ing.garlic**: A white garlic bulb with one clove next to it, STYLE
+- [x] **ing.strawberry**: A shiny red strawberry with green leaves, STYLE
+- [x] **ing.broccoli**: A small green broccoli tree, STYLE
+- [x] **ing.banana**: A yellow banana, STYLE
+- [x] **ing.eggplant**: A shiny purple eggplant with a green cap, STYLE
+- [x] **ing.watermelon**: A slice of watermelon with black seeds, STYLE
+- [x] **ing.kiwi**: A kiwi cut in half, bright green inside, STYLE
+- [x] **ing.cocoa**: An open cocoa pod with cocoa beans and a small chocolate bar, STYLE
+- [x] **ing.grapes**: A bunch of purple grapes with a leaf, STYLE
+- [x] **ing.ghost_pepper**: A wrinkly orange-red ghost pepper with small flames around it, STYLE
+- [x] **ing.dragonfruit**: A pink dragon fruit with green spikes, cut open showing white inside with black seeds, STYLE
+- [x] **ing.starfruit**: A yellow star-shaped fruit slice with sparkles, STYLE
+- [x] **ing.candy_corn**: Three candy corn sweets (yellow, orange, white stripes), STYLE
+- [x] **ing.golden_apple**: A shiny golden apple with sparkles and a gold leaf, STYLE
+- [x] **ing.rainbow_carrot**: A carrot with rainbow stripes and green leaves, STYLE
+- [x] **ing.moon_melon**: A round pale-blue melon with a glowing crescent moon pattern, STYLE
+- [x] **ing.ghost_pumpkin**: A white glowing pumpkin with a cute ghost face, STYLE
+- [x] **ing.crystal_berry**: A berry made of shiny light-blue crystal, STYLE
+- [x] **ing.galaxy_mushroom**: A mushroom with a dark purple cap full of stars, like a galaxy, STYLE
 
 ---
 
