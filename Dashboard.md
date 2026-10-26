@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 04:32 (Vienna) · 28 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 04:34 (Vienna) · 30 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -38,7 +38,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Sebastian** | Head pizzaiolo | **215** | 1 | 4 | 8 | 3965 |
-| 🥈 | **Jan** | Sous-chef | **134** | 0 | 0 | 6 | 1009 |
+| 🥈 | **Jan** | Sous-chef | **159** | 0 | 0 | 8 | 1061 |
 | 🥉 | **Claude** | Dishwasher | **11** | 0 | 0 | 1 | 12 |
 | 4 | **Manuel** | Delivery drone | **0** | 0 | 0 | 0 | 0 |
 
@@ -58,6 +58,8 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 04:33 | Jan | Jan's notes: Stats Lab changelog (23) and a note for other Claudes | +22 −0 |
+| 26 Oct 04:33 | Jan | vault backup: 2026-10-26 03:33:19 | +30 −0 |
 | 26 Oct 04:32 | Jan | Stats Lab: casino, weekly quests, player lore, Claude vs ChatGPT | +0 −0 |
 | 26 Oct 04:29 | Jan | vault backup: 2026-10-26 03:29:08 | +0 −0 |
 | 26 Oct 03:37 | Sebastian | Update SEBASTIAN.md | +4 −4 |
@@ -71,8 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 03:07 | Jan | vault backup: 2026-10-26 02:07:13 | +377 −0 |
 | 26 Oct 03:06 | Jan | vault backup: 2026-10-26 02:06:12 | +176 −0 |
 | 26 Oct 03:04 | Sebastian | Dashboard site: show JAN at 100% until 05:00 Vienna time | +0 −0 |
-| 26 Oct 03:04 | Jan | vault backup: 2026-10-26 02:04:10 | +0 −1 |
-| 26 Oct 02:57 | Sebastian | Stop syncing .obsidian settings (they caused merge errors) | +0 −0 |
 
 ---
 
