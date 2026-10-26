@@ -11,6 +11,12 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### PC: locked toppings are mystery cards
+- **Manuel:** "lock all the toppings in the computer, so that the player doesent know what toppings exist".
+- **Changed:** `ClientMain` (`Views.pc.card` + `Views.pc.update`): a topping you haven't unlocked shows a **"?"** instead of its picture, **"???"** as name and price, the lock and "🎰 slot machine". Locked cards move to the end of the list; when one is unlocked it shows normally again. The "+" message now says "Unlock this topping at the 🎰 slot machine first" without the name.
+- **Test:** a new player's PC shows Dough, Sauce, Cheese, Tomato, then only "?" cards. 0 errors.
+- **Still shows the toppings:** the slot machine's odds board and drum, and the Recipe Book (topping icons of locked pizzas).
+
 ### Topping slot machine (replaces buying recipes)
 - **Manuel** (2 screenshots from another game): "remove the system how to unlock new toppings, i want a slot machine where u can unlock them, u need to pull a lever to spin, … u start with only 1 roll, and have to upgrade ur roll amount and luck boost …, give each item a rarity and a pull chance and also a custom price".
 - **Manuel's choices:** a roll **only unlocks** (repeats give nothing) · pizzas unlock **by themselves** when all their toppings are unlocked · pulling is **free, no waiting** (one spin = 3 s) · new players start with the **Margherita** toppings (dough, sauce, cheese, tomato).
