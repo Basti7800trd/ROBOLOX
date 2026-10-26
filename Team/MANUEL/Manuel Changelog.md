@@ -11,6 +11,12 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot machine: 9 reels, opening from the middle
+- **Manuel:** "make it 9 rolls, and it should start from the middle (roll amount 1 = the middle roll), and upgrade from the middle, (roll amount 2 = left from middle, roll amount 3 = right from middle) and so on".
+- **Changed:** `Config.Slot.MaxRolls = 9` (so 9 reels and max 9 rolls). `Server.SlotMachine`: new `reelOf(k)` = which reel roll k uses: 1 → reel 5 (middle), 2 → 4, 3 → 6, 4 → 3, 5 → 7, 6 → 2, 7 → 8, 8 → 1, 9 → 9 (reels counted from the viewer's left). The covers and the results use it.
+- The 9th roll costs $6.6M (×3 per roll).
+- **Test:** 1 roll = only the middle reel open, 8 covers; 2 upgrades → reels 4, 5, 6 open; a 3-roll pull put the results above those 3. 0 errors.
+
 ### Slot machine: one reel per roll, locked reels covered
 - **Manuel** (screenshot: grey covers over unused reels): "make the slots that r not used like that …, if i upgrade roll amount, 1 of the rolls unlocks".
 - **Changed:** `Server.SlotMachine`
