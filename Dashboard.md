@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 02:44 (Vienna) · 8 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 02:44 (Vienna) · 9 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -37,7 +37,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Sebastian** | Head pizzaiolo | **135** | 1 | 0 | 6 | 3989 |
+| 🥇 | **Sebastian** | Head pizzaiolo | **145** | 1 | 0 | 7 | 3992 |
 | 🥈 | **Jan** | Sous-chef | **0** | 0 | 0 | 0 | 0 |
 | 🥉 | **Manuel** | Dishwasher | **0** | 0 | 0 | 0 | 0 |
 
@@ -57,6 +57,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 02:44 | Sebastian | Add progress website (GitHub Pages) next to the Dashboard note | +2 −1 |
 | 26 Oct 02:44 | Sebastian | vault auto-backup: 2026-10-26 02:44:21 (DESKTOP-9LO1P8M) | +0 −0 |
 | 26 Oct 02:38 | Sebastian | Dashboard as a self-updating Obsidian note instead of a website | +1 −1 |
 | 26 Oct 02:37 | Sebastian | Add progress dashboard (GitHub Pages, rebuilt on every push) | +1 −0 |
