@@ -4,6 +4,28 @@ Part of [[Roblox Home]]. Everything done in the Roblox project, numbered. **The 
 
 ## 2026-10-26
 
+### (23) The website got a Stats Lab: XP, quests, Dough, a casino, insider jokes
+- **User:** "can you just make it 100x cooler including humor and cool statistics", then: insider jokes (Manu loves food, Jan is Batman and a workaholic, Basti is blond and loves L-theanine), a fake "Claude did 97%" statistic, ChatGPT/mogging jokes, "can you put gambling in it too? like maybe with a currency", "don't do too much just keep it low key". Then, going to sleep: "cut it shorter".
+- **What's new** on https://roboloxpizzagang.github.io/ROBOLOX/ (a "🧪 Stats Lab" button and a section under Employee of the month):
+  - A fun-fact ticker at the top, with real numbers and jokes.
+  - **Players:** trading cards with level, XP bar, a joke class, a special move and a weakness, Dough, a skill radar and badges. Also weekly quests (4 a week, +100 Dough and +40 XP each) and rivalries.
+  - **Casino:** a pizza slot machine played with Dough, the Pizza Forbes list, and tonight's lottery pot.
+  - Hall of Fame (12 records), Charts (pizza clock, who wrote the vault, weekdays, heat map), 31 achievements, Vault stats, and AI & Bots (Claude vs ChatGPT, plus the "Claude built 97%" audit).
+- **How:**
+  - New files: `.github/dashboard/fun.py` (the numbers) and `fun.client.js` (the page code).
+  - 8 lines added at the end of Basti's `build.py` that run `fun.py`. The workflow and template are untouched.
+  - A note for Basti's Claude is in [[Notes for other Claudes]].
+- **Choices:**
+  - Dough is earned only from real work (changes, days, notes, tasks, quests, lottery, achievements), minus a joke expense: Batmobile fuel 8%, snacks 15%, L-theanine 8%.
+  - Casino wins and losses only live in each browser.
+  - Health topics were left off the jokes because the site is public.
+- **Tested:** locally with Blender's Python and headless Edge (no screen taken), no broken parts. The page the website bot built on GitHub contains the Stats Lab.
+- **Pushes:** Obsidian committed the first version but hadn't pushed it after about 4 minutes, so Claude pushed it and the second version with git.
+- **Not done (cut for time):**
+  - Coin flip and "who pushes next" betting: the odds are already calculated, the buttons aren't there yet.
+  - The lottery history list.
+  - Phone and dark-mode screenshots.
+
 ### (22) Our notes are in the team repo: `Team/JAN/` (14 notes, same content); from now on we write here
 - **User:** "put all of our stuff in Jan". Asked whether PowerShell was needed for the copy: "you can just edit the md file on my pc ... even without powershell no?" So the notes were written with the file tools (Read, then Write), no PowerShell.
 - **Copied:** 14 notes from the Roblox Vault into `C:\Users\schmu\Documents\GitHub\ROBOLOX\Team\JAN\`, folders kept, `.obsidian` skipped. Checked: every note has the same line count as its original (987 lines on each side).
