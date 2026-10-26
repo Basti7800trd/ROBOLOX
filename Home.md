@@ -33,6 +33,6 @@ The team vault for **Automate Your Pizza Restaurant**: one note per topic, all l
 - **The changelog stays in the game.** Keep writing 1–3 lines at the top of PART 1 in ServerStorage > TeamGuide > 0\_TEAM\_NOTEBOOK.
 - **Your own notes** go in your page under [[Team]]; **shared tasks** go in [[Todo]].
 - **Syncing:** the vault is a GitHub repo. The Obsidian Git plugin pulls on open and commits + pushes every 10 minutes. Before big edits: *Obsidian Git: Pull* (Ctrl/Cmd+P).
-- **Editing with Claude:** every Claude can read and edit these .md files (Claude Code in the vault folder, or via GitHub). Rules for Claude are in `CLAUDE.md`.
+- **Editing with Claude:** see [[Claude setup]]. Rules for Claude are in `CLAUDE.md`.
 - **Running code:** read [[Limits and safe use]] first.
 - **Language:** everything in English.

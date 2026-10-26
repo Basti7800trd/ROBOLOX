@@ -12,4 +12,4 @@ Obsidian vault for the team (JAN · MANUEL · SEBASTIAN). Start at **Home.md**.
 
 ## Claude
 
-Every Claude can edit the notes: Claude Code opened in this folder, or any Claude with GitHub access. Rules are in `CLAUDE.md`.
+Every Claude can edit the notes. Setup guide: **Claude setup.md**. Rules: `CLAUDE.md`.
