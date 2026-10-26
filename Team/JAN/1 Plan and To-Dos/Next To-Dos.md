@@ -3,10 +3,10 @@
 Part of [[Roblox Home]]. What comes next for "Automate Your Pizza Restaurant", in order. Written 2026-10-25 when the user paused the work ([[Roblox Changelog]] (13)); the friends work in Studio in the meantime. Claude ticks items off and adds new ones.
 
 ## 0. First thing when Claude is back (every time)
-1. Read PART 1 of the shared team notebook in Studio: `ServerStorage.TeamGuide.0_TEAM_NOTEBOOK` (newest on top), and ask the user what the friends wrote in their tabs of the team doc (I can't open it, Changelog (15)). Then read the top of [[Roblox Changelog]].
-2. The friends may have changed scripts. Compare every Studio script with the disk copy in `D:\HAVIL\-Roblox\PizzaRestaurant\src\` (the sizes are in Changelog (13) + (14)). Copy their changes to disk BEFORE editing anything.
+1. Pull the team repo, then read PART 1 of the shared team notebook in Studio (`ServerStorage.TeamGuide.0_TEAM_NOTEBOOK`, newest on top) and the friends' notes in this vault: `Team/MANUEL/` (Manuel Changelog first) and `Team/SEBASTIAN.md`. Then the top of [[Roblox Changelog]].
+2. The friends may have changed scripts. Compare every Studio script with the disk copy in `D:\HAVIL\-Roblox\PizzaRestaurant\src\` (sizes + checksums: last helper report in Changelog (24)/(25)). Copy their changes to disk BEFORE editing anything (Playbook 4, 2026-10-26: the helper + checksum method). Someone may be editing right now: list the sizes twice, 45 s apart.
 3. Run a quick play test (0 errors?) to check the friends' changes didn't break anything.
-4. After every change of mine: a new step at the top of `D:\HAVIL\-Roblox\Jan Notepad.html` (+ the sections it touches), the user pastes it into the Jan tab; plus the changelog entry here. Everything in English.
+4. After every change of mine: the changelog entry here, a PART 1 line in the Studio notebook when the game changed, and [[Notes for other Claudes]] when the other Claudes need to know. Everything in English.
 
 ## 1. Next
 - [x] **Team repo: clone (done, [[Roblox Changelog]] (19))** to `C:\Users\schmu\Documents\GitHub\ROBOLOX`. JanPrompting stays signed in on this PC (Changelog (18)).
@@ -15,7 +15,8 @@ Part of [[Roblox Home]]. What comes next for "Automate Your Pizza Restaurant", i
 - [ ] **Real saving test:** the user turns on File > Experience Settings > Security > "Enable Studio Access to API Services" (their switch). Then Claude tests leave + join, offline earnings and the 3 boards with real DataStores.
 - [ ] **Phone test:** Roblox's Device Simulator through the Studio MCP skill `rbx-device-simulator-lua`. Fix what doesn't fit.
 - [ ] **Sign heights:** do the station signs and customer bubbles show above them (playtest question)? If not, flip `SIGN_ANCHOR` / `STATUS_ANCHOR` in `Server.Stations`.
-- [ ] **World landmarks** (started, nothing placed yet):
+- [x] **No more cutting** (done, [[Roblox Changelog]] (24)). Open: someone deletes the `cutting_board` + `dock_cut` models from `Workspace.StarterRestaurant` (asked in PART 1; not ours to edit while they work on it).
+- [ ] **World landmarks** (2026-10-26: 3 helpers draft them in `PizzaRestaurant\work\landmarks\`, I build them in Studio, Changelog (25)):
   - Put `WorldSpots` (disk: `src\ServerStorage\WorldTools\WorldSpots.luau`) into `ServerStorage.WorldTools`.
   - Then add a windmill on its hill, the farm (barn, silo, fields, hay bales), a bridge, a dock, 3 hot-air balloons, lamps, fences and flower patches.
   - The Creator Store search was poor: spam re-uploads, deleted accounts, fake "Roblox" names. Build the landmarks from parts in the game's own style, or with Roblox's generators. No random uploads.
