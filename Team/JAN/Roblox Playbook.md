@@ -115,6 +115,14 @@ Every call takes a `studio_id` (from `list_roblox_studios`). The server is a loc
 ---
 
 ## 4. Log of lessons (newest first)
+- **2026-10-26 evening ([[Roblox Changelog]] (28)-(29)):**
+  - **A teammate's Config edit can silently drop my keys** (`CropUpgrades` + `Scythe` vanished; the game kept working only because every script reads its keys with built-in defaults). Keep the defaults habit, and after every merge grep the merged file for every key I own before applying.
+  - **3-way merge tool that's already installed:** `git merge-file -L studio -L base -L mine <studio copy> <base> <mine>` (Git for Windows, works in Git Bash) merges my draft into the teammates' newest version; conflicts get `<<<<<<<` markers. 3 merges tonight: 2 conflicts, both trivial.
+  - **Exact Studio -> disk copies:** print each script as `HDR <path> len=N cs=H` + `<<<BEGIN` ... `END>>>` from `execute_luau`; a big result is saved to a tool-results file; `tools\extract_markers.ps1 -In <that file> -Write` checks length + checksum and writes `src\`. 8 scripts copied, all exact.
+  - **Duplicates in loose models:** the 36 loose floor tiles were 30 tiles + 6 exact duplicates. Before moving models into the template, group them by grid cell and keep one per cell.
+  - **Building pieces in Edit mode:** require FRESH clones of Config / PieceBuilder / Placement (a temp folder, destroyed after), so a module just changed by a patch is used, never an older cached copy.
+  - **Stopping helpers resumably** (Jan, 2026-10-26: "stop the agents too but in a way so its easy for me to continue tomorrow and you immediately start again"): send each a "STOP: write a PROGRESS section (done / half-done / not started / next steps) into your NOTES.md, then end" message, write a `RESUME.md` (state, decisions, helper table, merge order, tests) and point the handover box at it.
+  - **The Studio MCP blinked once:** "No Roblox Studio instances are connected", `list_roblox_studios` showed the studio with name null; the next call a few seconds later worked. Retry once before calling it an outage.
 - **2026-10-26 ([[Roblox Changelog]] (27)):**
   - **`local function` order matters in Luau:** a function that calls a local defined LATER in the file calls a global (nil) instead: "attempt to call a nil value" only when it runs. `loadstring` doesn't catch it (the syntax is fine). When splicing a new block into a module, put it ABOVE every function that calls it, and play-test the path once.
   - **Resizing a template restaurant:** scale positions (here 1.5x from the front wall backwards), keep things that stand at a wall at that wall, keep chairs at their tables, re-tile walls (8-stud slots per wall line; doors/hatches/entrance placed once at their scaled spot, plain walls/windows from the nearest old segment) and floors (16 x 16 tiles), then check every object with `Placement.check` before applying. Wall corners / T-joints always "overlap" in that check; that's normal.

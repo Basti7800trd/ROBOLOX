@@ -7,7 +7,20 @@ Popup J:
 - Did the scythe appear in your hand when you stepped on your planted bed, and did a ripe plant get harvested without pressing anything?
 - Did clicking a planted bed open the upgrade card, and did "More vegetables" give one more crop on the next harvest?
 - Did the finished pizza land on the pizza counter in front of the oven, and did walking into its green zone give it to you?
-- Did the cyan ring around the storage fill your board, and did the mint ring under the hopper outside put your crops in?
+- Did the cyan ring around the harvest table fill your board, and did the mint ring outside under the crop chute's funnel put your crops in (they fly through the chute onto the table)?
+
+Popup J2 (also (28), added 2026-10-26 22:50):
+- Is the oven's orange ring (now 14 studs) easy to find and big enough around Sebastian's big oven?
+- Does the pizza counter stand in a good spot (in front of the oven, towards the back door), or should it move?
+- Does the white kitchen floor look right in a NEW restaurant (the tiles are in the template now)?
+- Does the yellow sign on the harvest table upgrade it with a click (and glow when the mouse is on it)?
+
+## Later: v29 (Roblox Changelog (29)) — ask after it's built
+Popup K:
+- After upgrading ONE tomato plant's "More money", did only that plant's tomatoes show the higher "$ each" (the other tomato beds stayed the same)?
+- Did a pizza's price equal the base + the values of the crops you put in?
+- When you dug up an upgraded plant and planted the same seed again, did it keep its upgrades?
+- Do big prices read well (K, M, B, T, Qa, Qi), and does the first hour feel fast enough?
 
 ## Open: bigger restaurant + carry board (Roblox Changelog (27), 2026-10-26)
 Popup I:
