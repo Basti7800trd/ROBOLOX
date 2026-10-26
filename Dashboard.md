@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 19:16 (Vienna) · 80 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 19:20 (Vienna) · 81 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -49,7 +49,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Manuel** | Head pizzaiolo | **342** | 0 | 0 | 30 | 677 |
+| 🥇 | **Manuel** | Head pizzaiolo | **352** | 0 | 0 | 31 | 683 |
 | 🥈 | **Jan** | Sous-chef | **334** | 0 | 0 | 22 | 1471 |
 | 🥉 | **Sebastian** | Dishwasher | **317** | 3 | 0 | 13 | 4109 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
@@ -70,6 +70,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 19:19 | Manuel | Manuel Changelog: farm 8/16/24/32 beds | +6 −0 |
 | 26 Oct 19:16 | Manuel | Manuel Changelog: farm levels counted from 1 | +5 −0 |
 | 26 Oct 19:11 | Manuel | Manuel Changelog: garden moved behind the white floor | +8 −0 |
 | 26 Oct 19:06 | Manuel | Manuel: 7 seeds removed (changelog + checklist) | +15 −7 |
@@ -84,7 +85,6 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 | 26 Oct 17:20 | Manuel | Manuel Changelog: slot results appear together | +6 −0 |
 | 26 Oct 17:15 | Manuel | Manuel Changelog: slot machine double size, no odds board | +6 −0 |
 | 26 Oct 17:06 | Sebastian | Sebastian Changelog + Game overview/Todo: weather, farm, harvest table, crop drone, sign, bigger plots | +119 −3 |
-| 26 Oct 16:47 | Manuel | Manuel Changelog: slot machine back to full size, shorter lever | +7 −0 |
 
 ---
 
