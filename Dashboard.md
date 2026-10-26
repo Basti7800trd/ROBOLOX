@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 03:34 (Vienna) · 25 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 03:37 (Vienna) · 26 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -29,7 +29,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | --- | --- |
 | [[JAN]] | 0 / 0 | 0 | 0 | — |
 | [[MANUEL]] | 0 / 0 | 0 | 0 | — |
-| [[SEBASTIAN]] | 1 / 1 | 0 | 0 | `░░░░░░░░░░` 0/15 |
+| [[SEBASTIAN]] | 1 / 1 | 0 | 0 | `███░░░░░░░` 4/15 |
 
 ## Employee of the month
 
@@ -37,7 +37,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Sebastian** | Head pizzaiolo | **145** | 1 | 0 | 7 | 3957 |
+| 🥇 | **Sebastian** | Head pizzaiolo | **215** | 1 | 4 | 8 | 3965 |
 | 🥈 | **Jan** | Sous-chef | **134** | 0 | 0 | 6 | 1009 |
 | 🥉 | **Claude** | Dishwasher | **11** | 0 | 0 | 1 | 12 |
 | 4 | **Manuel** | Delivery drone | **0** | 0 | 0 | 0 | 0 |
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 03:37 | Sebastian | Update SEBASTIAN.md | +4 −4 |
 | 26 Oct 03:33 | Claude | Dashboard: count JanPrompting's commits as JAN | +0 −0 |
 | 26 Oct 03:29 | Claude | Serve the dashboard from the main branch (no Pages settings needed) | +0 −0 |
 | 26 Oct 03:21 | Claude | Update links to the RoboloxPizzaGang organization | +6 −6 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 02:57 | Sebastian | Stop syncing .obsidian settings (they caused merge errors) | +0 −0 |
 | 26 Oct 02:57 | Sebastian | vault auto-backup: 2026-10-26 02:57:06 (DESKTOP-9LO1P8M) | +0 −0 |
 | 26 Oct 02:53 | Sebastian | Update SEBASTIAN.md | +4 −0 |
-| 26 Oct 02:53 | Sebastian | KEINE AHNUNG | +0 −0 |
 
 ---
 
