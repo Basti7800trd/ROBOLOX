@@ -266,3 +266,11 @@ html = open(os.path.join(HERE, "template.html"), encoding="utf-8").read()
 payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
 open(os.path.join(ROOT, "_site", "index.html"), "w", encoding="utf-8").write(html.replace("/*__DATA__*/null", payload))
 print(f"tasks={len(tasks)} commits={len(commits)} leader={board[0]['name']}")
+
+# ---------- the Stats Lab (added by Jan's Claude): fun.py adds its section to _site/index.html.
+# If it fails, the dashboard above is already written and nothing else changes.
+try:
+    import runpy
+    runpy.run_path(os.path.join(HERE, "fun.py"), run_name="__main__")
+except (Exception, SystemExit) as e:
+    print(f"Stats Lab skipped: {e}")
