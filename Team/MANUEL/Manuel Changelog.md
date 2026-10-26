@@ -11,6 +11,12 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot drum shows what you pulled
+- **Manuel:** "make the drops of the pull equal to the picture on the wheel, right now it doesent match".
+- **Before:** the drum stopped at a random angle with fixed pictures, and the results were picked separately.
+- **Changed:** `Server.SlotMachine`. The drum now always stops with a picture exactly at the front (it turns a whole number of tiles), and while it spins fast, the front picture of each used reel is swapped to the seed you pulled. So the picture in front = your result.
+- **Test:** 2 pulls: Garlic Seed → garlic in front, Eggplant Seed → eggplant in front. 0 errors.
+
 ### Slot machine moved into the office
 - **Manuel** (top-down screenshot, the office's brown carpet marked in red): "place the slot machine in the marked spot".
 - **Changed:** `Server.SlotMachine` (`PLACE` = plot x 42.3, z 37.3, turned 90°; it now stands on the restaurant floor, `Config.FloorY`). Before it stood outside in the east yard.
