@@ -6,18 +6,28 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 16:48 (Vienna) · 66 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 17:06 (Vienna) · 67 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
 
-**100%** done — 1 of 1 tasks served
+**12%** done — 1 of 8 tasks served
 
-`██████████████████████████████`
+`████░░░░░░░░░░░░░░░░░░░░░░░░░░`
 
-Open **0** · In the oven **0** · Blocked **0** · Served **1**
+Open **7** · In the oven **0** · Blocked **0** · Served **1**
 
 ## Order rail
+
+### 📝 Open (7)
+
+- Tell Jan what changed in `Server.Farm` (signposts facing the middle path, 3 × 3 crop fields, demo hook) and in `builders.farm_bed`, see — [[SEBASTIAN]]
+- Check the farm still fits the extended restaurant (first row of fields + its path right behind the building) — [[SEBASTIAN]]
+- Decide with Jan: should the oven take crops from the harvest table, and should the drone jobs use the new crop drone? — [[SEBASTIAN]]
+- Decide: is the fridge/freezer spoilage still used with the new harvest-basket loop? — [[SEBASTIAN]]
+- Find free sounds for rain and thunder (`Sounds.ids.weather_rain`, `thunder`) — [[SEBASTIAN]]
+- Before publishing: move or hide the test plot's yellow highlight (plot 1, TestBuildPizzaHut) — [[SEBASTIAN]]
+- Let players buy better weather chances with Robux (see) — [[SEBASTIAN]], [[SEBASTIAN]]
 
 ### ✅ Served (1)
 
@@ -29,7 +39,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | --- | --- |
 | [[JAN]] | 0 / 0 | 0 | 0 | — |
 | [[MANUEL]] | 0 / 0 | 0 | 0 | — |
-| [[SEBASTIAN]] | 1 / 1 | 0 | 0 | `░░░░░░░░░░` 0/16 |
+| [[SEBASTIAN]] | 1 / 8 | 0 | 0 | `░░░░░░░░░░` 0/16 |
 
 ## Employee of the month
 
@@ -39,7 +49,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Jan** | Head pizzaiolo | **302** | 0 | 0 | 19 | 1434 |
 | 🥈 | **Manuel** | Sous-chef | **253** | 0 | 0 | 22 | 543 |
-| 🥉 | **Sebastian** | Dishwasher | **175** | 1 | 0 | 10 | 3981 |
+| 🥉 | **Sebastian** | Dishwasher | **197** | 1 | 0 | 11 | 4103 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
 > [!quote] Night oven: Sebastian
@@ -58,6 +68,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 17:06 | Sebastian | Sebastian Changelog + Game overview/Todo: weather, farm, harvest table, crop drone, sign, bigger plots | +119 −3 |
 | 26 Oct 16:47 | Manuel | Manuel Changelog: slot machine back to full size, shorter lever | +7 −0 |
 | 26 Oct 16:40 | Manuel | Manuel Changelog: slot machine smaller | +6 −0 |
 | 26 Oct 16:27 | Manuel | Manuel Changelog: slot machine visible in Edit mode | +8 −0 |
@@ -72,7 +83,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 15:33 | Jan | vault backup: 2026-10-26 14:33:01 | +3 −3 |
 | 26 Oct 15:27 | Jan | vault backup: 2026-10-26 14:27:40 | +23 −3 |
 | 26 Oct 15:25 | Jan | vault backup: 2026-10-26 14:25:33 | +43 −21 |
-| 26 Oct 15:24 | Jan | vault backup: 2026-10-26 14:24:27 | +20 −0 |
 
 ---
 
