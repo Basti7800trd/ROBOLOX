@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 14:33 (Vienna) · 50 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 14:50 (Vienna) · 51 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -39,7 +39,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Jan** | Head pizzaiolo | **223** | 0 | 0 | 13 | 1215 |
 | 🥈 | **Sebastian** | Sous-chef | **175** | 1 | 0 | 10 | 3981 |
-| 🥉 | **Manuel** | Dishwasher | **149** | 0 | 0 | 12 | 437 |
+| 🥉 | **Manuel** | Dishwasher | **163** | 0 | 0 | 13 | 482 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
 > [!quote] Night oven: Sebastian
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 14:50 | Manuel | Manuel: 24 new seeds (changelog + picture checklist) | +45 −0 |
 | 26 Oct 14:33 | Manuel | Manuel Changelog: bag starts empty + drag and drop | +8 −0 |
 | 26 Oct 14:13 | Manuel | Manuel Changelog: own hotbar + bag | +9 −0 |
 | 26 Oct 13:59 | Manuel | Manuel Changelog: Studio test tools (speed slider, infinite money) | +8 −0 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 12:54 | Jan | vault backup: 2026-10-26 11:54:04 | +10 −4 |
 | 26 Oct 12:53 | Jan | vault backup: 2026-10-26 11:53:00 | +43 −5 |
 | 26 Oct 12:44 | Manuel | Manuel Changelog: mystery cards without the slot machine text | +1 −0 |
-| 26 Oct 12:41 | Manuel | Manuel Changelog: PC mystery cards for locked toppings | +6 −0 |
 
 ---
 
