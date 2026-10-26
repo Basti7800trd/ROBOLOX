@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 11:56 (Vienna) · 32 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 12:06 (Vienna) · 33 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -39,7 +39,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Sebastian** | Head pizzaiolo | **215** | 1 | 4 | 8 | 3965 |
 | 🥈 | **Jan** | Sous-chef | **159** | 0 | 0 | 8 | 1061 |
-| 🥉 | **MonsterAddicted** | Dishwasher | **43** | 0 | 0 | 2 | 322 |
+| 🥉 | **MonsterAddicted** | Dishwasher | **53** | 0 | 0 | 3 | 322 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 | 5 | **Manuel** | Delivery drone | **0** | 0 | 0 | 0 | 0 |
 
@@ -59,6 +59,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 12:05 | MonsterAddicted | vault backup: 2026-10-26 12:05:30 | +0 −0 |
 | 26 Oct 11:55 | MonsterAddicted | Manuel's folder: Manuel Home, Manuel Changelog, Picture Checklist, Manuel Setup and Fixes; MANUEL.md links to them (like JAN) | +261 −30 |
 | 26 Oct 11:09 | MonsterAddicted | Manuel's page: today's game changes (drone boards, tutorial customers, hotbar Build, buttons) + setup | +30 −1 |
 | 26 Oct 04:33 | Jan | Jan's notes: Stats Lab changelog (23) and a note for other Claudes | +22 −0 |
@@ -73,7 +74,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 03:10 | Jan | vault backup: 2026-10-26 02:10:16 | +10 −0 |
 | 26 Oct 03:09 | Jan | vault backup: 2026-10-26 02:09:14 | +164 −1 |
 | 26 Oct 03:08 | Jan | vault backup: 2026-10-26 02:08:13 | +280 −0 |
-| 26 Oct 03:07 | Jan | vault backup: 2026-10-26 02:07:13 | +377 −0 |
 
 ---
 
