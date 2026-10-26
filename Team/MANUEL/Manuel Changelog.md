@@ -11,6 +11,12 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot machine smaller (size from a reference picture)
+- **Manuel** (screenshot from another game, player standing in front of its slot machine): "take the img. as a reference for the slot machine size, match it exactly like in the img."
+- **Changed:** `Server.SlotMachine`: a new number `SCALE = 0.65` shrinks the whole machine (drum, boards, lever, results, click areas). Now 8.3 studs tall, drum about 4.2 high, lever about as tall as a player. Measured against the character and lever in the picture (an estimate, a picture can't give exact studs). Change `SCALE` to make it bigger or smaller.
+- **Position:** it now fits Manuel's marked spot in the office completely (back to the outer wall, z 12.5 to 41.7), so the office chair and plant are free again. The Studio preview was rebuilt there.
+- **Test:** 5 rolls → all 5 front pictures = results, buying works. 0 errors.
+
 ### Slot machine visible in Studio's Edit mode
 - **Manuel:** "make everything visible, thats invisible right now (slot machine upgrader etc.)".
 - **Why it was invisible:** the slot machine (drum, upgrade board, odds board, lever) is built by the script when the game **runs**, so in Edit mode there was nothing to see. In a play test it was always there.
