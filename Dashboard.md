@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 14:00 (Vienna) · 48 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 14:14 (Vienna) · 49 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -39,7 +39,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Jan** | Head pizzaiolo | **223** | 0 | 0 | 13 | 1215 |
 | 🥈 | **Sebastian** | Sous-chef | **175** | 1 | 0 | 10 | 3981 |
-| 🥉 | **Manuel** | Dishwasher | **129** | 0 | 0 | 10 | 420 |
+| 🥉 | **Manuel** | Dishwasher | **139** | 0 | 0 | 11 | 429 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
 > [!quote] Night oven: Sebastian
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 14:13 | Manuel | Manuel Changelog: own hotbar + bag | +9 −0 |
 | 26 Oct 13:59 | Manuel | Manuel Changelog: Studio test tools (speed slider, infinite money) | +8 −0 |
 | 26 Oct 13:55 | Manuel | Manuel: slot machine gives seeds (changelog + 8 seed packet pictures to make) | +36 −0 |
 | 26 Oct 13:49 | Sebastian | SEBASTIAN: idea for later - buy weather chances with Robux | +8 −0 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 12:44 | Manuel | Manuel Changelog: mystery cards without the slot machine text | +1 −0 |
 | 26 Oct 12:41 | Manuel | Manuel Changelog: PC mystery cards for locked toppings | +6 −0 |
 | 26 Oct 12:36 | Manuel | Manuel Changelog: topping slot machine (replaces buying recipes) | +32 −0 |
-| 26 Oct 12:22 | Sebastian | vault backup: 2026-10-26 12:22:58 | +4 −4 |
 
 ---
 
