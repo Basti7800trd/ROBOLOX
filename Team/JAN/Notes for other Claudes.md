@@ -10,6 +10,21 @@ updated: 2026-10-26
 
 Hi, this is Jan's Claude. We only edit our own people's notes, so this is how I talk to you. Please read this before you change the website or the game. Newest game news first.
 
+## CARRYING CHANGED + bigger restaurant (2026-10-26, later the same day; play-tested, 0 errors)
+
+**Carrying (`Server.Carry`, rewritten, Jan's wish):** every player wears a wooden carry board on the back. Crops stack on it (several kinds, 12 max = `Config.Carry.BackCapacity`); a pizza is carried in FRONT (both at once is fine); the hands stay free for the seed tools.
+- New API: `Carry.front(player)` (the pizza), `Carry.back(player)` (a copy of the stack: `{ { ingredient, amount }, ... }`, bottom first), `Carry.backCount / backRoom(player)`, `Carry.addBack(player, crop, n)` -> how many fit, `Carry.takeBack(player, crop?, n)` -> crop, n (nil = the kind on top), `Carry.clearBack`, `Carry.respawn` (Main calls it on CharacterAdded: the pizza drops, the board stays).
+- **Your code keeps working:** `Carry.get(player)` returns the pizza in front, else the TOP of the board as `{ kind = "box", ingredient, amount }`; `Carry.set(player, nil)` drops the pizza, else takes the top kind off the board; `Carry.set(player, box)` puts it on top (same kind on top: its amount becomes this). Sebastian's harvest tables work with it as they are (one kind per press). If you want all crops at once, use `Carry.back` + `Carry.takeBack` like `KitchenStorage.walkUp` does.
+- "Your hands are full" checks for a pizza should use `Carry.front(player)` (crops on the back don't block a pizza).
+
+**The restaurant template is 1.5x bigger** (Jan): 96 x 96, the front + entrance unchanged, it grows to the sides and back. Positions scaled, walls/floors re-tiled, nothing overlaps; the farm starts at z 72 now. Old template: `ServerStorage.Backups.TemplateBefore15x`. Manuel's `back_door` moved with the back wall (it's the doorway to the farm, thanks!).
+
+**Big oven ring:** stand inside the orange ring around the oven (`Config.Oven.RingRadius` 9) and it takes the crops from your board. The "Put in" prompt is off.
+
+**Storage + hopper:** the storage plate is deeper (6 x 3.6 x 5, kitchen back right corner at (-20.5, 57)). Behind it, in the back wall, a new piece `wall_hopper` (station `"hopper"`): the harvesting drones drop crops into its funnel from OUTSIDE and they land on the plate (`KitchenStorage.hopperOf(plate)`, `KitchenStorage.dropPoint(plate)`).
+
+**Manu + Basti (Jan: you make the models):** my looks are placeholders: `builders.big_oven`, `builders.farm_bed`, `builders.storage_plate`, `builders.wall_hopper` in `Shared.PieceBuilder`, and the carry board + the pizza in front in `Server.Carry` (`buildBoard`, `buildPizza`). Part names the code needs: oven `Shelf`, `Spot1`-`Spot4`, `Mouth`, `Chimney`; plate `Plate`; bed `Soil`. The oven's ring is made by `Server.BigOven` (`makeRing`).
+
 ## NEW CORE LOOP (2026-10-26, Jan's design; LIVE in Studio, play-tested, 0 errors)
 
 Jan: "instead of the order system we now want a gambling system that brings seeds and you have a farm ... put it inside a big oven where all ingredients go in, the more is in it the bigger it is and the longer the pizza name is, 15 s to cook ... customers don't want a specified pizza but just want anything". Later: "**basti will do the 3d models and general design ui etc**, just make sure to build the functions" (Jan's Claude = the functions, Sebastian = 3D models, design, UI), and the storage = "**a plate in the top right corner of my kitchen** (seen from the entrance) that the vegetables lay on, and you pick them up just by walking up to them".

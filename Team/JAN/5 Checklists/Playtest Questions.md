@@ -2,6 +2,13 @@
 
 Part of [[Roblox Home]]. Claude prewrites these with every change and asks them in popups after a test ("Did X work? yes / no / other"), up to 4 per popup. Answered questions go into the changelog entry; open ones stay here.
 
+## Open: bigger restaurant + carry board (Roblox Changelog (27), 2026-10-26)
+Popup I:
+- Does the 1.5x restaurant feel right (room to walk, nothing floating or misplaced)?
+- Do the crops on your back board look right, and is 12 a good amount to carry?
+- Did walking into the oven's orange ring put your crops in without pressing anything?
+- Is it clear that the drones drop crops into the hopper behind the storage?
+
 ## Open: the new core loop (Roblox Changelog (26), 2026-10-26)
 Popup G (farm):
 - Did planting work with the seed in your hand (Plant on E, or clicking the bed)?

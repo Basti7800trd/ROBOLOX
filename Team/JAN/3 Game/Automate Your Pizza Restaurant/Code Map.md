@@ -8,7 +8,8 @@ Part of [[Roblox Home]] -> 3 Game. Where everything lives in the Studio place (s
 | Where | What |
 |---|---|
 | `Server.Farm` | Farm beds behind the restaurant (`Config.Farm.BedSpots`: rows of 2 beds, a lane, 2 beds), plants that grow and regrow, Plant / Harvest / Remove plant, the seed picker remote `FarmAction`, the locked beds + "Unlock farm bed" (`refreshLocked`), saving `"farm"`. Seeds = Manuel's slot machine (`SlotMachine.getSeeds/takeSeed/giveSeed`). Sebastian added the 3 x 3 plant fields, signposts and a demo. |
-| `Server.KitchenStorage` | The storage plate (`storage_plate`, station `"plate"`): crops lie on it; walk up = put down / pick up; API `platesOf, count, space, put, take, total`; saving `"storage"`. |
+| `Server.Carry` | (rewritten 2026-10-26, (27)) The carry board on every player's back: crops stack on it (`Config.Carry.BackCapacity`), a pizza in front. API `front, back, backCount, backRoom, addBack, takeBack, clearBack, respawn`; the old `get/set` still work (pizza, else the top of the board). |
+| `Server.KitchenStorage` | The storage plate (`storage_plate`, station `"plate"`): crops lie on it; walk up = everything on your board goes on it / with an empty board you pick crops up; the hopper wall behind it (`wall_hopper`, `hopperOf`, `dropPoint`) where drones drop crops in from outside; API `platesOf, count, space, put, take, total`; saving `"storage"` (+ the crops on your board). |
 | `Server.BigOven` | The big oven (`big_oven`, station `"bigoven"`): toppings in, 15 s countdown, the pizza on its shelf, the upgrade board, saving `"oven"`. |
 | `Shared.Pizza` | A pizza's name, value, size, item and 3D model. |
 | `StarterPlayerScripts.FarmClient` | The seed picker, tap a bed with a seed in hand, the spinning ready cubes. |
