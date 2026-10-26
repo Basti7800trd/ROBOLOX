@@ -18,10 +18,10 @@ Goal: test the three things [[Game overview#Not done yet|Game overview]] lists a
 
 ### 1. Full loop by hand (solo, PC)
 
-- [ ] New save: start with $100, follow all 11 tutorial steps to the first drone
-- [ ] Check the numbers match the doc: box delivery 15 s, cut 1.5 s, oven 12 s, burns after 20 s more, customers wait 90 s
-- [ ] Serve one wrong pizza: pays half, no tip?
-- [ ] Let one customer time out: leaves without paying?
+- [x] New save: start with $100, follow all 11 tutorial steps to the first drone
+- [x] Check the numbers match the doc: box delivery 15 s, cut 1.5 s, oven 12 s, burns after 20 s more, customers wait 90 s
+- [x] Serve one wrong pizza: pays half, no tip?
+- [x] Let one customer time out: leaves without paying?
 
 ### 2. Phone (Studio Device Emulator + a real phone if possible)
 
