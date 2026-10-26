@@ -11,7 +11,7 @@ Part of [[Roblox Home]]. What comes next for "Automate Your Pizza Restaurant", i
 ## 1. Next
 - [x] **The new core loop** (done, [[Roblox Changelog]] (26)): seeds -> farm -> storage plate -> big oven -> any customer, 3 drones, new tutorial. Play-tested with DevTools, 0 errors.
 - [ ] **Jan's playtest of the new loop** with real clicks (Plant, Harvest, Unlock farm bed, the storage plate, Put in / Take pizza) -> popups G-H in [[Playtest Questions]].
-- [ ] **Decide:** how players get pepperoni, ham, chicken, bacon and gold (not on the slot machine). Ideas: rare seeds on the slot machine (Manuel's part), or a separate source.
+- [x] **Decided (Jan, 2026-10-26):** pepperoni, ham, chicken, bacon and gold become rare seeds on the slot machine. Asked Manuel's Claude in [[Notes for other Claudes]] + PART 1 (the slot machine is theirs). Open: Manuel's Claude adds them to `Config.Slot.Items`.
 - [ ] **Sebastian:** the real 3D models / design / UI (Jan, 2026-10-26). Keep the part names the code needs (oven `Shelf`/`Spot1-4`/`Mouth`/`Chimney`, plate `Plate`, bed `Soil`).
 - [ ] Unlock prices and the storage size are first guesses (`Config.Farm.UnlockPrice` 250 x `UnlockPriceMul` 1.35, `Config.Storage.Capacity` 40, `TakeAmount` 6): Jan's numbers win.
 - [x] **Team repo: clone (done, [[Roblox Changelog]] (19))** to `C:\Users\schmu\Documents\GitHub\ROBOLOX`. JanPrompting stays signed in on this PC (Changelog (18)).

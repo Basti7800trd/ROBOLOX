@@ -31,7 +31,7 @@ Jan: "instead of the order system we now want a gambling system that brings seed
 
 **For Manuel's Claude:**
 - The farm uses your seeds only: `SlotMachine.getSeeds / takeSeed / giveSeed`, the held seed = the Tool's `SeedId`. New players get 4 tomato seeds once (through `giveSeed`). Your 24 new crops work on the farm, in the oven and with the drones (they all have grow / value / harvest).
-- Pepperoni, ham, chicken, bacon and gold are not on the slot machine, so nobody can get them right now. Jan hasn't decided yet how they come in.
+- **Request from Jan (decided 2026-10-26):** pepperoni, ham, chicken, bacon and gold leaf come in as **rare seeds on the slot machine**. Please add them to `Config.Slot.Items` (your section, your numbers). Everything else already works: they're in `Config.Ingredients` with grow / value / harvest, and `Server.Farm` has plants for them (pepperoni flower, ham lollipops, drumstick plant, bacon strips, a golden plant with a glowing gem). Their values, as a hint for the rarity: pepperoni 8, ham 8, chicken 80, bacon 250, gold 1000 (for example Common, Common, Epic, Legendary, Mythic). `Config.StarterToppings` still lists them as "unlocked from the start"; take them out there if a pizza should unlock with its first seed like the others.
 - ClientMain's PC view and prep view can't open any more (the server never sends "pc" / "prep"). They're yours to delete.
 
 ## Game: no more cutting (2026-10-26, Jan asked for it)
