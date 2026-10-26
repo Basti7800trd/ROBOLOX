@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 12:41 (Vienna) · 36 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 12:44 (Vienna) · 37 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -39,7 +39,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Sebastian** | Head pizzaiolo | **165** | 1 | 0 | 9 | 3973 |
 | 🥈 | **Jan** | Sous-chef | **159** | 0 | 0 | 8 | 1061 |
-| 🥉 | **MonsterAddicted** | Dishwasher | **76** | 0 | 0 | 5 | 360 |
+| 🥉 | **MonsterAddicted** | Dishwasher | **86** | 0 | 0 | 6 | 361 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 | 5 | **Manuel** | Delivery drone | **0** | 0 | 0 | 0 | 0 |
 
@@ -59,6 +59,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 12:44 | MonsterAddicted | Manuel Changelog: mystery cards without the slot machine text | +1 −0 |
 | 26 Oct 12:41 | MonsterAddicted | Manuel Changelog: PC mystery cards for locked toppings | +6 −0 |
 | 26 Oct 12:36 | MonsterAddicted | Manuel Changelog: topping slot machine (replaces buying recipes) | +32 −0 |
 | 26 Oct 12:22 | Sebastian | vault backup: 2026-10-26 12:22:58 | +4 −4 |
@@ -73,7 +74,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 03:33 | Claude | Dashboard: count JanPrompting's commits as JAN | +0 −0 |
 | 26 Oct 03:29 | Claude | Serve the dashboard from the main branch (no Pages settings needed) | +0 −0 |
 | 26 Oct 03:21 | Claude | Update links to the RoboloxPizzaGang organization | +6 −6 |
-| 26 Oct 03:11 | Jan | vault backup: 2026-10-26 02:11:17 | +0 −0 |
 
 ---
 
