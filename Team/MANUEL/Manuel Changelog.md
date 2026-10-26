@@ -11,6 +11,12 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot machine: seeds have to be bought
+- **Manuel:** "if i pull a seed, it shouldnt go in my inv, i need to buy it first".
+- **Changed:** `Server.SlotMachine`. Pulling the lever is still free, but it only shows **offers** now. Each result has a **BUY $price** button (green = you can pay, red = not enough money). Click the result to buy that seed: it goes into the hotbar (the first one of a plant also unlocks its topping) and the button turns grey **✔ BOUGHT**. Offers you don't buy are gone at the next pull. "NEW!" = a seed you never had.
+- The free starter seeds from Jan's farm still arrive by themselves.
+- **Test:** pull → Broccoli offer "BUY $40", hotbar unchanged; click → Broccoli Seed x1 in the hotbar, money −$40, "✔ BOUGHT". 0 errors.
+
 ### Back door to the farm
 - **Manuel** (screenshot of the farm behind the restaurant): "make an entrance to the building back in, make the door in the same path as the dirt path".
 - **New wall piece `back_door`** (`Config.Pieces` + `builders.back_door` in `Shared.PieceBuilder`): 16 wide, a 6-wide opening in the middle, dark wood frame; on the farm side a striped awning, a warm lamp and a doormat.
