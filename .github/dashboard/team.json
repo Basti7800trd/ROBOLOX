@@ -1,6 +1,15 @@
 {
-  "_help": "Who is who. Add the name that shows as the author of your commits (GitHub Desktop → History). Case doesn't matter.",
-  "SEBASTIAN": ["Basti7800trd", "Sebastian", "Basti"],
-  "JAN": ["Jan"],
-  "MANUEL": ["Manuel"]
+  "_help": "Who is who. Add the name that shows as the author of your commits (GitHub Desktop \u2192 History). Case doesn't matter.",
+  "SEBASTIAN": [
+    "Basti7800trd",
+    "Sebastian",
+    "Basti"
+  ],
+  "JAN": [
+    "Jan",
+    "JanPrompting"
+  ],
+  "MANUEL": [
+    "Manuel"
+  ]
 }
