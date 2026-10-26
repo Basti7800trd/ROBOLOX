@@ -11,6 +11,12 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Farm: 8 / 16 / 24 / 32 beds
+- **Manuel:** "i meant lvl1 8 fields, lvl 2 16 and so on, but make it like before, that the garden expands with the upgrade" (+ keep the 2nd floor).
+- `Config.Farm.StarterBeds = 8` (4 more starter beds in `Workspace.StarterRestaurant`). Level 1 = 8 (2 rows), Level 2 = 16 (2 new rows further back), Level 3 = 24 (2nd floor over all 4 rows + 8 beds), Level 4 = 32 (16 upstairs). Prices unchanged.
+- Old restaurants with fewer than 8 beds get the missing ones when they load.
+- **Test:** all 4 levels right, 0 errors.
+
 ### Farm levels counted from 1
 - **Manuel:** "lvl1 is 4 fields, lvl2 8, lvl3 12 with 4 on 2nd floor, lvl 4 is 8 fields".
 - The farm already worked like that; only the sign counted from Level 0. Now it shows **Level 1/4: 4 beds** → **2: 8 beds** → **3: 12 beds (4 upstairs)** → **4: 16 beds (8 upstairs)**, MAX after that. (Texts in `Config.Farm.Upgrades` + `Server.Farm`; saves are unchanged.)
