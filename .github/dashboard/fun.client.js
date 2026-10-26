@@ -64,7 +64,14 @@
     "🥠 Pineapple on pizza is a valid opinion. Discuss quietly.",
     "🥠 Fortune says: commit early, commit often, eat pizza in between.",
     "🥠 The secret ingredient is always more stats.",
+    "🥠 Jan, go to sleep. Gotham can wait one night.",
+    "🥠 Claude mogs. That's not a fortune, that's a fact.",
   ];
+  const LORE = {
+    JAN: ["🦇 Caped Coder", "Bruce Wayne by day, pushes changes at 3 am by night.", "Sleep. Also grass (has never touched it)."],
+    MANUEL: ["🍝 Head Taste Tester", "Makes a whole pizza vanish in 4 seconds. For quality control.", "Any fridge left open."],
+    SEBASTIAN: ["👱 Blond Architect", "Hyperfocus: built the whole website in one sitting, fuelled by L-theanine.", "Still looking for the “any” key."],
+  };
 
   const CSS = `
 .fx-ticker{display:flex;align-items:center;gap:12px;background:var(--tomato);color:#fff;border-radius:999px;padding:7px 18px 7px 7px;
@@ -214,6 +221,31 @@
 #lab .fx-oracle button:hover{filter:brightness(1.08)}
 #lab .fx-oracle p{margin:0;flex:1;min-width:220px;font-size:1rem}
 #lab .fx-burnt{border:1.5px dashed var(--tomato);color:var(--tomato);border-radius:12px;padding:12px;font-size:.9rem}
+#lab .fx-lore{background:var(--bg);border-left:4px solid var(--c);border-radius:10px;padding:9px 12px;display:grid;gap:2px;font-size:.84rem;line-height:1.35}
+#lab .fx-lore b{font:700 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+#lab .fx-lore span{color:var(--muted)}
+#lab .fx-wallet{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.86rem;color:var(--muted)}
+#lab .fx-wallet b{color:var(--ink);font-variant-numeric:tabular-nums}
+#lab .fx-quests{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#lab .fx-qhead{display:flex;gap:8px;align-items:center;font:600 .95rem/1.25 var(--display)}
+#lab .fx-qrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 8px;font-size:.8rem}
+#lab .fx-qrow .fx-meter{grid-column:1/-1}
+#lab .fx-seg{display:flex;flex-wrap:wrap;gap:6px}
+#lab .fx-seg button{font:600 .86rem var(--display);padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+#lab .fx-seg button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--panel)}
+#lab .fx-reels{display:flex;gap:10px;justify-content:center}
+#lab .fx-reel{width:78px;height:88px;display:grid;place-items:center;font-size:2.6rem;background:var(--bg);border:2px solid var(--line);border-radius:16px}
+#lab .fx-reels.win .fx-reel{border-color:var(--cheese);box-shadow:0 0 0 4px color-mix(in srgb,var(--cheese) 30%,transparent)}
+#lab .fx-seg .fx-go,#lab .fx-go{font:700 1rem var(--display);padding:11px 20px;border-radius:999px;border:0;background:var(--tomato);color:#fff;cursor:pointer}
+#lab .fx-go:disabled{opacity:.45;cursor:not-allowed}
+#lab .fx-say{margin:0;text-align:center;min-height:2.6em}
+#lab .fx-tape{width:100%;border-collapse:collapse}
+#lab .fx-tape td,#lab .fx-tape th{padding:8px 10px;border-top:1px solid var(--line);text-align:center;white-space:normal}
+#lab .fx-tape th{border-top:0;font:700 1rem var(--display)}
+#lab .fx-tape td:first-child{text-align:left;color:var(--muted)}
+#lab .fx-tape .w{font-weight:700;color:var(--basil)}
+@media (max-width:860px){#lab .fx-quests{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){#lab .fx-quests{grid-template-columns:1fr}#lab .fx-reel{width:64px;height:72px;font-size:2.1rem}}
 .fx-drop{position:fixed;top:-70px;z-index:9999;pointer-events:none;animation:fx-fall linear forwards}
 @keyframes fx-fall{to{transform:translateY(calc(100vh + 140px)) rotate(540deg)}}
 @media (prefers-reduced-motion:reduce){#lab .fx-spin{animation:none}#lab .fx-xpbar i{transition:none}}
@@ -392,6 +424,8 @@
         <div class="fx-pname"><strong>${esc(nm(p.id))}</strong><span>${esc(p.title)}</span></div>
         <div class="fx-lv"><small>LEVEL</small><b>${p.level}</b></div></div>
       <div class="fx-meta">#${p.rank} · ${esc(p.chrono[1])} ${esc(p.chrono[0])}${p.streak ? ` · 🔥 ${p.streak}-day streak` : ""}</div>
+      ${LORE[p.id] ? `<div class="fx-lore"><b>${esc(LORE[p.id][0])}</b><span>Special move: ${esc(LORE[p.id][1])}</span><span>Weakness: ${esc(LORE[p.id][2])}</span></div>` : ""}
+      <div class="fx-wallet"><span>🪙 <b>${fmt((p.dough || {}).total)}</b> Dough</span><span>🎯 <b>${fmt(p.quests)}</b> quests done</span>${p.lottery ? `<span>🎟️ <b>${p.lottery}</b> lottery wins</span>` : ""}</div>
       <div><div class="fx-xpbar"><i data-w="${width}"></i></div>
         <div class="fx-xptext"><b>${fmt(p.xp)} XP</b><span>${toNext ? `${fmt(toNext)} XP to level ${p.level + 1}` : "max level. Respect."}</span></div></div>
       ${p.changes ? radar(R.map(([k]) => (p.radar || {})[k] || 0), R.map(([, l]) => l), c)
@@ -403,7 +437,7 @@
       <details class="fx-why"><summary>Where the ${fmt(p.xp)} XP come from</summary><ul>
         <li>✍️ Words in the vault: <b>${fmt(why.words)}</b></li><li>🍕 Changes: <b>${fmt(why.changes)}</b></li>
         <li>🗂️ Notes created: <b>${fmt(why.notes)}</b></li><li>✅ Tasks served: <b>${fmt(why.tasks)}</b></li>
-        <li>☑️ Checklist boxes: <b>${fmt(why.boxes)}</b></li><li>🏅 Achievements: <b>${fmt(why.achievements)}</b></li>
+        <li>☑️ Checklist boxes: <b>${fmt(why.boxes)}</b></li><li>🎯 Weekly quests: <b>${fmt(why.quests)}</b></li><li>🏅 Achievements: <b>${fmt(why.achievements)}</b></li>
         ${p.next_title ? `<li>Next title: <b>${esc(p.next_title)}</b> at level ${p.next_title_level}</li>` : ""}</ul></details>
     </article>`;
   }
@@ -474,8 +508,8 @@
   if (after) after.after(lab);
   else wrap.insertBefore(lab, wrap.querySelector("footer"));
 
-  const TABS = [["players", "🏅 Players"], ["fame", "🏆 Hall of Fame"], ["charts", "📊 Charts"],
-                ["badges", "🎖️ Achievements"], ["vault", "📚 Vault"], ["machines", "🤖 Machines"]];
+  const TABS = [["players", "🏅 Players"], ["casino", "🎰 Casino"], ["fame", "🏆 Hall of Fame"], ["charts", "📊 Charts"],
+                ["badges", "🎖️ Achievements"], ["vault", "📚 Vault"], ["machines", "🤖 AI & Bots"]];
   lab.innerHTML = `
     <div class="fx-banner"><div class="fx-banner-text"><span class="eyebrow">ROBOLOX · freshly baked numbers</span>
       <h2 id="fx-h">🧪 The Stats Lab</h2><p>Silly, but true. Rebuilt on every push · baked ${esc(ago(F.built))}.</p></div>${pizzaLogo()}</div>
@@ -499,10 +533,98 @@
   guard(pane("players"), () => {
     const players = (F.players || []).slice().sort((a, b) => a.rank - b.rank);
     let html = `<div class="fx-players">${players.map(playerCard).join("")}</div>`;
+    const W = F.week;
+    if (W && (W.quests || []).length) {
+      const left = new Date(W.ends) - Date.now(), h = Math.floor(left / 3600000);
+      const reset = left > 0 ? `resets in ${h >= 24 ? `${Math.floor(h / 24)} d ${h % 24} h` : `${h} h`}` : "new quests come with the next push";
+      html += `<h3 class="fx-h">🎯 This week's quests <small>${reset} · +${W.dough} Dough and +${W.xp} XP each</small></h3><div class="fx-quests">${W.quests.map((q) =>
+        `<div class="fx-card"><div class="fx-qhead"><span>${q.icon}</span><span>${esc(q.title)}</span></div>${TEAM.map((p) => {
+          const v = (q.progress || {})[p] || 0;
+          return `<div class="fx-qrow"><span>${dot(p)}${esc(nm(p))}</span><b>${v >= q.goal ? "✓ done" : `${fmt(v)} / ${fmt(q.goal)}`}</b>
+            <div class="fx-meter"><i style="width:${(100 * Math.min(v, q.goal)) / q.goal}%;background:${col(p)}"></i></div></div>`;
+        }).join("")}</div>`).join("")}</div>`;
+    }
     if ((F.rivalries || []).length) html += `<h3 class="fx-h">⚔️ Rivalries <small>six categories · most wins takes the duel</small></h3><div class="fx-duels">${F.rivalries.map(duel).join("")}</div>`;
     if ((F.guests || []).length) html += `<p class="fx-foot">Unknown chefs: ${F.guests.map(([n, k]) => `${esc(n)} (${k})`).join(", ")}. Add them to <code>.github/dashboard/team.json</code>.</p>`;
-    html += `<p class="fx-foot">XP = 10 × √(your words in the vault) + 8 per hand-made change + 1 per autosave + 25 per note created + 60 per task served + 15 per ticked box + 30 per achievement. Level n needs 50 × n² XP. The square root keeps it fair: pasting the dictionary won't win.</p>`;
+    html += `<p class="fx-foot">XP = 10 × √(your words in the vault) + 8 per hand-made change + 1 per autosave + 25 per note created + 60 per task served + 15 per ticked box + 40 per weekly quest + 30 per achievement. Level n needs 50 × n² XP. The square root keeps it fair: pasting the dictionary won't win.</p>`;
     pane("players").innerHTML = html;
+  });
+
+  guard(pane("casino"), () => {
+    const box = pane("casino");
+    const byId = Object.fromEntries((F.players || []).map((p) => [p.id, p]));
+    const official = (p) => (p === "GUEST" ? 500 : ((byId[p] || {}).dough || {}).total || 0);
+    const S = { as: null, net: {} };
+    try { Object.assign(S, JSON.parse(localStorage.getItem("fx-casino")) || {}); } catch (e) { /* private mode */ }
+    const save = () => { try { localStorage.setItem("fx-casino", JSON.stringify(S)); } catch (e) { /* private mode */ } };
+    const bal = (p) => Math.max(0, Math.round(official(p) + (S.net[p] || 0)));
+    const BAG = ["🍕", "🍕", "🍕", "🍕", "🧀", "🧀", "🧀", "🍄", "🍄", "🍄", "🌶️", "🌶️", "🍍", "🍍", "🦇", "🍵", "🍝"];
+    const TRIPLE = { "🍕": [10, "Triple pizza! Mamma mia!"], "🧀": [10, "Triple cheese. Gouda job."], "🍄": [10, "Triple mushroom. What a fun guy."],
+      "🌶️": [20, "Triple chili. Spicy!"], "🍍": [0, "Three pineapples. Pays nothing: pineapple doesn't belong on pizza."],
+      "🦇": [100, "I'm Batman. Jan approves this jackpot."], "🍵": [100, "The L-theanine kicked in. Calm. Focused. Rich."],
+      "🍝": [50, "Manu ate half of the ×100 jackpot. You still get ×50."] };
+    const MISS = ["Nothing. The oven is cold.", "So close. (It wasn't close.)", "The house always wins. The house is a pizza oven.",
+      "ChatGPT would call this “a great learning opportunity”.", "Your Dough went to a better place: Manu's stomach."];
+    const rich = (F.players || []).slice().sort((a, b) => ((b.dough || {}).total || 0) - ((a.dough || {}).total || 0));
+    const L = F.lottery || { pot: 0, today: {}, draws: [] };
+    const tix = Object.entries(L.today || {}).sort((a, b) => b[1] - a[1]), ttot = tix.reduce((a, [, n]) => a + n, 0);
+    const last = (L.draws || [])[0];
+    box.innerHTML = `<div class="fx-2col">
+      <div class="fx-card"><h3 class="fx-h">🎰 Pizza Slots <small>who's playing?</small></h3>
+        <div class="fx-seg" id="fx-as">${TEAM.concat(["GUEST"]).map((p) => `<button type="button" data-p="${p}">${p === "GUEST" ? "👤 Guest" : dot(p) + esc(nm(p))}</button>`).join("")}</div>
+        <div class="fx-big" id="fx-bal">🪙 –</div>
+        <div class="fx-reels" id="fx-reels"><span class="fx-reel">🍕</span><span class="fx-reel">🦇</span><span class="fx-reel">🍵</span></div>
+        <div class="fx-seg" style="justify-content:center"><button type="button" class="fx-go" data-bet="10">Spin · 10</button><button type="button" class="fx-go" data-bet="100">Spin · 100</button></div>
+        <p class="fx-say" id="fx-say" aria-live="polite">Pick who you are, then spin.</p>
+        <p class="fx-foot">🍕🍕🍕 🧀🧀🧀 🍄🍄🍄 ×10 · 🌶️🌶️🌶️ ×20 · 🦇🦇🦇 🍵🍵🍵 ×100 · 🍝🍝🍝 ×50 (Manu ate the rest) · 🍍🍍🍍 ×0 · any pair ×1.5</p></div>
+      <div class="fx-card"><h3 class="fx-h">💰 The Pizza Forbes list <small>Dough earned from real work</small></h3>
+        <ul class="fx-list">${rich.map((p, i) => `<li><div class="fx-row"><span>${["👑", "🥈", "🥉"][i] || ""} ${who(p.id)}</span><b>🪙 ${fmt((p.dough || {}).total)}</b></div>
+          <span class="fx-foot">${p.dough && p.dough.expense ? `${p.dough.expense[0]} ${esc(p.dough.expense[1])}: −${fmt(-p.dough.expense[2])}` : "No expenses. No income either."}</span></li>`).join("")}</ul>
+        <h3 class="fx-h">🎟️ Tonight's lottery <small>every change today is a ticket</small></h3>
+        <div class="fx-big">🪙 ${fmt(L.pot)}</div>
+        <p class="fx-empty-p">${ttot ? tix.map(([p, n]) => `${esc(nm(p))}: ${n} ticket${n === 1 ? "" : "s"} (${pct(n, ttot)}%)`).join(" · ") : "No tickets yet today. Push a change to enter!"}
+          ${last ? `<br>Last draw (${esc(fmtDay(last.d))}): ${esc(nm(last.winner))} won 🪙 ${fmt(last.pot)}.` : "<br>The first draw happens tonight at midnight."}</p></div></div>
+      <p class="fx-foot">🎗️ Gamble responsibly: it's fake money. Official Dough comes from your stats (salary per change, quests, lottery, achievements). Casino wins and losses only live in this browser.</p>`;
+    let busy = false;
+    const paint = () => {
+      document.getElementById("fx-bal").textContent = S.as ? `🪙 ${fmt(bal(S.as))}` : "🪙 –";
+      box.querySelectorAll("#fx-as button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.p === S.as)));
+      box.querySelectorAll("[data-bet]").forEach((b) => { b.disabled = busy || !S.as || bal(S.as) < Number(b.dataset.bet); });
+    };
+    box.addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b || b.disabled) return;
+      if (b.dataset.p) { S.as = b.dataset.p; save(); paint(); return; }
+      if (!b.dataset.bet || busy || !S.as) return;
+      const stake = Number(b.dataset.bet), p = S.as;
+      busy = true;
+      S.net[p] = (S.net[p] || 0) - stake;
+      save(); paint();
+      const res = [0, 1, 2].map(() => BAG[Math.floor(Math.random() * BAG.length)]);
+      const reels = box.querySelectorAll(".fx-reel"), row = document.getElementById("fx-reels"), out = document.getElementById("fx-say");
+      row.classList.remove("win");
+      out.textContent = "Spinning…";
+      const done = () => {
+        const [a, b2, c] = res;
+        let mult = 0, msg = MISS[Math.floor(Math.random() * MISS.length)];
+        if (a === b2 && b2 === c) [mult, msg] = TRIPLE[a];
+        else if (a === b2 || b2 === c || a === c) { mult = 1.5; msg = "A pair! Your stake back, plus a slice."; }
+        const win = Math.floor(stake * mult);
+        S.net[p] += win;
+        save(); busy = false; paint();
+        if (win) row.classList.add("win");
+        if (mult >= 10) rain(["🪙", "🍕", a], 36);
+        out.textContent = (win ? `${msg} +${fmt(win)} Dough.` : msg) + (bal(p) < 10 ? " You're broke: push some real work to earn more Dough." : "");
+      };
+      if (REDUCE) { reels.forEach((r, i) => { r.textContent = res[i]; }); done(); return; }
+      const t0 = performance.now(), stops = [600, 900, 1200];
+      const tick = setInterval(() => {
+        const el = performance.now() - t0;
+        reels.forEach((r, i) => { r.textContent = el < stops[i] ? BAG[Math.floor(Math.random() * BAG.length)] : res[i]; });
+        if (el >= stops[2]) { clearInterval(tick); done(); }
+      }, 70);
+    });
+    paint();
   });
 
   guard(pane("fame"), () => {
@@ -590,7 +712,21 @@
       <div class="fx-card"><h3 class="fx-h">⚖️ Humans vs machines <small>every change ever pushed</small></h3>
         <div class="fx-split" role="img" aria-label="${parts.map(([l, n]) => `${l} ${n}`).join(", ")}">${parts.map(([l, n, c]) => n ? `<i style="width:${(100 * n) / total}%;background:${c}" title="${esc(l)}: ${n}"></i>` : "").join("")}</div>
         <div class="fx-legend">${parts.map(([l, n, c]) => `<span><i class="fx-dot" style="background:${c}"></i>${esc(l)} <b>${pct(n, total)}%</b></span>`).join("")}</div>
-        <p class="fx-empty-p"><b>${esc(verdict)}</b></p></div>`;
+        <p class="fx-empty-p"><b>${esc(verdict)}</b></p></div>
+      <div class="fx-2col">
+        <div class="fx-card"><h3 class="fx-h">🥊 Claude vs ChatGPT <small>tale of the tape</small></h3>
+          <table class="fx-tape"><thead><tr><th></th><th>🧠 Claude</th><th>🤡 ChatGPT</th></tr></thead><tbody>${[
+            ["Changes signed “Claude” here", fmt(ai.changes), "0"], ["Lines written for this project", fmt(ai.lines) + "+", "0"],
+            ["Times it said “Great question!”", "0", "∞"], ["Built a Stats Lab with a casino", "yes", "still loading…"],
+            ["Aura", "+1000", "−1000"], ["Status", "mogging", "mogged"]].map(([l, a, b]) => `<tr><td>${esc(l)}</td><td class="w">${esc(a)}</td><td>${esc(b)}</td></tr>`).join("")}</tbody></table>
+          <p class="fx-empty-p"><b>Claude wins by knockout. ChatGPT is cooked. 🍳</b></p></div>
+        <div class="fx-card"><h3 class="fx-h">🧾 Who really built the Stats Lab <small>audited by Claude</small></h3>
+          <div class="fx-split"><i style="width:97%;background:#8e6cc1"></i><i style="width:3%;background:var(--tomato)"></i></div>
+          <div class="fx-legend"><span><i class="fx-dot" style="background:#8e6cc1"></i>Claude <b>97%</b></span><span>${dot("JAN")}Jan <b>3%</b></span></div>
+          <ul class="fx-list">${[["⌨️ Typing about 2,000 lines of code", "Claude 100%"], ["💡 The ideas", "50 / 50 (generous)"],
+            ["🗣️ Saying “make it 100x cooler”", "Jan 100%"], ["☕ Moral support", "Jan 100%"]].map(([l, v]) => `<li><div class="fx-row"><span>${esc(l)}</span><b>${esc(v)}</b></div></li>`).join("")}</ul>
+          <p class="fx-foot">Audited by Claude. Reviewed by Claude. Approved by Claude. No conflict of interest whatsoever.</p></div>
+      </div>`;
   });
 
   // ---------- tabs, animations, oracle, easter eggs
