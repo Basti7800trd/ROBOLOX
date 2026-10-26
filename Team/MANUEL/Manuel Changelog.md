@@ -11,6 +11,13 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### 32 seed pictures in the game
+- **Manuel** (one ChatGPT sheet with all 32 seeds): "those are all pics for the slot machine, change the other ones and paste the new ones in".
+- **Done:** the sheet was cut into 32 separate 256×256 pictures with transparent backgrounds (small bits of neighbouring pictures removed), uploaded to Roblox, and the ids pasted into `ReplicatedStorage.Shared.UIAssets` (`Ingredients`): the 8 old seeds got their picture, the 24 new seeds got their own lines with picture + emoji.
+- They replace the emojis everywhere a seed is shown: slot drum, results, hotbar, bag (and anything else that uses `ing.<seed>`). The emojis stay as a backup. The Studio preview of the machine was rebuilt.
+- [[Picture Checklist]]: 32 seed pictures ticked.
+- **Test:** play test: the hotbar showed the new pictures (tomato, galaxy mushroom, kiwi, dragon fruit, olive), all loaded. 0 errors.
+
 ### Slot results appear together, splitting from the middle
 - **Manuel:** "make the seeds appear all at the same time, with an animation, the seeds should all come out of the mid, splitting to the left and right side".
 - **Changed:** `Server.SlotMachine` (`pull`). Before, the results showed up one by one. Now, when the last reel stops, **all results appear at once**: each starts small at the middle reel and **slides out to its own reel** (with a little overshoot) while it grows to full size, so they split to the left and the right. One pop sound.
