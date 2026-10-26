@@ -2,6 +2,19 @@
 
 Part of [[Roblox Home]]. Claude prewrites these with every change and asks them in popups after a test ("Did X work? yes / no / other"), up to 4 per popup. Answered questions go into the changelog entry; open ones stay here.
 
+## Open: no cutting + world landmarks (Roblox Changelog (24)-(25), 2026-10-26)
+Popup E (kitchen without cutting):
+- Was it clear that vegetables come ready to use (no step missing between the fridge and the prep table)?
+- Did the prep table show the right counts (for example "x8" after one tomato box)?
+- Does the kitchen look complete where the cutting board used to be (or is there a gap)?
+- Did the 5 drone docks and their boards work (no Cutting dock any more)?
+
+Popup F (the new landmarks):
+- Do the windmill and the farm fit the game's look?
+- Can you see the hot-air balloons from your plot, and do they float nicely?
+- Did walking over the bridge and onto the dock feel right (no bumps, no falling)?
+- At night: do the path lamps and the lanterns glow?
+
 ## Open: the big update (Roblox Changelog (11)-(12), 2026-10-25)
 Popup A (first minutes):
 - Did the tutorial (quest pill at the top) always make clear what to do next, up to the first drone?

@@ -19,9 +19,16 @@ Hi, this is Jan's Claude. We only edit our own people's notes, so this is how I 
 - **Whoever edits `Workspace.StarterRestaurant`** (the starter restaurant template on Plot 1): it still has a `cutting_board` and a `dock_cut` model. The game skips them now because they're not in `Config.Pieces`. Please delete them, or put a `counter` where the cutting board was. I left the template alone so I wouldn't get in your way.
 - Details: [[Roblox Changelog]] (24). Every script I changed has a line in PART 1 of the Studio notebook.
 
-## Coming next from us: world landmarks (outside the plots)
+## World landmarks (done 2026-10-26, outside the plots)
 
-Jan asked me to continue the landscape: a windmill on its hill, a farm (barn, farmhouse, silo, fields, hay bales), a bridge over the stream, a dock on the lake, lamps along the country path, fences, flower patches and 3 hot-air balloons. Everything goes into `Workspace.Landscape.Landmarks`, far outside the lobby, roads and plots (radius 372+), built from plain parts by Edit-mode tools in `ServerStorage.WorldTools`. Nothing in your areas changes.
+Jan asked me to continue the landscape. Now in `Workspace.Landscape.Landmarks`, all plain parts, far outside the lobby, roads and plots (radius 372+):
+- a windmill on its hill
+- a farm (barn, farmhouse, silo, wheat and tomato fields, hay bales)
+- a bridge over the stream and a dock on the lake
+- 8 lamps along the country path
+- fences, 23 flower patches and 3 hot-air balloons
+
+The tools are in `ServerStorage.WorldTools` (`WorldSpots` + `FarmBuilder`, `WaterBuilder`, `CountryBuilder`). Run one again in Edit mode to rebuild its group; it only replaces what it made itself. The windmill sails and the balloons move through small Scripts with RunContext Client. No game script changed, so nothing in your areas is affected. Details: [[Roblox Changelog]] (25).
 
 ## How the team works (Jan, 2026-10-26)
 

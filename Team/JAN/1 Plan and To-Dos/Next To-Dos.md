@@ -16,7 +16,8 @@ Part of [[Roblox Home]]. What comes next for "Automate Your Pizza Restaurant", i
 - [ ] **Phone test:** Roblox's Device Simulator through the Studio MCP skill `rbx-device-simulator-lua`. Fix what doesn't fit.
 - [ ] **Sign heights:** do the station signs and customer bubbles show above them (playtest question)? If not, flip `SIGN_ANCHOR` / `STATUS_ANCHOR` in `Server.Stations`.
 - [x] **No more cutting** (done, [[Roblox Changelog]] (24)). Open: someone deletes the `cutting_board` + `dock_cut` models from `Workspace.StarterRestaurant` (asked in PART 1; not ours to edit while they work on it).
-- [ ] **World landmarks** (2026-10-26: 3 helpers draft them in `PizzaRestaurant\work\landmarks\`, I build them in Studio, Changelog (25)):
+- [ ] **Phone check of the landmarks** (Device Simulator near the farm and the lobby: FPS ok with ~1,100 new parts?). Optional: nicer white flower patches.
+- [x] **World landmarks** (done 2026-10-26, [[Roblox Changelog]] (25); the old plan below is kept for the record):
   - Put `WorldSpots` (disk: `src\ServerStorage\WorldTools\WorldSpots.luau`) into `ServerStorage.WorldTools`.
   - Then add a windmill on its hill, the farm (barn, silo, fields, hay bales), a bridge, a dock, 3 hot-air balloons, lamps, fences and flower patches.
   - The Creator Store search was poor: spam re-uploads, deleted accounts, fake "Roblox" names. Build the landmarks from parts in the game's own style, or with Roblox's generators. No random uploads.

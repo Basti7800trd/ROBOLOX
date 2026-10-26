@@ -4,6 +4,33 @@ Part of [[Roblox Home]]. Everything done in the Roblox project, numbered. **The 
 
 ## 2026-10-26
 
+### (25) World landmarks: windmill, farm, bridge, dock, path lamps, fences, flowers, hot-air balloons
+- **User:** "you can use more subagents also to continue what i stopped you with yesterday as long as you dont interrupt other editors". Popup: what to continue -> **"Game: world landmarks"** (paused in (13): windmill, farm, bridge, dock, balloons, lamps, fences, flowers; build from parts, no random Creator Store uploads).
+- **How:** 3 helpers wrote builder code on disk at the same time (`PizzaRestaurant\work\landmarks\`: FarmBuilder, WaterBuilder, CountryBuilder + a README each). They never touched Studio. I reviewed each file, put it into Studio, checked it byte for byte (checksum = disk), ran it in Edit mode and looked at the result.
+- **Studio, all new (no team script changed):**
+  - `ServerStorage.WorldTools.WorldSpots` (the spot list from (11), identical to the disk file): where every landmark goes, matching the terrain (same SEED as WorldBuilder).
+  - `ServerStorage.WorldTools.FarmBuilder` / `WaterBuilder` / `CountryBuilder`: run them again in Edit mode to rebuild. They only replace what they made themselves (attribute `FarmBuilder` / `WaterBuilder` / `CountryBuilder` = true).
+  - `Workspace.Landscape.Landmarks`, 1,101 plain parts:
+    - **Windmill** on its hill (57 parts). The sails turn once every 20 s through the `SpinSails` Script (RunContext Client).
+    - **Farm** (301 parts): red barn with a cupola and hay loft, Tuscan farmhouse with green shutters, silo, wheat field with sunflowers, tomato field, hay bales.
+    - **Bridge** (65 parts): an arch over the stream with rails.
+    - **Dock** (36 parts): a ramp, a bench and a lantern.
+    - **8 path lamps** (80 parts): named "Lantern", so DayNightCycle makes them brighter at night.
+    - **Fences** (213 parts): around the farm with a gate, and along the path before the bridge.
+    - **23 flower patches** (298 parts).
+    - **3 hot-air balloons** (51 parts): they bob and turn through the `Float` Script (RunContext Client), and use Persistent streaming so they're visible from the lobby.
+  - Everything the player can walk on collides (bridge, dock, buildings). Decoration is walk-through.
+  - StreamingEnabled is on, so the bigger landmarks stream in whole (Atomic) and the windmill gets a far-away mesh (LevelOfDetail StreamingMesh).
+- **Tested:**
+  - Screenshots of every group.
+  - A test character walked over the bridge both ways (8 steps on the planks, never in the water).
+  - In a playtest: the sails turned 36.3° in 2 s (= 1 turn per 20 s) and a balloon moved. 0 errors.
+- **Notes:** PART 1 line + PART 4 ("where things are") in the Studio notebook. Disk copies of the tools are in `src\ServerStorage\WorldTools\`.
+- **Not done yet / ideas:**
+  - The white flower patches look a bit like white balls on green mounds. A different blossom shape could fix that.
+  - A phone (Device Simulator) check of FPS near the farm.
+  - The farm's parts are Locked (`CONFIG.LOCK_PARTS` in FarmBuilder), so nobody drags them by accident. To edit by hand, unlock them in Properties.
+
 ### (24) No more cutting: vegetables and fruit arrive already cut (game)
 - **User:** "remove the cut vegetables step so the things are automatically cut when they arrive first and manuel will add a gambling system to receive fruits instead of the current way its built right now so dont do anything there". Also: "we now all use the robolox obsidian vault to automatically share knowledge by using our own tab and only creating notes connected to our name ... you can read the notes by the others to communicate with them".
 - **First, the team's changes (the rule from (13)):** Manuel's Claude had changed 8 scripts since my last copy, and built a **topping slot machine** while I worked (new `Server.SlotMachine`, `Config.Slot`, `Config.StarterToppings`, new box prices, rewritten `Recipes`, a new starter restaurant template `Workspace.StarterRestaurant`). A helper copied every changed script to disk byte for byte (checked with a checksum) before I edited anything. I didn't touch the slot machine, the PC, the garage or the deliveries.
