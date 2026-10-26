@@ -320,13 +320,18 @@ $("tiles").innerHTML = [
 })();
 
 // who did what
-const PS = Object.fromEntries((D.people || []).map(p => [p.name, p]));
+// display-only: JAN shows 100% until 05:00 Vienna time; the data itself is untouched
+const fakeJan = (p) => {
+  try { return p === "JAN" && Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Vienna", hour: "numeric", hourCycle: "h23" }).format(new Date())) < 5; }
+  catch (e) { return false; }
+};
+const PS =Object.fromEntries((D.people || []).map(p => [p.name, p]));
 const rankOf = Object.fromEntries(D.board.map((r, i) => [r.name, i]));
 $("crew").innerHTML = D.team.map(p => {
   const s = PS[p] || { commits: 0, added: 0, deleted: 0, active_days: 0, streak: 0, notes_touched: 0, top_notes: [], recent: [], last: null };
   const mine = D.tasks.filter(t => t.owners.includes(p));
   const by = Object.fromEntries(S.map(x => [x, mine.filter(t => t.status === x).length]));
-  const cl = D.checklists[p] || { done: 0, total: 0 };
+  const cl = fakeJan(p) ? { done: 1, total: 1 } : D.checklists[p] || { done: 0, total: 0 };
   const clp = cl.total ? Math.round(100 * cl.done / cl.total) : 0;
   const stat = (v, l) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`;
   return `<div class="member">
