@@ -69,7 +69,7 @@ for block in log.split(SEP)[1:]:
         if len(parts) != 3:
             continue
         a, d, f = parts
-        if f.startswith(".obsidian") or f.startswith(".github") or f == "Dashboard.md":
+        if not (f.endswith(".md") or f.startswith("Attachments/")) or f in ("Dashboard.md", "README.md", "CLAUDE.md"):
             continue  # settings and the dashboard itself don't count as work
         files.append(f)
         if a != "-":
@@ -122,14 +122,71 @@ if msgs:
     _, c = min(msgs, key=lambda x: x[0])
     awards.append({"title": "Poet laureate", "who": c["person"] or c["author"], "why": f"commit message: “{c['subject']}”"})
 
+# ---------- per-person and per-note statistics
+paths = {}
+def note_name(f):
+    paths.setdefault(os.path.splitext(os.path.basename(f))[0] if f.endswith(".md") else f, f)
+    return os.path.splitext(os.path.basename(f))[0] if f.endswith(".md") else f
+people = defaultdict(lambda: {"commits": 0, "added": 0, "deleted": 0, "days": set(), "notes": defaultdict(int),
+                              "first": None, "last": None, "recent": []})
+notes = defaultdict(lambda: {"edits": 0, "last_by": None, "last": None, "people": set()})
+today = dt.datetime.now(VIE).date()
+DAYS = 14
+activity = {(today - dt.timedelta(days=i)).isoformat(): defaultdict(int) for i in range(DAYS - 1, -1, -1)}
+for c in commits:  # newest first
+    if not c["files"]:
+        continue
+    p = c["person"] or c["author"]
+    s = people[p]
+    when = dt.datetime.fromisoformat(c["date"]).astimezone(VIE)
+    s["commits"] += 1; s["added"] += c["added"]; s["deleted"] += c["deleted"]
+    s["days"].add(when.date().isoformat())
+    s["last"] = s["last"] or c["date"]; s["first"] = c["date"]
+    for f in c["files"]:
+        n = note_name(f)
+        s["notes"][n] += 1
+        nt = notes[n]; nt["edits"] += 1; nt["people"].add(p)
+        if not nt["last"]:
+            nt["last"], nt["last_by"] = c["date"], p
+    if len(s["recent"]) < 6:
+        s["recent"].append({"date": c["date"], "subject": c["subject"], "added": c["added"], "deleted": c["deleted"],
+                            "notes": sorted({note_name(f) for f in c["files"]})[:6]})
+    d = when.date().isoformat()
+    if d in activity:
+        activity[d][p] += 1
+for p in TEAM:
+    people[p]
+def streak(days):
+    n, d = 0, today
+    while d.isoformat() in days:
+        n += 1; d -= dt.timedelta(days=1)
+    return n
+person_stats = []
+for p, s in people.items():
+    top = sorted(s["notes"].items(), key=lambda x: (-x[1], x[0]))[:5]
+    person_stats.append({"name": p, "commits": s["commits"], "added": s["added"], "deleted": s["deleted"],
+                         "active_days": len(s["days"]), "streak": streak(s["days"]), "first": s["first"], "last": s["last"],
+                         "notes_touched": len(s["notes"]), "top_notes": [{"note": n, "edits": k} for n, k in top],
+                         "recent": s["recent"]})
+person_stats.sort(key=lambda r: (r["name"] not in TEAM, TEAM.index(r["name"]) if r["name"] in TEAM else 0, r["name"]))
+note_stats = sorted(({"note": n, "edits": v["edits"], "last_by": v["last_by"], "last": v["last"], "people": sorted(v["people"])}
+                     for n, v in notes.items()), key=lambda r: r["last"] or "", reverse=True)
+
 data = {
+    "people": person_stats,
+    "notes": note_stats,
+    "activity": [{"day": d, "counts": dict(v)} for d, v in activity.items()],
+    "paths": paths,
+    "totals": {"added": sum(c["added"] for c in commits), "deleted": sum(c["deleted"] for c in commits),
+               "notes": len(note_stats)},
     "built": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
     "team": TEAM,
     "tasks": tasks,
     "checklists": checklists,
     "board": board,
     "awards": awards,
-    "recent": [{k: c[k] for k in ("hash", "author", "person", "date", "subject", "added", "deleted")} for c in commits[:20]],
+    "recent": [{**{k: c[k] for k in ("hash", "author", "person", "date", "subject", "added", "deleted")},
+                "notes": sorted({note_name(f) for f in c["files"]})[:5]} for c in commits[:20]],
     "commit_count": len(commits),
     "repo": os.environ.get("GITHUB_REPOSITORY", "Basti7800trd/ROBOLOX"),
 }

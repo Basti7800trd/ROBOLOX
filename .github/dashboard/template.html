@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pizza Kitchen Progress</title>
+<title>Pizza Kitchen Overview</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -86,7 +86,14 @@ h1 em { font-style: normal; color: var(--tomato); }
 .empty code { font: .82rem var(--mono); color: var(--ink); overflow-wrap: anywhere; }
 
 /* ---------- crew */
-.crew { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.crew { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--panel); color: var(--ink); text-decoration: none; font: 600 .9rem var(--display); }
+.btn:hover { border-color: var(--tomato); }
+.btn.primary { background: var(--tomato); border-color: var(--tomato); color: #fff; }
+a.chip, td a { color: inherit; text-decoration: none; }
+a.chip:hover, td a:hover { text-decoration: underline; }
 .member { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
 .member h3 { font-size: 1.15rem; display: flex; align-items: center; gap: 10px; }
 .avatar { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 700 .95rem var(--display);
@@ -121,7 +128,7 @@ h1 em { font-style: normal; color: var(--tomato); }
 .log-item { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 12px; padding: 11px 16px; border-top: 1px solid var(--line);
   align-items: baseline; font-size: .93rem; }
 .log-item:first-child { border-top: 0; }
-.log-item .h { font: .78rem var(--mono); color: var(--muted); }
+.log-item .h { font: .78rem var(--mono); color: var(--muted); text-decoration: none; }
 .log-item .msg { overflow-wrap: anywhere; }
 .log-item .by { color: var(--muted); font-size: .85rem; }
 .log-item .diff { font: .75rem var(--mono); white-space: nowrap; }
@@ -129,6 +136,39 @@ h1 em { font-style: normal; color: var(--tomato); }
 footer { color: var(--muted); font-size: .85rem; }
 footer a, .meta a { color: inherit; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--tomato); outline-offset: 2px; }
+
+
+/* ---------- overview tiles */
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 6px; min-width: 0; }
+.tile b { font: 700 1.7rem/1 var(--display); font-variant-numeric: tabular-nums; }
+/* ---------- activity chart */
+.chart { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 10px; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart text { fill: var(--muted); font: 11px var(--mono); }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+/* ---------- person cards */
+.member .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.member .stat { background: var(--bg); border-radius: 8px; padding: 8px 10px; display: grid; gap: 2px; min-width: 0; }
+.member .stat b { font: 700 1.15rem/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.member .stat span { font-size: .72rem; color: var(--muted); }
+.member h4 { margin: 4px 0 0; font: 600 .72rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.member ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: .88rem; }
+.member li { display: flex; justify-content: space-between; gap: 8px; min-width: 0; }
+.member li .n { overflow-wrap: anywhere; min-width: 0; }
+.member li.change { display: grid; gap: 3px; }
+.member .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.member .when { color: var(--muted); font-size: .78rem; }
+.member .quiet { color: var(--muted); font-size: .88rem; }
+/* ---------- notes table */
+.table-wrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th, td { text-align: left; padding: 10px 14px; border-top: 1px solid var(--line); white-space: nowrap; }
+th { border-top: 0; font: 600 .7rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; }
+.log-item .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+@media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .tile b { font-size: 1.25rem; } }
 
 @media (max-width: 860px) { .rail { grid-template-columns: repeat(2, minmax(0, 1fr)); } .crew { grid-template-columns: 1fr; } }
 @media (max-width: 480px) {
@@ -155,8 +195,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--tomato); outlin
       </div>
     </div>
     <div class="meta" id="meta"></div>
+    <nav class="links" id="links" aria-label="Repo and vault"></nav>
     <div class="pass" id="pass"></div>
+    <div class="tiles" id="tiles"></div>
   </header>
+
+  <section aria-labelledby="h-act">
+    <div class="sec-head"><h2 id="h-act">Activity</h2><span class="eyebrow">changes per day · last 14 days</span></div>
+    <div class="chart" id="chart"></div>
+  </section>
 
   <section aria-labelledby="h-rail">
     <div class="sec-head"><h2 id="h-rail">Order rail</h2><span class="eyebrow">from Todo.md</span></div>
@@ -164,7 +211,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--tomato); outlin
   </section>
 
   <section aria-labelledby="h-crew">
-    <div class="sec-head"><h2 id="h-crew">Kitchen crew</h2><span class="eyebrow">tasks · personal checklists</span></div>
+    <div class="sec-head"><h2 id="h-crew">Who did what</h2><span class="eyebrow">changes · tasks · checklists</span></div>
     <div class="crew" id="crew"></div>
   </section>
 
@@ -174,6 +221,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--tomato); outlin
     <div class="awards" id="awards"></div>
     <p class="rules">Points: finished task 50 · ticked box on your own page 15 · commit 10 + 1 per 10 lines changed (max 20 per commit, so spamming
       “AYOOOO” doesn’t win). Settings files don’t count.</p>
+  </section>
+
+  <section aria-labelledby="h-notes">
+    <div class="sec-head"><h2 id="h-notes">Notes</h2><span class="eyebrow">what changed, and who touched it</span></div>
+    <div class="table-wrap" id="notes"></div>
   </section>
 
   <section aria-labelledby="h-log">
@@ -205,6 +257,17 @@ const name = (p) => p ? p.charAt(0) + p.slice(1).toLowerCase() : "";
 $("meta").innerHTML = `Updated <span title="${esc(D.built)}">${ago(D.built)}</span> · ${D.commit_count} changes so far` +
   (D.repo ? ` · <a href="https://github.com/${esc(D.repo)}">${esc(D.repo)}</a>` : "");
 
+// repo / vault links
+const REPO = D.repo || "Basti7800trd/ROBOLOX", GH = "https://github.com/" + REPO;
+const VAULT = REPO.split("/")[1];
+const fileUrl = (n) => { const p = (D.paths || {})[n]; return p ? `${GH}/blob/main/${p.split("/").map(encodeURIComponent).join("/")}` : null; };
+const noteLink = (n, cls) => { const u = fileUrl(n); return u ? `<a class="${cls || ""}" href="${u}">${esc(n)}</a>` : `<span class="${cls || ""}">${esc(n)}</span>`; };
+$("links").innerHTML = `
+  <a class="btn primary" href="${GH}">Open repo on GitHub</a>
+  <a class="btn" href="obsidian://open?vault=${encodeURIComponent(VAULT)}">Open vault in Obsidian</a>
+  <a class="btn" href="${GH}/blob/main/Todo.md">Todo</a>
+  <a class="btn" href="${GH}/archive/refs/heads/main.zip">Download vault (.zip)</a>`;
+
 // pass
 const count = Object.fromEntries(S.map(s => [s, D.tasks.filter(t => t.status === s).length]));
 const total = D.tasks.length;
@@ -228,18 +291,69 @@ $("rail").innerHTML = S.map(s => {
   return `<div class="col" data-s="${s}"><div class="col-head"><span>${LABEL[s]}</span><span class="count num">${list.length}</span></div>${items}</div>`;
 }).join("");
 
-// crew
+// overview tiles
+const T = D.totals || { added: 0, deleted: 0, notes: 0 };
+$("tiles").innerHTML = [
+  [D.commit_count, "changes pushed"], ["+" + T.added + " / −" + T.deleted, "lines added / removed"],
+  [T.notes, "notes edited"], [count.done + " / " + total, "tasks served"]
+].map(([v, l]) => `<div class="tile"><b>${esc(v)}</b><span class="eyebrow">${esc(l)}</span></div>`).join("");
+
+// activity chart (stacked bars per person)
+(function () {
+  const A = D.activity || [], W = 700, H = 200, padL = 28, padB = 26, padT = 10;
+  const ppl = D.team.concat([...new Set(A.flatMap(a => Object.keys(a.counts)))].filter(p => !D.team.includes(p)));
+  const totals = A.map(a => Object.values(a.counts).reduce((x, y) => x + y, 0));
+  const max = Math.max(4, ...totals), step = Math.ceil(max / 4);
+  const top = step * 4, bw = (W - padL) / Math.max(1, A.length);
+  const y = v => padT + (H - padT - padB) * (1 - v / top);
+  let g = "";
+  for (let v = 0; v <= top; v += step) g += `<line class="grid" x1="${padL}" x2="${W}" y1="${y(v)}" y2="${y(v)}"/><text x="${padL - 6}" y="${y(v) + 4}" text-anchor="end">${v}</text>`;
+  A.forEach((a, i) => {
+    let base = 0; const x = padL + i * bw + bw * 0.18, w = bw * 0.64;
+    ppl.forEach(p => { const v = a.counts[p] || 0; if (!v) return;
+      g += `<rect x="${x}" y="${y(base + v)}" width="${w}" height="${y(base) - y(base + v)}" rx="3" fill="${COLOR[p] || "var(--char)"}"><title>${esc(name(p) || p)}: ${v}</title></rect>`; base += v; });
+    const d = new Date(a.day + "T12:00:00");
+    if (i % 2 === A.length % 2 || i === A.length - 1) g += `<text x="${x + w / 2}" y="${H - 8}" text-anchor="middle">${d.getDate()}.${d.getMonth() + 1}.</text>`;
+  });
+  $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Changes per day for the last 14 days">${g}</svg>
+    <div class="legend">${ppl.map(p => `<span><i class="dot" style="background:${COLOR[p] || "var(--char)"}"></i>${esc(D.team.includes(p) ? name(p) : p)}</span>`).join("")}</div>`;
+})();
+
+// who did what
+const PS = Object.fromEntries((D.people || []).map(p => [p.name, p]));
+const rankOf = Object.fromEntries(D.board.map((r, i) => [r.name, i]));
 $("crew").innerHTML = D.team.map(p => {
+  const s = PS[p] || { commits: 0, added: 0, deleted: 0, active_days: 0, streak: 0, notes_touched: 0, top_notes: [], recent: [], last: null };
   const mine = D.tasks.filter(t => t.owners.includes(p));
-  const by = Object.fromEntries(S.map(s => [s, mine.filter(t => t.status === s).length]));
+  const by = Object.fromEntries(S.map(x => [x, mine.filter(t => t.status === x).length]));
   const cl = D.checklists[p] || { done: 0, total: 0 };
   const clp = cl.total ? Math.round(100 * cl.done / cl.total) : 0;
-  return `<div class="member"><h3><span class="avatar" style="background:${COLOR[p] || "var(--char)"}">${esc(p[0])}</span>${esc(name(p))}</h3>
-    <div class="stat-row"><span>Tasks served</span><b>${by.done} / ${mine.length}</b></div>
-    <div class="stat-row"><span>In the oven · blocked</span><b>${by.doing} · ${by.blocked}</b></div>
+  const stat = (v, l) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`;
+  return `<div class="member">
+    <h3><span class="avatar" style="background:${COLOR[p] || "var(--char)"}">${esc(p[0])}</span>${esc(name(p))}</h3>
+    <div class="when">${TITLES[Math.min(rankOf[p] ?? 3, TITLES.length - 1)]} · ${s.last ? "last active " + ago(s.last) : "hasn't pushed anything yet"}</div>
+    <div class="stats">
+      ${stat(s.commits, "changes")}${stat("+" + s.added, "lines added")}${stat("−" + s.deleted, "lines removed")}
+      ${stat(s.notes_touched, "notes edited")}${stat(s.active_days, "active days")}${stat(s.streak, "day streak")}
+    </div>
+    <div class="stat-row"><span>Tasks served · in the oven · blocked</span><b>${by.done}/${mine.length} · ${by.doing} · ${by.blocked}</b></div>
     <div class="stat-row"><span>Own checklist</span><b>${cl.total ? `${cl.done} / ${cl.total}` : "—"}</b></div>
-    <div class="mini" aria-hidden="true"><span style="width:${clp}%"></span></div></div>`;
+    <div class="mini" aria-hidden="true"><span style="width:${clp}%"></span></div>
+    <h4>Most edited notes</h4>
+    ${s.top_notes.length ? `<ul>${s.top_notes.map(n => `<li>${noteLink(n.note, "n")}<b class="num">${n.edits}×</b></li>`).join("")}</ul>` : `<div class="quiet">Nothing yet.</div>`}
+    <h4>Latest changes</h4>
+    ${s.recent.length ? `<ul>${s.recent.slice(0, 4).map(c => `<li class="change"><span class="n">${esc(c.subject)}</span>
+      <span class="when">${ago(c.date)} · <span class="add">+${c.added}</span> <span class="del">−${c.deleted}</span></span>
+      <span class="chips">${c.notes.map(n => noteLink(n, "chip")).join("")}</span></li>`).join("")}</ul>` : `<div class="quiet">Nothing yet.</div>`}
+  </div>`;
 }).join("");
+
+// notes table
+const NS = D.notes || [];
+$("notes").innerHTML = NS.length ? `<table><thead><tr><th>Note</th><th class="r">Edits</th><th>Last changed by</th><th>When</th><th>Everyone who edited it</th></tr></thead><tbody>
+  ${NS.map(n => `<tr><td>${noteLink(n.note)}</td><td class="r">${n.edits}</td><td>${esc(D.team.includes(n.last_by) ? name(n.last_by) : n.last_by)}</td>
+    <td>${n.last ? ago(n.last) : "—"}</td><td>${n.people.map(p => esc(D.team.includes(p) ? name(p) : p)).join(", ")}</td></tr>`).join("")}</tbody></table>`
+  : `<div class="empty">No notes edited yet.</div>`;
 
 // leaderboard
 $("board").innerHTML = D.board.length ? D.board.map((r, i) => `
@@ -254,8 +368,9 @@ $("awards").innerHTML = D.awards.map(a => `<div class="award"><span class="eyebr
 
 // log
 $("log").innerHTML = D.recent.length ? D.recent.map(c => `
-  <div class="log-item"><span class="h">${esc(c.hash)}</span>
-    <div><div class="msg">${esc(c.subject)}</div><div class="by">${esc(c.person ? name(c.person) : c.author)} · ${ago(c.date)}</div></div>
+  <div class="log-item"><a class="h" href="${GH}/commit/${esc(c.hash)}">${esc(c.hash)}</a>
+    <div><div class="msg">${esc(c.subject)}</div><div class="by">${esc(c.person ? name(c.person) : c.author)} · ${ago(c.date)}</div>
+      ${(c.notes || []).length ? `<div class="chips">${c.notes.map(n => noteLink(n, "chip")).join("")}</div>` : ""}</div>
     <span class="diff num"><span class="add">+${c.added}</span> <span class="del">−${c.deleted}</span></span></div>`).join("")
   : `<div class="log-item"><div></div><div class="msg">No changes yet.</div><div></div></div>`;
 </script>
