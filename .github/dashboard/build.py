@@ -188,7 +188,7 @@ data = {
     "recent": [{**{k: c[k] for k in ("hash", "author", "person", "date", "subject", "added", "deleted")},
                 "notes": sorted({note_name(f) for f in c["files"]})[:5]} for c in commits[:20]],
     "commit_count": len(commits),
-    "repo": os.environ.get("GITHUB_REPOSITORY", "Basti7800trd/ROBOLOX"),
+    "repo": os.environ.get("GITHUB_REPOSITORY", "RoboloxPizzaGang/ROBOLOX"),
 }
 
 

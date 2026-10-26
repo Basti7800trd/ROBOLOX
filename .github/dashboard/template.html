@@ -258,7 +258,7 @@ $("meta").innerHTML = `Updated <span title="${esc(D.built)}">${ago(D.built)}</sp
   (D.repo ? ` · <a href="https://github.com/${esc(D.repo)}">${esc(D.repo)}</a>` : "");
 
 // repo / vault links
-const REPO = D.repo || "Basti7800trd/ROBOLOX", GH = "https://github.com/" + REPO;
+const REPO = D.repo || "RoboloxPizzaGang/ROBOLOX", GH = "https://github.com/" + REPO;
 const VAULT = REPO.split("/")[1];
 const fileUrl = (n) => { const p = (D.paths || {})[n]; return p ? `${GH}/blob/main/${p.split("/").map(encodeURIComponent).join("/")}` : null; };
 const noteLink = (n, cls) => { const u = fileUrl(n); return u ? `<a class="${cls || ""}" href="${u}">${esc(n)}</a>` : `<span class="${cls || ""}">${esc(n)}</span>`; };

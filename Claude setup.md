@@ -14,7 +14,7 @@ How to let **your own Claude** read and edit this vault. Pick one way. Your Clau
 ## 0. Before anything (once)
 
 1. Make a GitHub account if you don't have one.
-2. Tell Basti your GitHub username. He adds you on GitHub → ROBOLOX → Settings → **Collaborators**.
+2. Tell Basti or Jan your GitHub username. They invite you to the **RoboloxPizzaGang** organization (organization page → **People** → **Invite member**).
 3. Accept the invite (email or github.com/notifications).
 
 Without step 2–3 your Claude can read the repo (while it's public) but **can't save changes**.
@@ -22,8 +22,8 @@ Without step 2–3 your Claude can read the repo (while it's public) but **can't
 ## A. Claude in the browser / app (easiest, no install)
 
 1. Open **claude.ai/code** (or "Code" in the Claude app).
-2. Connect GitHub when it asks, and allow access to **Basti7800trd/ROBOLOX**.
-   - If ROBOLOX doesn't show up: Basti opens github.com/settings/installations → **Claude** → Configure → adds ROBOLOX under *Repository access*.
+2. Connect GitHub when it asks, and allow access to **RoboloxPizzaGang/ROBOLOX**.
+   - If ROBOLOX doesn't show up: an organization owner opens the organization → **Settings** → **GitHub Apps** → **Claude** → Configure → adds ROBOLOX under *Repository access*.
 3. Start a session on the ROBOLOX repo and tell Claude what to do, e.g. *"Add a task for MANUEL to Todo"*.
 4. Claude commits and pushes. Your Obsidian picks it up on the next pull (Obsidian Git does this automatically).
 
@@ -44,8 +44,8 @@ Without step 2–3 your Claude can read the repo (while it's public) but **can't
 
 | Problem | Fix |
 | --- | --- |
-| Claude says "permission denied" / 403 when pushing | You're not a collaborator yet → step 0 |
-| Repo not in Claude's list | Basti adds ROBOLOX to the Claude GitHub app (A.2) |
+| Claude says "permission denied" / 403 when pushing | You're not in the organization yet → step 0 |
+| Repo not in Claude's list | An owner adds ROBOLOX to the Claude GitHub app (A.2) |
 | "Merge conflict" | Someone edited the same lines. Ask Claude: *"pull and resolve the conflict, keep both changes"* |
 | Changes don't appear in Obsidian | Ctrl/Cmd+P → *Obsidian Git: Pull* |
 
