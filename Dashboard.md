@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 20:00 (Vienna) · 87 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 20:07 (Vienna) · 88 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -49,7 +49,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Manuel** | Head pizzaiolo | **412** | 0 | 0 | 37 | 715 |
+| 🥇 | **Manuel** | Head pizzaiolo | **422** | 0 | 0 | 38 | 722 |
 | 🥈 | **Jan** | Sous-chef | **334** | 0 | 0 | 22 | 1471 |
 | 🥉 | **Sebastian** | Dishwasher | **317** | 3 | 0 | 13 | 4109 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
@@ -70,6 +70,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 20:06 | Manuel | Manuel Changelog: farm wider, further, higher | +7 −0 |
 | 26 Oct 19:59 | Manuel | Manuel Changelog: slot machine preview fixed | +6 −0 |
 | 26 Oct 19:56 | Manuel | Manuel Changelog: farm fence in Edit mode | +5 −0 |
 | 26 Oct 19:53 | Manuel | Manuel Changelog: plot ends at the farm fence | +5 −0 |
@@ -84,7 +85,6 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 | 26 Oct 18:20 | Sebastian | Todo: starter restaurant is empty (who/when/how to restore) | +1 −0 |
 | 26 Oct 18:15 | Manuel | Manuel Changelog: farm upgrades (4 beds, sign, 2nd floor) | +16 −0 |
 | 26 Oct 18:04 | Jan | vault backup: 2026-10-26 17:04:48 | +13 −1 |
-| 26 Oct 18:01 | Jan | vault backup: 2026-10-26 17:01:33 | +8 −0 |
 
 ---
 
