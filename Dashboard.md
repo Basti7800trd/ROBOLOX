@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 18:35 (Vienna) · 77 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 19:07 (Vienna) · 78 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -50,8 +50,8 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Jan** | Head pizzaiolo | **334** | 0 | 0 | 22 | 1471 |
-| 🥈 | **Sebastian** | Sous-chef | **317** | 3 | 0 | 13 | 4109 |
-| 🥉 | **Manuel** | Dishwasher | **310** | 0 | 0 | 27 | 642 |
+| 🥈 | **Manuel** | Sous-chef | **322** | 0 | 0 | 28 | 664 |
+| 🥉 | **Sebastian** | Dishwasher | **317** | 3 | 0 | 13 | 4109 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
 > [!quote] Night oven: Sebastian
@@ -70,6 +70,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 19:06 | Manuel | Manuel: 7 seeds removed (changelog + checklist) | +15 −7 |
 | 26 Oct 18:35 | Sebastian | Todo: starter restaurant restored from v122; highlight removed | +3 −2 |
 | 26 Oct 18:20 | Sebastian | Todo: starter restaurant is empty (who/when/how to restore) | +1 −0 |
 | 26 Oct 18:15 | Manuel | Manuel Changelog: farm upgrades (4 beds, sign, 2nd floor) | +16 −0 |
@@ -84,7 +85,6 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 | 26 Oct 16:47 | Manuel | Manuel Changelog: slot machine back to full size, shorter lever | +7 −0 |
 | 26 Oct 16:40 | Manuel | Manuel Changelog: slot machine smaller | +6 −0 |
 | 26 Oct 16:27 | Manuel | Manuel Changelog: slot machine visible in Edit mode | +8 −0 |
-| 26 Oct 16:27 | Jan | vault backup: 2026-10-26 15:27:32 | +46 −12 |
 
 ---
 
