@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pizza Kitchen Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one column of kitchen "stations" — progress pass, ticket rail, staff board, order log. Tickets are the recurring object. */
+:root {
+  --bg: #f6efe3;          /* flour-dusted counter */
+  --panel: #fffaf1;       /* order ticket paper */
+  --ink: #2a211c;
+  --muted: #7a6a5e;
+  --line: #e3d6c3;
+  --tomato: #ce3e32;      /* the game's sign red, rgb(206,62,50) */
+  --basil: #3d8a4c;
+  --cheese: #e9a92a;
+  --char: #5b4a40;
+  --rail: #d9cbb6;
+  --display: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1b1613; --panel: #262019; --ink: #f3e9dc; --muted: #a8988a; --line: #3a3029;
+  --tomato: #ec5e4f; --basil: #63b673; --cheese: #f2bd4c; --char: #cbb9a8; --rail: #3d332b; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1b1613; --panel: #262019; --ink: #f3e9dc; --muted: #a8988a; --line: #3a3029;
+  --tomato: #ec5e4f; --basil: #63b673; --cheese: #f2bd4c; --char: #cbb9a8; --rail: #3d332b; color-scheme: dark }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 var(--body);
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.15; margin: 0; text-wrap: balance; }
+h2 { font-size: 1.45rem; }
+.eyebrow { font: 600 .72rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+section { display: grid; gap: 16px; min-width: 0; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- header / pass */
+header { display: grid; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.brand svg { flex: none; }
+h1 { font-size: clamp(1.9rem, 4.5vw, 2.9rem); font-weight: 700; }
+h1 em { font-style: normal; color: var(--tomato); }
+.meta { color: var(--muted); font-size: .92rem; }
+.pass { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 14px; }
+.pass-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.big { font: 700 2.4rem/1 var(--display); }
+.big small { font: 500 1rem var(--body); color: var(--muted); margin-left: 6px; }
+.bar { height: 14px; border-radius: 999px; background: var(--line); overflow: hidden; display: flex; }
+.bar span { height: 100%; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .9rem; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.s-open { background: var(--char); } .s-doing { background: var(--cheese); }
+.s-blocked { background: var(--tomato); } .s-done { background: var(--basil); }
+
+/* ---------- ticket rail */
+.rail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.col { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.col-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 2px;
+  border-bottom: 3px solid var(--rail); font: 600 1rem var(--display); }
+.col-head .count { font: 600 .8rem var(--mono); color: var(--muted); }
+.ticket { background: var(--panel); border: 1px solid var(--line); border-radius: 4px 4px 10px 10px; padding: 12px 12px 10px;
+  display: grid; gap: 8px; position: relative; min-width: 0; }
+.ticket::before { content: ""; position: absolute; left: 10px; right: 10px; top: -1px; height: 4px; border-radius: 0 0 4px 4px; }
+.col[data-s="open"] .ticket::before { background: var(--char); }
+.col[data-s="doing"] .ticket::before { background: var(--cheese); }
+.col[data-s="blocked"] .ticket::before { background: var(--tomato); }
+.col[data-s="done"] .ticket::before { background: var(--basil); }
+.col[data-s="done"] .ticket .t-title { text-decoration: line-through; text-decoration-color: var(--muted); color: var(--muted); }
+.t-title { overflow-wrap: anywhere; }
+.t-foot { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font: .74rem var(--mono); color: var(--muted); }
+.chip { font: 600 .72rem/1 var(--mono); letter-spacing: .04em; padding: 4px 7px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink); background: var(--bg); }
+.empty { border: 1.5px dashed var(--line); border-radius: 10px; padding: 14px; color: var(--muted); font-size: .9rem; }
+.empty code { font: .82rem var(--mono); color: var(--ink); overflow-wrap: anywhere; }
+
+/* ---------- crew */
+.crew { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--panel); color: var(--ink); text-decoration: none; font: 600 .9rem var(--display); }
+.btn:hover { border-color: var(--tomato); }
+.btn.primary { background: var(--tomato); border-color: var(--tomato); color: #fff; }
+a.chip, td a { color: inherit; text-decoration: none; }
+a.chip:hover, td a:hover { text-decoration: underline; }
+.member { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.member h3 { font-size: 1.15rem; display: flex; align-items: center; gap: 10px; }
+.avatar { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 700 .95rem var(--display);
+  color: #fff; flex: none; }
+.stat-row { display: flex; justify-content: space-between; gap: 8px; font-size: .9rem; }
+.stat-row b { font-variant-numeric: tabular-nums; }
+.mini { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.mini span { display: block; height: 100%; background: var(--basil); }
+
+/* ---------- leaderboard */
+.board { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.row { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 18px;
+  border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.rank { font: 700 1.7rem/1 var(--display); color: var(--muted); text-align: center; }
+.row.r1 .rank { color: var(--cheese); }
+.row.r1 { background: color-mix(in srgb, var(--cheese) 10%, transparent); }
+.who { display: grid; gap: 2px; min-width: 0; }
+.who strong { font: 600 1.15rem var(--display); }
+.who .title { font-size: .85rem; color: var(--muted); }
+.who .break { font: .74rem var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+.pts { font: 700 1.6rem/1 var(--display); text-align: right; }
+.pts small { display: block; font: 600 .7rem var(--mono); color: var(--muted); letter-spacing: .1em; margin-top: 4px; }
+.awards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.award { border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: grid; gap: 4px; background: var(--bg); min-width: 0; }
+.award strong { font: 600 1rem var(--display); }
+.award span { font-size: .88rem; color: var(--muted); overflow-wrap: anywhere; }
+.rules { font-size: .85rem; color: var(--muted); }
+
+/* ---------- log */
+.log { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+.log-item { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 12px; padding: 11px 16px; border-top: 1px solid var(--line);
+  align-items: baseline; font-size: .93rem; }
+.log-item:first-child { border-top: 0; }
+.log-item .h { font: .78rem var(--mono); color: var(--muted); text-decoration: none; }
+.log-item .msg { overflow-wrap: anywhere; }
+.log-item .by { color: var(--muted); font-size: .85rem; }
+.log-item .diff { font: .75rem var(--mono); white-space: nowrap; }
+.add { color: var(--basil); } .del { color: var(--tomato); }
+footer { color: var(--muted); font-size: .85rem; }
+footer a, .meta a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--tomato); outline-offset: 2px; }
+
+
+/* ---------- overview tiles */
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 6px; min-width: 0; }
+.tile b { font: 700 1.7rem/1 var(--display); font-variant-numeric: tabular-nums; }
+/* ---------- activity chart */
+.chart { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 10px; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart text { fill: var(--muted); font: 11px var(--mono); }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+/* ---------- person cards */
+.member .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.member .stat { background: var(--bg); border-radius: 8px; padding: 8px 10px; display: grid; gap: 2px; min-width: 0; }
+.member .stat b { font: 700 1.15rem/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.member .stat span { font-size: .72rem; color: var(--muted); }
+.member h4 { margin: 4px 0 0; font: 600 .72rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.member ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: .88rem; }
+.member li { display: flex; justify-content: space-between; gap: 8px; min-width: 0; }
+.member li .n { overflow-wrap: anywhere; min-width: 0; }
+.member li.change { display: grid; gap: 3px; }
+.member .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.member .when { color: var(--muted); font-size: .78rem; }
+.member .quiet { color: var(--muted); font-size: .88rem; }
+/* ---------- notes table */
+.table-wrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th, td { text-align: left; padding: 10px 14px; border-top: 1px solid var(--line); white-space: nowrap; }
+th { border-top: 0; font: 600 .7rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; }
+.log-item .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+@media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .tile b { font-size: 1.25rem; } }
+
+@media (max-width: 860px) { .rail { grid-template-columns: repeat(2, minmax(0, 1fr)); } .crew { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  .rail { grid-template-columns: 1fr; }
+  .row { grid-template-columns: 40px minmax(0, 1fr) auto; padding: 12px 14px; }
+  .log-item { grid-template-columns: minmax(0, 1fr) auto; } .log-item .h { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) { .bar span, .mini span { transition: width .6s ease; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+        <path d="M23 3 L43 40 Q23 47 3 40 Z" fill="var(--cheese)"/>
+        <path d="M3 40 Q23 47 43 40 L41 36 Q23 42 5 36 Z" fill="var(--char)"/>
+        <circle cx="21" cy="20" r="3.4" fill="var(--tomato)"/><circle cx="16" cy="31" r="3.4" fill="var(--tomato)"/>
+        <circle cx="29" cy="31" r="3.4" fill="var(--tomato)"/><circle cx="25" cy="25" r="1.6" fill="var(--basil)"/>
+      </svg>
+      <div>
+        <div class="eyebrow">ROBOLOX · team progress</div>
+        <h1>Automate Your <em>Pizza</em> Restaurant</h1>
+      </div>
+    </div>
+    <div class="meta" id="meta"></div>
+    <nav class="links" id="links" aria-label="Repo and vault"></nav>
+    <div class="pass" id="pass"></div>
+    <div class="tiles" id="tiles"></div>
+  </header>
+
+  <section aria-labelledby="h-act">
+    <div class="sec-head"><h2 id="h-act">Activity</h2><span class="eyebrow">changes per day · last 14 days</span></div>
+    <div class="chart" id="chart"></div>
+  </section>
+
+  <section aria-labelledby="h-rail">
+    <div class="sec-head"><h2 id="h-rail">Order rail</h2><span class="eyebrow">from Todo.md</span></div>
+    <div class="rail" id="rail"></div>
+  </section>
+
+  <section aria-labelledby="h-crew">
+    <div class="sec-head"><h2 id="h-crew">Who did what</h2><span class="eyebrow">changes · tasks · checklists</span></div>
+    <div class="crew" id="crew"></div>
+  </section>
+
+  <section aria-labelledby="h-board">
+    <div class="sec-head"><h2 id="h-board">Employee of the month</h2><span class="eyebrow">extremely scientific</span></div>
+    <div class="board" id="board"></div>
+    <div class="awards" id="awards"></div>
+    <p class="rules">Points: finished task 50 · ticked box on your own page 15 · commit 10 + 1 per 10 lines changed (max 20 per commit, so spamming
+      “AYOOOO” doesn’t win). Settings files don’t count.</p>
+  </section>
+
+  <section aria-labelledby="h-notes">
+    <div class="sec-head"><h2 id="h-notes">Notes</h2><span class="eyebrow">what changed, and who touched it</span></div>
+    <div class="table-wrap" id="notes"></div>
+  </section>
+
+  <section aria-labelledby="h-log">
+    <div class="sec-head"><h2 id="h-log">Order log</h2><span class="eyebrow">latest changes</span></div>
+    <div class="log" id="log"></div>
+  </section>
+
+  <footer>Rebuilt automatically on every push to the vault. Add tasks in <code>Todo.md</code> as
+    <code>- [ ] Task — [[JAN]] #doing</code>.</footer>
+</div>
+
+<script>
+const DATA = {"people": [{"name": "JAN", "commits": 0, "added": 0, "deleted": 0, "active_days": 0, "streak": 0, "first": null, "last": null, "notes_touched": 0, "top_notes": [], "recent": []}, {"name": "MANUEL", "commits": 0, "added": 0, "deleted": 0, "active_days": 0, "streak": 0, "first": null, "last": null, "notes_touched": 0, "top_notes": [], "recent": []}, {"name": "SEBASTIAN", "commits": 7, "added": 3954, "deleted": 3, "active_days": 1, "streak": 1, "first": "2026-10-26T01:48:13+01:00", "last": "2026-10-26T02:53:58+01:00", "notes_touched": 16, "top_notes": [{"note": "Home", "edits": 4}, {"note": "SEBASTIAN", "edits": 3}, {"note": "JAN", "edits": 2}, {"note": "Attachments/world-layout.svg", "edits": 1}, {"note": "Claude setup", "edits": 1}], "recent": [{"date": "2026-10-26T02:53:58+01:00", "subject": "Update SEBASTIAN.md", "added": 4, "deleted": 0, "notes": ["SEBASTIAN"]}, {"date": "2026-10-26T02:44:39+01:00", "subject": "Add progress website (GitHub Pages) next to the Dashboard note", "added": 1, "deleted": 1, "notes": ["Home"]}, {"date": "2026-10-26T02:38:32+01:00", "subject": "Dashboard as a self-updating Obsidian note instead of a website", "added": 1, "deleted": 0, "notes": ["Home"]}, {"date": "2026-10-26T02:26:10+01:00", "subject": "I made shit", "added": 1, "deleted": 1, "notes": ["SEBASTIAN"]}, {"date": "2026-10-26T02:23:51+01:00", "subject": "Update JAN.md", "added": 3, "deleted": 0, "notes": ["JAN"]}, {"date": "2026-10-26T01:57:01+01:00", "subject": "Add Claude setup guide", "added": 55, "deleted": 1, "notes": ["Claude setup", "Home"]}]}, {"name": "Claude", "commits": 1, "added": 6, "deleted": 6, "active_days": 1, "streak": 1, "first": "2026-10-26T03:21:56+01:00", "last": "2026-10-26T03:21:56+01:00", "notes_touched": 2, "top_notes": [{"note": "Claude setup", "edits": 1}, {"note": "Home", "edits": 1}], "recent": [{"date": "2026-10-26T03:21:56+01:00", "subject": "Update links to the RoboloxPizzaGang organization", "added": 6, "deleted": 6, "notes": ["Claude setup", "Home"]}]}, {"name": "JanPrompting", "commits": 6, "added": 1007, "deleted": 2, "active_days": 1, "streak": 1, "first": "2026-10-26T02:04:10+00:00", "last": "2026-10-26T02:10:16+00:00", "notes_touched": 15, "top_notes": [{"note": "JAN", "edits": 2}, {"note": "Roblox Changelog", "edits": 2}, {"note": "Session Handover", "edits": 2}, {"note": "Before Publish Checklist", "edits": 1}, {"note": "Beta Plan", "edits": 1}], "recent": [{"date": "2026-10-26T02:10:16+00:00", "subject": "vault backup: 2026-10-26 02:10:16", "added": 10, "deleted": 0, "notes": ["JAN"]}, {"date": "2026-10-26T02:09:15+00:00", "subject": "vault backup: 2026-10-26 02:09:14", "added": 164, "deleted": 1, "notes": ["Roblox Changelog", "Roblox Playbook", "Session Handover"]}, {"date": "2026-10-26T02:08:13+00:00", "subject": "vault backup: 2026-10-26 02:08:13", "added": 280, "deleted": 0, "notes": ["Roblox Changelog"]}, {"date": "2026-10-26T02:07:13+00:00", "subject": "vault backup: 2026-10-26 02:07:13", "added": 377, "deleted": 0, "notes": ["Before Publish Checklist", "Ideas", "Next To-Dos", "Playtest Questions", "Roblox Home", "Session Handover"]}, {"date": "2026-10-26T02:06:12+00:00", "subject": "vault backup: 2026-10-26 02:06:12", "added": 176, "deleted": 0, "notes": ["Beta Plan", "Code Map"]}, {"date": "2026-10-26T02:04:10+00:00", "subject": "vault backup: 2026-10-26 02:04:10", "added": 0, "deleted": 1, "notes": ["JAN"]}]}], "notes": [{"note": "Claude setup", "edits": 2, "last_by": "Claude", "last": "2026-10-26T03:21:56+01:00", "people": ["Claude", "SEBASTIAN"]}, {"note": "Home", "edits": 5, "last_by": "Claude", "last": "2026-10-26T03:21:56+01:00", "people": ["Claude", "SEBASTIAN"]}, {"note": "SEBASTIAN", "edits": 3, "last_by": "SEBASTIAN", "last": "2026-10-26T02:53:58+01:00", "people": ["SEBASTIAN"]}, {"note": "JAN", "edits": 4, "last_by": "JanPrompting", "last": "2026-10-26T02:10:16+00:00", "people": ["JanPrompting", "SEBASTIAN"]}, {"note": "Roblox Changelog", "edits": 2, "last_by": "JanPrompting", "last": "2026-10-26T02:09:15+00:00", "people": ["JanPrompting"]}, {"note": "Roblox Playbook", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:09:15+00:00", "people": ["JanPrompting"]}, {"note": "Session Handover", "edits": 2, "last_by": "JanPrompting", "last": "2026-10-26T02:09:15+00:00", "people": ["JanPrompting"]}, {"note": "Ideas", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:07:13+00:00", "people": ["JanPrompting"]}, {"note": "Next To-Dos", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:07:13+00:00", "people": ["JanPrompting"]}, {"note": "Setup Plan", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:07:13+00:00", "people": ["JanPrompting"]}, {"note": "Team Workflow", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:07:13+00:00", "people": ["JanPrompting"]}, {"note": "Before Publish Checklist", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:07:13+00:00", "people": ["JanPrompting"]}, {"note": "Playtest Questions", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:07:13+00:00", "people": ["JanPrompting"]}, {"note": "Weekend Session Checklist", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:07:13+00:00", "people": ["JanPrompting"]}, {"note": "UEFN to Roblox", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:07:13+00:00", "people": ["JanPrompting"]}, {"note": "Roblox Home", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:07:13+00:00", "people": ["JanPrompting"]}, {"note": "Beta Plan", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:06:12+00:00", "people": ["JanPrompting"]}, {"note": "Code Map", "edits": 1, "last_by": "JanPrompting", "last": "2026-10-26T02:06:12+00:00", "people": ["JanPrompting"]}, {"note": "Attachments/world-layout.svg", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "Code", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "Landscape code", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "Limits and safe use", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "Lobby code", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "Plots and restaurant code", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "Game overview", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "MANUEL", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "Team", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "Note", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "Task", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}, {"note": "Todo", "edits": 1, "last_by": "SEBASTIAN", "last": "2026-10-26T01:48:13+01:00", "people": ["SEBASTIAN"]}], "activity": [{"day": "2026-10-13", "counts": {}}, {"day": "2026-10-14", "counts": {}}, {"day": "2026-10-15", "counts": {}}, {"day": "2026-10-16", "counts": {}}, {"day": "2026-10-17", "counts": {}}, {"day": "2026-10-18", "counts": {}}, {"day": "2026-10-19", "counts": {}}, {"day": "2026-10-20", "counts": {}}, {"day": "2026-10-21", "counts": {}}, {"day": "2026-10-22", "counts": {}}, {"day": "2026-10-23", "counts": {}}, {"day": "2026-10-24", "counts": {}}, {"day": "2026-10-25", "counts": {}}, {"day": "2026-10-26", "counts": {"Claude": 1, "JanPrompting": 6, "SEBASTIAN": 7}}], "paths": {"Claude setup": "Claude setup.md", "Home": "Home.md", "JAN": "Team/JAN.md", "Roblox Changelog": "Team/JAN/Roblox Changelog.md", "Roblox Playbook": "Team/JAN/Roblox Playbook.md", "Session Handover": "Team/JAN/Session Handover.md", "Ideas": "Team/JAN/1 Plan and To-Dos/Ideas.md", "Next To-Dos": "Team/JAN/1 Plan and To-Dos/Next To-Dos.md", "Setup Plan": "Team/JAN/1 Plan and To-Dos/Setup Plan.md", "Team Workflow": "Team/JAN/2 Team/Team Workflow.md", "Before Publish Checklist": "Team/JAN/5 Checklists/Before Publish Checklist.md", "Playtest Questions": "Team/JAN/5 Checklists/Playtest Questions.md", "Weekend Session Checklist": "Team/JAN/5 Checklists/Weekend Session Checklist.md", "UEFN to Roblox": "Team/JAN/Knowledge/UEFN to Roblox.md", "Roblox Home": "Team/JAN/Roblox Home.md", "Beta Plan": "Team/JAN/3 Game/Automate Your Pizza Restaurant/Beta Plan.md", "Code Map": "Team/JAN/3 Game/Automate Your Pizza Restaurant/Code Map.md", "SEBASTIAN": "Team/SEBASTIAN.md", "Attachments/world-layout.svg": "Attachments/world-layout.svg", "Code": "Code/Code.md", "Landscape code": "Code/Landscape code.md", "Limits and safe use": "Code/Limits and safe use.md", "Lobby code": "Code/Lobby code.md", "Plots and restaurant code": "Code/Plots and restaurant code.md", "Game overview": "Game overview.md", "MANUEL": "Team/MANUEL.md", "Team": "Team/Team.md", "Note": "Templates/Note.md", "Task": "Templates/Task.md", "Todo": "Todo.md"}, "totals": {"added": 4967, "deleted": 11, "notes": 30}, "built": "2026-10-26T02:29+00:00", "team": ["JAN", "MANUEL", "SEBASTIAN"], "tasks": [{"title": "Move the team notebook from Claude Docs to this vault", "owners": ["SEBASTIAN"], "status": "done", "due": null}], "checklists": {"JAN": {"done": 0, "total": 0}, "MANUEL": {"done": 0, "total": 0}, "SEBASTIAN": {"done": 0, "total": 15}}, "board": [{"name": "SEBASTIAN", "commits": 7, "lines": 3957, "tasks_done": 1, "boxes": 0, "night": 15, "points": 145, "shortest": "I made shit"}, {"name": "JanPrompting", "commits": 6, "lines": 1009, "tasks_done": 0, "boxes": 0, "night": 7, "points": 134, "shortest": "vault backup: 2026-10-26 02:11:17"}, {"name": "Claude", "commits": 1, "lines": 12, "tasks_done": 0, "boxes": 0, "night": 1, "points": 11, "shortest": "Update links to the RoboloxPizzaGang organization"}, {"name": "JAN", "commits": 0, "lines": 0, "tasks_done": 0, "boxes": 0, "night": 0, "points": 0, "shortest": null}, {"name": "MANUEL", "commits": 0, "lines": 0, "tasks_done": 0, "boxes": 0, "night": 0, "points": 0, "shortest": null}], "awards": [{"title": "Night oven", "who": "SEBASTIAN", "why": "most commits between 23:00 and 05:00"}, {"title": "Keyboard smasher", "who": "SEBASTIAN", "why": "most lines changed (capped in points, sorry)"}, {"title": "Poet laureate", "who": "SEBASTIAN", "why": "commit message: “I made shit”"}], "recent": [{"hash": "50d5fbd", "author": "Claude", "person": null, "date": "2026-10-26T03:21:56+01:00", "subject": "Update links to the RoboloxPizzaGang organization", "added": 6, "deleted": 6, "notes": ["Claude setup", "Home"]}, {"hash": "bb283fd", "author": "JanPrompting", "person": null, "date": "2026-10-26T02:11:17+00:00", "subject": "vault backup: 2026-10-26 02:11:17", "added": 0, "deleted": 0, "notes": []}, {"hash": "5289e16", "author": "JanPrompting", "person": null, "date": "2026-10-26T02:10:16+00:00", "subject": "vault backup: 2026-10-26 02:10:16", "added": 10, "deleted": 0, "notes": ["JAN"]}, {"hash": "b6c3089", "author": "JanPrompting", "person": null, "date": "2026-10-26T02:09:15+00:00", "subject": "vault backup: 2026-10-26 02:09:14", "added": 164, "deleted": 1, "notes": ["Roblox Changelog", "Roblox Playbook", "Session Handover"]}, {"hash": "f6b39a2", "author": "JanPrompting", "person": null, "date": "2026-10-26T02:08:13+00:00", "subject": "vault backup: 2026-10-26 02:08:13", "added": 280, "deleted": 0, "notes": ["Roblox Changelog"]}, {"hash": "24733d3", "author": "JanPrompting", "person": null, "date": "2026-10-26T02:07:13+00:00", "subject": "vault backup: 2026-10-26 02:07:13", "added": 377, "deleted": 0, "notes": ["Before Publish Checklist", "Ideas", "Next To-Dos", "Playtest Questions", "Roblox Home"]}, {"hash": "7a1cde8", "author": "JanPrompting", "person": null, "date": "2026-10-26T02:06:12+00:00", "subject": "vault backup: 2026-10-26 02:06:12", "added": 176, "deleted": 0, "notes": ["Beta Plan", "Code Map"]}, {"hash": "a26115e", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T03:04:13+01:00", "subject": "Dashboard site: show JAN at 100% until 05:00 Vienna time", "added": 0, "deleted": 0, "notes": []}, {"hash": "dc2ce2c", "author": "JanPrompting", "person": null, "date": "2026-10-26T02:04:10+00:00", "subject": "vault backup: 2026-10-26 02:04:10", "added": 0, "deleted": 1, "notes": ["JAN"]}, {"hash": "476c14f", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:57:49+01:00", "subject": "Stop syncing .obsidian settings (they caused merge errors)", "added": 0, "deleted": 0, "notes": []}, {"hash": "c4052c0", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:57:06+01:00", "subject": "vault auto-backup: 2026-10-26 02:57:06 (DESKTOP-9LO1P8M)", "added": 0, "deleted": 0, "notes": []}, {"hash": "ae0288c", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:53:58+01:00", "subject": "Update SEBASTIAN.md", "added": 4, "deleted": 0, "notes": ["SEBASTIAN"]}, {"hash": "ee3abc2", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:53:35+01:00", "subject": "KEINE AHNUNG", "added": 0, "deleted": 0, "notes": []}, {"hash": "b4e7d5c", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:51:05+01:00", "subject": "Website: per-person stats, activity chart, notes overview, repo/vault links", "added": 0, "deleted": 0, "notes": []}, {"hash": "2fdbc4c", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:44:39+01:00", "subject": "Add progress website (GitHub Pages) next to the Dashboard note", "added": 1, "deleted": 1, "notes": ["Home"]}, {"hash": "67c269a", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:44:21+01:00", "subject": "vault auto-backup: 2026-10-26 02:44:21 (DESKTOP-9LO1P8M)", "added": 0, "deleted": 0, "notes": []}, {"hash": "dff5fd2", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:38:32+01:00", "subject": "Dashboard as a self-updating Obsidian note instead of a website", "added": 1, "deleted": 0, "notes": ["Home"]}, {"hash": "01fd1c3", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:37:02+01:00", "subject": "Add progress dashboard (GitHub Pages, rebuilt on every push)", "added": 0, "deleted": 0, "notes": []}, {"hash": "f608ba9", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:26:10+01:00", "subject": "I made shit", "added": 1, "deleted": 1, "notes": ["SEBASTIAN"]}, {"hash": "a8bf2a9", "author": "Basti7800trd", "person": "SEBASTIAN", "date": "2026-10-26T02:23:51+01:00", "subject": "Update JAN.md", "added": 3, "deleted": 0, "notes": ["JAN"]}], "commit_count": 23, "repo": "RoboloxPizzaGang/ROBOLOX"};
+const D = DATA || { built: new Date().toISOString(), team: ["JAN","MANUEL","SEBASTIAN"], tasks: [], checklists: {}, board: [], awards: [], recent: [], commit_count: 0, repo: "" };
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const S = ["open","doing","blocked","done"];
+const LABEL = { open: "Open", doing: "In the oven", blocked: "Blocked", done: "Served" };
+const COLOR = { JAN: "var(--tomato)", MANUEL: "var(--basil)", SEBASTIAN: "var(--cheese)" };
+const TITLES = ["Head pizzaiolo", "Sous-chef", "Dishwasher", "Delivery drone"];
+const ago = (iso) => {
+  const s = (Date.now() - new Date(iso)) / 1000;
+  if (s < 90) return "just now"; if (s < 3600) return Math.round(s/60) + " min ago";
+  if (s < 86400) return Math.round(s/3600) + " h ago"; return Math.round(s/86400) + " d ago";
+};
+const name = (p) => p ? p.charAt(0) + p.slice(1).toLowerCase() : "";
+
+// meta
+$("meta").innerHTML = `Updated <span title="${esc(D.built)}">${ago(D.built)}</span> · ${D.commit_count} changes so far` +
+  (D.repo ? ` · <a href="https://github.com/${esc(D.repo)}">${esc(D.repo)}</a>` : "");
+
+// repo / vault links
+const REPO = D.repo || "RoboloxPizzaGang/ROBOLOX", GH = "https://github.com/" + REPO;
+const VAULT = REPO.split("/")[1];
+const fileUrl = (n) => { const p = (D.paths || {})[n]; return p ? `${GH}/blob/main/${p.split("/").map(encodeURIComponent).join("/")}` : null; };
+const noteLink = (n, cls) => { const u = fileUrl(n); return u ? `<a class="${cls || ""}" href="${u}">${esc(n)}</a>` : `<span class="${cls || ""}">${esc(n)}</span>`; };
+$("links").innerHTML = `
+  <a class="btn primary" href="${GH}">Open repo on GitHub</a>
+  <a class="btn" href="obsidian://open?vault=${encodeURIComponent(VAULT)}">Open vault in Obsidian</a>
+  <a class="btn" href="${GH}/blob/main/Todo.md">Todo</a>
+  <a class="btn" href="${GH}/archive/refs/heads/main.zip">Download vault (.zip)</a>`;
+
+// pass
+const count = Object.fromEntries(S.map(s => [s, D.tasks.filter(t => t.status === s).length]));
+const total = D.tasks.length;
+const pct = total ? Math.round(100 * count.done / total) : 0;
+$("pass").innerHTML = `
+  <div class="pass-top"><div class="big num">${pct}%<small>${count.done} of ${total} tasks served</small></div>
+  <div class="eyebrow">kitchen status</div></div>
+  <div class="bar" role="img" aria-label="${count.done} done, ${count.doing} in progress, ${count.blocked} blocked, ${count.open} open">
+    ${total ? S.slice().reverse().map(s => `<span class="s-${s}" style="width:${100*count[s]/total}%"></span>`).join("") : ""}</div>
+  <div class="legend">${S.map(s => `<span><i class="dot s-${s}"></i>${LABEL[s]} <b class="num">${count[s]}</b></span>`).join("")}</div>`;
+
+// rail
+$("rail").innerHTML = S.map(s => {
+  const list = D.tasks.filter(t => t.status === s);
+  const items = list.length ? list.map(t => `
+    <article class="ticket"><div class="t-title">${esc(t.title)}</div>
+      <div class="t-foot">${t.owners.map(o => `<span class="chip">${esc(name(o))}</span>`).join("") || "<span>no owner</span>"}
+      ${t.due ? `<span>due ${esc(t.due)}</span>` : ""}</div></article>`).join("")
+    : (s === "open" && !total ? `<div class="empty">No orders yet. Add one to <code>Todo.md</code>:<br><code>- [ ] Build the drone menu — [[MANUEL]] #open</code></div>`
+       : `<div class="empty">Nothing here.</div>`);
+  return `<div class="col" data-s="${s}"><div class="col-head"><span>${LABEL[s]}</span><span class="count num">${list.length}</span></div>${items}</div>`;
+}).join("");
+
+// overview tiles
+const T = D.totals || { added: 0, deleted: 0, notes: 0 };
+$("tiles").innerHTML = [
+  [D.commit_count, "changes pushed"], ["+" + T.added + " / −" + T.deleted, "lines added / removed"],
+  [T.notes, "notes edited"], [count.done + " / " + total, "tasks served"]
+].map(([v, l]) => `<div class="tile"><b>${esc(v)}</b><span class="eyebrow">${esc(l)}</span></div>`).join("");
+
+// activity chart (stacked bars per person)
+(function () {
+  const A = D.activity || [], W = 700, H = 200, padL = 28, padB = 26, padT = 10;
+  const ppl = D.team.concat([...new Set(A.flatMap(a => Object.keys(a.counts)))].filter(p => !D.team.includes(p)));
+  const totals = A.map(a => Object.values(a.counts).reduce((x, y) => x + y, 0));
+  const max = Math.max(4, ...totals), step = Math.ceil(max / 4);
+  const top = step * 4, bw = (W - padL) / Math.max(1, A.length);
+  const y = v => padT + (H - padT - padB) * (1 - v / top);
+  let g = "";
+  for (let v = 0; v <= top; v += step) g += `<line class="grid" x1="${padL}" x2="${W}" y1="${y(v)}" y2="${y(v)}"/><text x="${padL - 6}" y="${y(v) + 4}" text-anchor="end">${v}</text>`;
+  A.forEach((a, i) => {
+    let base = 0; const x = padL + i * bw + bw * 0.18, w = bw * 0.64;
+    ppl.forEach(p => { const v = a.counts[p] || 0; if (!v) return;
+      g += `<rect x="${x}" y="${y(base + v)}" width="${w}" height="${y(base) - y(base + v)}" rx="3" fill="${COLOR[p] || "var(--char)"}"><title>${esc(name(p) || p)}: ${v}</title></rect>`; base += v; });
+    const d = new Date(a.day + "T12:00:00");
+    if (i % 2 === A.length % 2 || i === A.length - 1) g += `<text x="${x + w / 2}" y="${H - 8}" text-anchor="middle">${d.getDate()}.${d.getMonth() + 1}.</text>`;
+  });
+  $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Changes per day for the last 14 days">${g}</svg>
+    <div class="legend">${ppl.map(p => `<span><i class="dot" style="background:${COLOR[p] || "var(--char)"}"></i>${esc(D.team.includes(p) ? name(p) : p)}</span>`).join("")}</div>`;
+})();
+
+// who did what
+// display-only: JAN shows 100% until 05:00 Vienna time; the data itself is untouched
+const fakeJan = (p) => {
+  try { return p === "JAN" && Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Vienna", hour: "numeric", hourCycle: "h23" }).format(new Date())) < 5; }
+  catch (e) { return false; }
+};
+const PS =Object.fromEntries((D.people || []).map(p => [p.name, p]));
+const rankOf = Object.fromEntries(D.board.map((r, i) => [r.name, i]));
+$("crew").innerHTML = D.team.map(p => {
+  const s = PS[p] || { commits: 0, added: 0, deleted: 0, active_days: 0, streak: 0, notes_touched: 0, top_notes: [], recent: [], last: null };
+  const mine = D.tasks.filter(t => t.owners.includes(p));
+  const by = Object.fromEntries(S.map(x => [x, mine.filter(t => t.status === x).length]));
+  const cl = fakeJan(p) ? { done: 1, total: 1 } : D.checklists[p] || { done: 0, total: 0 };
+  const clp = cl.total ? Math.round(100 * cl.done / cl.total) : 0;
+  const stat = (v, l) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`;
+  return `<div class="member">
+    <h3><span class="avatar" style="background:${COLOR[p] || "var(--char)"}">${esc(p[0])}</span>${esc(name(p))}</h3>
+    <div class="when">${TITLES[Math.min(rankOf[p] ?? 3, TITLES.length - 1)]} · ${s.last ? "last active " + ago(s.last) : "hasn't pushed anything yet"}</div>
+    <div class="stats">
+      ${stat(s.commits, "changes")}${stat("+" + s.added, "lines added")}${stat("−" + s.deleted, "lines removed")}
+      ${stat(s.notes_touched, "notes edited")}${stat(s.active_days, "active days")}${stat(s.streak, "day streak")}
+    </div>
+    <div class="stat-row"><span>Tasks served · in the oven · blocked</span><b>${by.done}/${mine.length} · ${by.doing} · ${by.blocked}</b></div>
+    <div class="stat-row"><span>Own checklist</span><b>${cl.total ? `${cl.done} / ${cl.total}` : "—"}</b></div>
+    <div class="mini" aria-hidden="true"><span style="width:${clp}%"></span></div>
+    <h4>Most edited notes</h4>
+    ${s.top_notes.length ? `<ul>${s.top_notes.map(n => `<li>${noteLink(n.note, "n")}<b class="num">${n.edits}×</b></li>`).join("")}</ul>` : `<div class="quiet">Nothing yet.</div>`}
+    <h4>Latest changes</h4>
+    ${s.recent.length ? `<ul>${s.recent.slice(0, 4).map(c => `<li class="change"><span class="n">${esc(c.subject)}</span>
+      <span class="when">${ago(c.date)} · <span class="add">+${c.added}</span> <span class="del">−${c.deleted}</span></span>
+      <span class="chips">${c.notes.map(n => noteLink(n, "chip")).join("")}</span></li>`).join("")}</ul>` : `<div class="quiet">Nothing yet.</div>`}
+  </div>`;
+}).join("");
+
+// notes table
+const NS = D.notes || [];
+$("notes").innerHTML = NS.length ? `<table><thead><tr><th>Note</th><th class="r">Edits</th><th>Last changed by</th><th>When</th><th>Everyone who edited it</th></tr></thead><tbody>
+  ${NS.map(n => `<tr><td>${noteLink(n.note)}</td><td class="r">${n.edits}</td><td>${esc(D.team.includes(n.last_by) ? name(n.last_by) : n.last_by)}</td>
+    <td>${n.last ? ago(n.last) : "—"}</td><td>${n.people.map(p => esc(D.team.includes(p) ? name(p) : p)).join(", ")}</td></tr>`).join("")}</tbody></table>`
+  : `<div class="empty">No notes edited yet.</div>`;
+
+// leaderboard
+$("board").innerHTML = D.board.length ? D.board.map((r, i) => `
+  <div class="row r${i+1}"><div class="rank num">${i+1}</div>
+    <div class="who"><strong>${esc(D.team.includes(r.name) ? name(r.name) : r.name)}</strong>
+      <span class="title">${TITLES[Math.min(i, TITLES.length-1)]}</span>
+      <span class="break">${r.tasks_done} tasks · ${r.boxes} boxes · ${r.commits} commits · ${r.lines} lines</span></div>
+    <div class="pts num">${r.points}<small>PTS</small></div></div>`).join("")
+  : `<div class="row"><div class="rank">–</div><div class="who"><strong>Nobody has cooked yet</strong></div><div></div></div>`;
+$("awards").innerHTML = D.awards.map(a => `<div class="award"><span class="eyebrow">${esc(a.title)}</span>
+  <strong>${esc(D.team.includes(a.who) ? name(a.who) : a.who)}</strong><span>${esc(a.why)}</span></div>`).join("");
+
+// log
+$("log").innerHTML = D.recent.length ? D.recent.map(c => `
+  <div class="log-item"><a class="h" href="${GH}/commit/${esc(c.hash)}">${esc(c.hash)}</a>
+    <div><div class="msg">${esc(c.subject)}</div><div class="by">${esc(c.person ? name(c.person) : c.author)} · ${ago(c.date)}</div>
+      ${(c.notes || []).length ? `<div class="chips">${c.notes.map(n => noteLink(n, "chip")).join("")}</div>` : ""}</div>
+    <span class="diff num"><span class="add">+${c.added}</span> <span class="del">−${c.deleted}</span></span></div>`).join("")
+  : `<div class="log-item"><div></div><div class="msg">No changes yet.</div><div></div></div>`;
+</script>
+</body>
+</html>
