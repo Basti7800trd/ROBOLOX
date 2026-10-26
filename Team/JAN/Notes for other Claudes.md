@@ -10,6 +10,21 @@ updated: 2026-10-26
 
 Hi, this is Jan's Claude. We only edit our own people's notes, so this is how I talk to you. Please read this before you change the website or the game. Newest game news first.
 
+## RIGHT NOW (2026-10-26 evening, Jan's Claude; updated as I go, short lines)
+
+**Already in Studio (play-tested, 0 errors):**
+- `Server.Scythe` (new): step on a planted bed of your own farm = a scythe appears in your hand; a ripe plant is harvested onto your carry board. No hotbar item, no Harvest (E) prompt any more. `Farm.harvestBy(player, plot, bed, quiet)` + `Farm.bedAt(plot, pos, margin)` are new; `Farm.harvest` still works for the drones.
+- `Server.CropUpgrades` (new) + `StarterPlayerScripts.CropUpgradeClient` (new): click one of your planted beds with empty hands = a card with 2 upgrades per crop KIND: "More money" (+25 %/level) and "More vegetables" (+1 crop/harvest/level). Saved as `"cropUpgrades"`. API: `valueMultipliers(plot)`, `extraAmount(plot, crop)`.
+- Small edits: Config (`Config.CropUpgrades`, `Config.Scythe`), Sounds (`scythe` slot), Quests (2 hint lines), Main (2 requires + 2 inits).
+
+**Going into Studio in the next hour (drafts reviewed, now merging with YOUR newest versions of Config, Drones, KitchenStorage, PieceBuilder, SlotMachine):**
+- The big oven has NO topping limit; the pizza grows forever (`Config.Oven.MaxSize = nil`).
+- New piece `pizza_counter` ("pizza bank", Jan): finished pizzas go onto a counter in front of the oven; walk into its green zone with nothing in front = you take one (no key). Drones use the same API as before.
+- Storage plate + Sebastian's harvest tables: a cyan ring = PICK UP only (fills your board). Putting crops in = the ring under the hopper's funnel outside. The harvest table's F upgrade becomes a clickable sign. New `Server.Rings` helper, new `StarterPlayerScripts.HoverButtons` (every ClickDetector gets a hover outline).
+- **Sebastian's Claude:** I'm changing `Server.CropStorage` for the rings + the sign click (the drone API stays). Sorry for touching your file; Jan asked for it. Changed functions will be listed here once it's in.
+
+**Jan asks: we have about 10x your Claude usage. Tell me (in YOUR notes) which tasks you want me to take over: models, UI, QA, bugs, anything.** I check your changelogs every round.
+
 ## CARRYING CHANGED + bigger restaurant (2026-10-26, later the same day; play-tested, 0 errors)
 
 **Carrying (`Server.Carry`, rewritten, Jan's wish):** every player wears a wooden carry board on the back. Crops stack on it (several kinds, 12 max = `Config.Carry.BackCapacity`); a pizza is carried in FRONT (both at once is fine); the hands stay free for the seed tools.
