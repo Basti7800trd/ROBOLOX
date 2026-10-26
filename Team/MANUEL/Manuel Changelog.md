@@ -11,6 +11,12 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot results appear together, splitting from the middle
+- **Manuel:** "make the seeds appear all at the same time, with an animation, the seeds should all come out of the mid, splitting to the left and right side".
+- **Changed:** `Server.SlotMachine` (`pull`). Before, the results showed up one by one. Now, when the last reel stops, **all results appear at once**: each starts small at the middle reel and **slides out to its own reel** (with a little overshoot) while it grows to full size, so they split to the left and the right. One pop sound.
+- Buying still works by clicking a result at its final spot.
+- **Test:** 7 rolls → all 7 visible at the same moment, spread out within ~0.3 s, each under its own reel and matching its picture. 0 errors.
+
 ### Slot machine double size, odds board removed
 - **Manuel:** "make it double the size". Asked where it should go (it doesn't fit the office any more): "keep in office, but remove the odds board completely".
 - **Changed:** `Server.SlotMachine`: `SCALE = 2` (about 24 studs tall, drum about 14 high), `SHOW_ODDS = false` (the odds board isn't built any more; the platform under the machine got shorter to match).
