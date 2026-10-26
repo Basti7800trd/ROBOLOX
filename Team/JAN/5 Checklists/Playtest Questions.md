@@ -2,6 +2,13 @@
 
 Part of [[Roblox Home]]. Claude prewrites these with every change and asks them in popups after a test ("Did X work? yes / no / other"), up to 4 per popup. Answered questions go into the changelog entry; open ones stay here.
 
+## Open: scythe, crop upgrades, pizza counter, storage rings (Roblox Changelog (28), 2026-10-26)
+Popup J:
+- Did the scythe appear in your hand when you stepped on your planted bed, and did a ripe plant get harvested without pressing anything?
+- Did clicking a planted bed open the upgrade card, and did "More vegetables" give one more crop on the next harvest?
+- Did the finished pizza land on the pizza counter in front of the oven, and did walking into its green zone give it to you?
+- Did the cyan ring around the storage fill your board, and did the mint ring under the hopper outside put your crops in?
+
 ## Open: bigger restaurant + carry board (Roblox Changelog (27), 2026-10-26)
 Popup I:
 - Does the 1.5x restaurant feel right (room to walk, nothing floating or misplaced)?
