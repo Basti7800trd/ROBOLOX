@@ -20,7 +20,7 @@ Automate Your Pizza Restaurant is a multiplayer restaurant tycoon in complete be
 ### The pizza loop (by hand)
 
 1. **Order** ingredient boxes on the office PC (most cost $10 for 4–5 items). Start money is $100.
-2. After **15 s**, boxes land in the garage (max 18). Carry them to a **fridge** (60 items).
+2. After **15 s**, boxes land in the garage (max 18). Carry them to a **fridge** (60 items) or **freezer** (30 items).
 3. **Cut** vegetables (tomato, pineapple, mushroom, pepper, onion, olives): 1 vegetable = 2 portions, 1.5 s per cut.
 4. **Prep table:** add the toppings for the ordered pizza.
 5. **Oven:** bakes in **12 s**; take it out within **20 s** or it burns.
@@ -59,6 +59,15 @@ Starting pizzas: Margherita $15, Pepperoni $18, Hawaii $20, Veggie $20.
 - **Saving:** everything, every 2 min and on leave, with a session lock. Offline: drones earn 25% of the last visit's income per minute, up to 2 h.
 - **Menus:** 6 buttons on the left (OPEN, HOME, RECIPES, BUILD, DRONES, STATS), a counting money display, stars, a next-goal bar, a quest pill with CLAIM, a guide beam, flying coins.
 
+### Weather, farm and crops (added 26 Oct 2026, details in [[Sebastian Changelog]])
+
+- **Weather** (new roll every 20 min): ☀️ sunny 59 %, 🌧️ rain 30 % (crops +20 %), ⛈️ thunderstorm 10 % (crops +100 %), 🌈 rainbow 1 % (unicorns fly, customers pay ×5, crops ×10, confetti piles worth $1 each). Rain and storms darken the sky and show rain and lightning; a small badge in the top left shows the current event.
+- **Farm look:** fields are wooden planters with planting rows; one seed grows a whole 3 × 3 field of that crop (one crop per field). Each field's signpost faces the middle path; dirt paths with loose boards run down the middle and between the rows.
+- **Harvest table** (Garden, $250): crops brought by players or drones lie on it in stacks. Holds 25, +5 per upgrade (first upgrade $2K), max 75.
+- **Crop drone:** a robot drone model with a basket that shows the crops it carries (`Shared.CropDrone`; a paste-ready copy in `ServerStorage.Models`). It isn't part of the drone jobs yet.
+- **Storage room:** a dry room (carrying drones, door into the delivery shed) and a cooling chamber with fridges (60, food goes bad after 10 min) and freezers (30, nothing goes bad).
+- **Restaurant sign:** every restaurant's entrance says "Luigi's Pizza Shed", Italian trattoria style with a chef mascot.
+
 ### Not done yet
 
 - All 90 menu pictures are still emojis (prompts in 2\_IMAGE\_PROMPTS) — [[MANUEL]]'s area, with the menus.
@@ -85,7 +94,8 @@ Plot centers (x, z): Plot1 (117.5, 203.5), Plot2 (235, 0), Plot3 (117.5, −203.
 | Plaza, road, sidewalk | 0, 0 | Flat discs: plaza 128, road 172, sidewalk 184 studs wide |
 | Lobby decoration | around the plaza | 44 lamp posts, 30 trees, 4 benches, 4 flower beds, 6 paths to the plots |
 | Title sign | 5, −111 | Floats about 50 studs up, 92 studs wide |
-| Plots 1–6 | see above | 128 × 128 base, hedges, a stone gate and a name sign |
+| Plots 1–6 | see above | 128 × 256 (twice as long to the back since 26 Oct: `Base` + `BaseBack`), hedges, a stone gate and a name sign; plot 1 is named TestBuildPizzaHut in Studio |
+| Harvest table showcase | 34, 16 | On the plaza facing the fountain; crop drones fill and empty it forever (`Workspace.CropShowcase`) |
 | Waterfall and lake | 0, 599 | Part of the WorldBuilder landscape |
 | Trees, bushes, rocks | x −886 to 865, z −869 to 839 | 370 pack models + 70 loose rocks in Landscape > Props |
 

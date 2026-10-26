@@ -20,6 +20,13 @@ Click a tag (e.g. #doing) to see every task with it. Each person's page also lis
 - [ ] Task — [[JAN]] #open
 - [ ] Task — [[MANUEL]] #open
 - [ ] Task — [[SEBASTIAN]] #open
+- [ ] Tell Jan what changed in `Server.Farm` (signposts facing the middle path, 3 × 3 crop fields, demo hook) and in `builders.farm_bed`, see [[Sebastian Changelog]] — [[SEBASTIAN]] #open
+- [ ] Check the farm still fits the extended restaurant (first row of fields + its path right behind the building) — [[SEBASTIAN]] #open
+- [ ] Decide with Jan: should the oven take crops from the harvest table, and should the drone jobs use the new crop drone? — [[SEBASTIAN]] #open
+- [ ] Decide: is the fridge/freezer spoilage still used with the new harvest-basket loop? — [[SEBASTIAN]] #open
+- [ ] Find free sounds for rain and thunder (`Sounds.ids.weather_rain`, `thunder`) — [[SEBASTIAN]] #open
+- [ ] Before publishing: move or hide the test plot's yellow highlight (plot 1, TestBuildPizzaHut) — [[SEBASTIAN]] #open
+- [ ] Let players buy better weather chances with Robux (see [[SEBASTIAN#Ideas for later]]) — [[SEBASTIAN]] #open
 
 ## Done
 

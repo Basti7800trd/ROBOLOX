@@ -12,6 +12,9 @@ role: beta testing / QA
 
 # SEBASTIAN
 
+## Our Roblox notes
+- [[Sebastian Changelog]]: everything Sebastian's Claude changed in the game, newest on top (weather + events, farm look, harvest table, crop drone, Luigi's Pizza Shed sign, bigger plots, storage room, …)
+
 ## Assignment: Test pass (beta QA)
 
 Goal: test the three things [[Game overview#Not done yet|Game overview]] lists as untested — phones, several players in one server, real saving — and turn every problem into a clear bug report. No code changes needed; you touch nothing other people own.
@@ -59,7 +62,7 @@ Done when: all boxes ticked and every bug written down. Then add your 1–3 line
 
 ### Weather boosts for Robux
 
-The weather is in the game (2026-10-26): every 20 min it rolls ☀️ sunny 60 %, 🌧️ rain 30 % (crops grow +20 %), ⛈️ thunderstorm 10 % (crops grow +100 %). Settings: `Config.Weather`; code: `ServerScriptService.Server.Weather` (it already accepts custom chances: `Weather.roll(chances)`).
+The weather is in the game (2026-10-26): every 20 min it rolls ☀️ sunny 59 %, 🌧️ rain 30 % (crops grow +20 %), ⛈️ thunderstorm 10 % (crops grow +100 %), 🌈 rainbow 1 % (unicorns, money ×5, crops ×10). Settings: `Config.Weather`; code: `ServerScriptService.Server.Weather` (it already accepts custom chances: `Weather.roll(chances)`). Details: [[Sebastian Changelog]].
 
 - [ ] Let players buy a better chance for rain / thunderstorm with Robux (Developer Product, e.g. "Rain Dance": higher rain + storm chances for the next roll in that server) — [[SEBASTIAN]] #open
 
