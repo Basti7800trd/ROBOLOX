@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 04:34 (Vienna) · 30 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 11:56 (Vienna) · 32 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -39,8 +39,9 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Sebastian** | Head pizzaiolo | **215** | 1 | 4 | 8 | 3965 |
 | 🥈 | **Jan** | Sous-chef | **159** | 0 | 0 | 8 | 1061 |
-| 🥉 | **Claude** | Dishwasher | **11** | 0 | 0 | 1 | 12 |
-| 4 | **Manuel** | Delivery drone | **0** | 0 | 0 | 0 | 0 |
+| 🥉 | **MonsterAddicted** | Dishwasher | **43** | 0 | 0 | 2 | 322 |
+| 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
+| 5 | **Manuel** | Delivery drone | **0** | 0 | 0 | 0 | 0 |
 
 > [!quote] Night oven: Sebastian
 > most commits between 23:00 and 05:00
@@ -58,6 +59,8 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 11:55 | MonsterAddicted | Manuel's folder: Manuel Home, Manuel Changelog, Picture Checklist, Manuel Setup and Fixes; MANUEL.md links to them (like JAN) | +261 −30 |
+| 26 Oct 11:09 | MonsterAddicted | Manuel's page: today's game changes (drone boards, tutorial customers, hotbar Build, buttons) + setup | +30 −1 |
 | 26 Oct 04:33 | Jan | Jan's notes: Stats Lab changelog (23) and a note for other Claudes | +22 −0 |
 | 26 Oct 04:33 | Jan | vault backup: 2026-10-26 03:33:19 | +30 −0 |
 | 26 Oct 04:32 | Jan | Stats Lab: casino, weekly quests, player lore, Claude vs ChatGPT | +0 −0 |
@@ -71,8 +74,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 03:09 | Jan | vault backup: 2026-10-26 02:09:14 | +164 −1 |
 | 26 Oct 03:08 | Jan | vault backup: 2026-10-26 02:08:13 | +280 −0 |
 | 26 Oct 03:07 | Jan | vault backup: 2026-10-26 02:07:13 | +377 −0 |
-| 26 Oct 03:06 | Jan | vault backup: 2026-10-26 02:06:12 | +176 −0 |
-| 26 Oct 03:04 | Sebastian | Dashboard site: show JAN at 100% until 05:00 Vienna time | +0 −0 |
 
 ---
 
