@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 13:34 (Vienna) · 43 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 13:34 (Vienna) · 44 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 13:34 | Claude | Dashboard: count MonsterAddicted's commits as MANUEL | +0 −0 |
 | 26 Oct 13:16 | Jan | vault backup: 2026-10-26 12:16:04 | +57 −3 |
 | 26 Oct 13:03 | Jan | vault backup: 2026-10-26 12:03:58 | +5 −5 |
 | 26 Oct 13:00 | Manuel | Manuel Changelog: 9 reels opening from the middle | +6 −0 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 11:55 | Manuel | Manuel's folder: Manuel Home, Manuel Changelog, Picture Checklist, Manuel Setup and Fixes; MANUEL.md links to them (like JAN) | +261 −30 |
 | 26 Oct 11:09 | Manuel | Manuel's page: today's game changes (drone boards, tutorial customers, hotbar Build, buttons) + setup | +30 −1 |
 | 26 Oct 04:33 | Jan | Jan's notes: Stats Lab changelog (23) and a note for other Claudes | +22 −0 |
-| 26 Oct 04:33 | Jan | vault backup: 2026-10-26 03:33:19 | +30 −0 |
 
 ---
 
