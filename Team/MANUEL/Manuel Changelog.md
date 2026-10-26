@@ -11,6 +11,13 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot machine moved into the office
+- **Manuel** (top-down screenshot, the office's brown carpet marked in red): "place the slot machine in the marked spot".
+- **Changed:** `Server.SlotMachine` (`PLACE` = plot x 42.3, z 37.3, turned 90°; it now stands on the restaurant floor, `Config.FloorY`). Before it stood outside in the east yard.
+- With its 2 boards the machine is ~45 studs long, longer than the marked carpet (~32), so it fills the whole office along the outer wall: back to the wall, front facing the kitchen side, odds board at the front end, upgrade board + lever at the back end. The drum stands on the marked carpet.
+- **Note:** the office plant (back corner) now stands in the upgrade board's corner, and the office chair is right in front of the lever.
+- **Test:** pull inside → Potato offer; buy → Potato Seed x1. 0 errors.
+
 ### Slot machine: seeds have to be bought
 - **Manuel:** "if i pull a seed, it shouldnt go in my inv, i need to buy it first".
 - **Changed:** `Server.SlotMachine`. Pulling the lever is still free, but it only shows **offers** now. Each result has a **BUY $price** button (green = you can pay, red = not enough money). Click the result to buy that seed: it goes into the hotbar (the first one of a plant also unlocks its topping) and the button turns grey **✔ BOUGHT**. Offers you don't buy are gone at the next pull. "NEW!" = a seed you never had.
