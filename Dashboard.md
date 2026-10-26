@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 03:29 (Vienna) · 23 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 03:29 (Vienna) · 24 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -59,6 +59,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 03:29 | Claude | Serve the dashboard from the main branch (no Pages settings needed) | +0 −0 |
 | 26 Oct 03:21 | Claude | Update links to the RoboloxPizzaGang organization | +6 −6 |
 | 26 Oct 03:11 | JanPrompting | vault backup: 2026-10-26 02:11:17 | +0 −0 |
 | 26 Oct 03:10 | JanPrompting | vault backup: 2026-10-26 02:10:16 | +10 −0 |
@@ -73,7 +74,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 02:53 | Sebastian | Update SEBASTIAN.md | +4 −0 |
 | 26 Oct 02:53 | Sebastian | KEINE AHNUNG | +0 −0 |
 | 26 Oct 02:51 | Sebastian | Website: per-person stats, activity chart, notes overview, repo/vault links | +0 −0 |
-| 26 Oct 02:44 | Sebastian | Add progress website (GitHub Pages) next to the Dashboard note | +1 −1 |
 
 ---
 
