@@ -11,6 +11,11 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Farm fence also in Edit mode
+- **Manuel:** "update it in no simulation mode too".
+- Studio's Edit mode now shows the Level 1 look on all 6 plots: fence after the 8 beds, the part behind it hidden, hedges and ground shortened, Jan's green bed squares behind the fence hidden. Every changed part remembers its original, so upgrades in the game still bring it all back.
+- **Test:** play test Level 2 → garden + fence expand as before. 0 errors.
+
 ### Plot ends at the farm fence
 - **Manuel:** "remove the whole empty side, it should only appear, when i upgrade it".
 - `Server.Farm`: behind the fence, the plot's back ground, trees, flowers and bees are hidden; the side hedges get shorter and the back hedge moves up to the fence. With the Level 2 upgrade it all grows out to the new fence. Nothing deleted.
