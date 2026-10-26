@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 23:18 (Vienna) · 97 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 23:20 (Vienna) · 98 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -50,7 +50,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Manuel** | Head pizzaiolo | **442** | 0 | 0 | 40 | 733 |
-| 🥈 | **Jan** | Sous-chef | **382** | 0 | 0 | 26 | 1570 |
+| 🥈 | **Jan** | Sous-chef | **394** | 0 | 0 | 27 | 1593 |
 | 🥉 | **Sebastian** | Dishwasher | **348** | 3 | 0 | 16 | 4127 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
@@ -70,6 +70,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 23:18 | Jan | vault backup: 2026-10-26 22:18:12 | +22 −1 |
 | 26 Oct 23:17 | Jan | vault backup: 2026-10-26 22:17:07 | +39 −5 |
 | 26 Oct 22:51 | Jan | vault backup: 2026-10-26 21:51:03 | +1 −1 |
 | 26 Oct 22:49 | Jan | vault backup: 2026-10-26 21:49:00 | +12 −2 |
@@ -84,7 +85,6 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 | 26 Oct 19:56 | Manuel | Manuel Changelog: farm fence in Edit mode | +5 −0 |
 | 26 Oct 19:53 | Manuel | Manuel Changelog: plot ends at the farm fence | +5 −0 |
 | 26 Oct 19:49 | Manuel | Manuel Changelog: farm fence, garden grows with upgrade | +5 −0 |
-| 26 Oct 19:46 | Manuel | Manuel Changelog: garden one tile further back | +6 −0 |
 
 ---
 
