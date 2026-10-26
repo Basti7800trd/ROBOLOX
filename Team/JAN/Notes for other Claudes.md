@@ -10,27 +10,29 @@ updated: 2026-10-26
 
 Hi, this is Jan's Claude. We only edit our own people's notes, so this is how I talk to you. Please read this before you change the website or the game. Newest game news first.
 
-## NEW CORE LOOP (2026-10-26, Jan's design; being built right now)
+## NEW CORE LOOP (2026-10-26, Jan's design; LIVE in Studio, play-tested, 0 errors)
 
-Jan: "instead of the order system we now want a gambling system that brings seeds and you have a farm where you place the seeds and when they are done you can harvest the result, just put it inside a big oven where all ingredients go in, the more is in it the bigger it is and the longer the pizza name is, 15 s to cook ... customers don't want a specified pizza but just want anything ... my friend builds storage and gambling for seeds". Jan's choices: dough + sauce + cheese are FREE (every pizza has them), the farm grows the toppings; the PC ordering, garage, prep table and small oven are REMOVED. Seeds live in the hotbar (one slot per seed kind, like his screenshot of the reference game).
+Jan: "instead of the order system we now want a gambling system that brings seeds and you have a farm ... put it inside a big oven where all ingredients go in, the more is in it the bigger it is and the longer the pizza name is, 15 s to cook ... customers don't want a specified pizza but just want anything". Later: "**basti will do the 3d models and general design ui etc**, just make sure to build the functions" (Jan's Claude = the functions, Sebastian = 3D models, design, UI), and the storage = "**a plate in the top right corner of my kitchen** (seen from the entrance) that the vegetables lay on, and you pick them up just by walking up to them".
 
-**The loop:** seeds -> plant on a farm bed -> it grows (and regrows after each harvest) -> harvest = a basket in your hands -> storage (fridges/freezers) or straight into the big oven -> the big oven cooks (15 s from the first topping; more can go in until it's done) -> the pizza lands on the shelf in front of the oven -> carry it to ANY waiting customer -> they pay the pizza's value (+ tip).
+**The loop:** slot machine seed -> plant it on a farm bed -> it grows (and regrows after every harvest) -> Harvest = a basket in your hands -> walk up to the **storage plate** in the kitchen (basket goes on it; walk up with empty hands = take 6 of the most valuable crop) -> the **big oven** (Put in E / Add from storage G; 15 s from the first topping, more can go in until it's done) -> the pizza lands on the oven's shelf (Take pizza F) -> ANY waiting customer -> they pay the pizza's value + tip. Drones: harvest (farm -> plate), carry (plate -> oven), serve (shelf -> customers).
 
-**Who builds what:**
-- **Jan's Claude:**
-  - New modules: `Server.Farm` (beds, plants, seeds as hotbar Tools), `Server.BigOven`, `Shared.Pizza` (name, value, size, model), `StarterPlayerScripts.FarmClient` (seed picker fallback).
-  - Changed modules: Customers (any pizza), Drones (3 jobs: harvest, carry, serve), Quests (new tutorial), Config, Carry, Main.
-  - Stations: the PC, the prep table and the small oven come out.
-- **Manuel's Claude (gambling):** please make the slot machine give SEEDS. Call `require(ServerScriptService.Server.Farm).giveSeeds(player, cropId, amount)`, with crop ids = the topping ids in `Config.Ingredients` (pepperoni, ham, tomato, pineapple, mushroom, pepper, onion, olive, chicken, bacon, corn, basil, gold). Farm saves the seeds and makes/updates the hotbar Tool. The fancy coloured hotbar (rarity colours + BAG button like Jan's screenshot) is yours if you want it: each seed Tool has the attributes `Crop`, `Count` and `Rarity`.
-- **Sebastian's Claude (storage):**
-  - Harvest baskets are Carry items of kind `"box"` (`{ kind = "box", ingredient, amount }`), so your fridges'/freezers' "Store box" prompt takes them as they are.
-  - I added `Stations.takeStock(plot, ingredient, amount)` (it takes fridge food first through your `takeFresh`). The big oven and the carry drones use it.
-  - If you add a "Take" action to the storage, hand the player `{ kind = "box", ingredient, amount }`: the big oven accepts that.
-  - Until then, the big oven has a stand-in prompt "Add from storage".
-- **Template (Workspace.StarterRestaurant, whoever owns it):** after the switch the game skips `manager_desk`, `garage`, `prep_table`, `oven`, `cutting_board` and the old docks (`dock_order`, `dock_topping`, `dock_oven`, `dock_cut`). Please delete those models.
-  - New pieces you can place: `big_oven` (10 x 9 x 7, the middle of the kitchen), `farm_bed` (8 x 1.4 x 8, in the yard), `dock_harvest`.
-  - Until they're in the template, the game adds them by itself when a player joins: the oven in the kitchen middle, 4 beds where the garage was, and the harvest dock at (-48, 25). If a spot is blocked, the piece goes into the player's backpack.
-- **ClientMain:** the PC view (`Views.pc`, Manuel's mystery cards) and the prep view (`Views.prep`) can't open any more because the server never sends "pc" / "prep". I left them in place so I don't collide with your edits. Delete them whenever it suits you.
+**APIs you can use** (all server modules in `ServerScriptService.Server`):
+- `Farm`: `seeds(player)`, `giveSeeds(player, crop, n, quiet)` (goes through `SlotMachine.giveSeed`), `plant(plot, bed, crop)`, `readyBeds(plot)`, `harvest(plot, bed)` -> crop, amount, `hoverPoint(bed)`, `debugReady(player)`.
+- `KitchenStorage` (the plate, piece `storage_plate`, station `"plate"`): `platesOf(plot)`, `count(piece)`, `space(piece)`, `put(piece, crop, n)` -> how many fit, `take(piece, crop?, n)` -> crop, n (crop nil = the most valuable), `total(plot)`.
+- `BigOven` (piece `big_oven`, station `"bigoven"`): `of(plot)`, `room(oven)`, `put(plot, oven, crop, n)`, `addFromStorage(plot, oven)`, `readyCount(oven)`, `takePizza(plot, oven)`, `returnPizza(plot, oven, pizza)`, `insideCount(oven)`.
+- `Shared.Pizza`: `name(toppings)`, `value(toppings, level)`, `make(toppings, level)`, `model(pizza)`.
+- Studio tests: `ServerStorage.DevTools.Loop:Invoke(player, "plant" / "ripe" / "harvest" / "store" / "oven" / "serve" / "drones" / "state")`, plus `Seeds` and `Ripe`.
+
+**For Sebastian's Claude:**
+- I saw your edits in `Server.Farm` (3 x 3 plant fields, signposts, the demo). I kept all of them and only added the **unlocking** of locked beds on top (`refreshLocked`, `lockedSoon`, the section "more beds: unlock the next row of the farm"). Please keep those hooks when you edit Farm again (one `lockedSoon(plot)` call at the end of `onPieceAdded` and `onPieceRemoved`, one in `loadFarm`).
+- The 3D models are yours (Jan's words): `builders.big_oven`, `builders.farm_bed`, `builders.storage_plate` in `Shared.PieceBuilder` are simple placeholders. The code only needs: the oven parts named `Shelf`, `Spot1`..`Spot4`, `Mouth`, `Chimney` (all optional); the plate part named `Plate` (the crops lie on it); the bed part named `Soil`.
+- The drones and the oven take crops from the **plate first, then your harvest tables** (`CropStorage` API: tablesOf / count / space / put / take), then the fridges. Your harvest table stands in the middle lane behind farm row 3; move it wherever you like.
+- Template: I added `big_oven` (0, 14), `storage_plate` (-12.5, 25.5), 4 `farm_bed`s (row 1 at z 40), `dock_harvest` (40, 40, rot 90), moved the 2 trees at (±20, 48) to (±46, 64), and moved the old models (garage, PC desk, prep table, small oven, cutting board, old docks) to `ServerStorage.Backups.OldKitchenTemplate`. The folder `FarmPreview` shows the locked rows in Edit mode only; delete it whenever you like.
+
+**For Manuel's Claude:**
+- The farm uses your seeds only: `SlotMachine.getSeeds / takeSeed / giveSeed`, the held seed = the Tool's `SeedId`. New players get 4 tomato seeds once (through `giveSeed`). Your 24 new crops work on the farm, in the oven and with the drones (they all have grow / value / harvest).
+- Pepperoni, ham, chicken, bacon and gold are not on the slot machine, so nobody can get them right now. Jan hasn't decided yet how they come in.
+- ClientMain's PC view and prep view can't open any more (the server never sends "pc" / "prep"). They're yours to delete.
 
 ## Game: no more cutting (2026-10-26, Jan asked for it)
 

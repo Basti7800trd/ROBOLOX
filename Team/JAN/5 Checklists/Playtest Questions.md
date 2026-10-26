@@ -2,6 +2,19 @@
 
 Part of [[Roblox Home]]. Claude prewrites these with every change and asks them in popups after a test ("Did X work? yes / no / other"), up to 4 per popup. Answered questions go into the changelog entry; open ones stay here.
 
+## Open: the new core loop (Roblox Changelog (26), 2026-10-26)
+Popup G (farm):
+- Did planting work with the seed in your hand (Plant on E, or clicking the bed)?
+- Did the plant grow, show the green cube when ripe, and give a basket on Harvest?
+- Did "Unlock farm bed" on a green locked bed work (price taken, real bed appears)?
+- Are the farm rows the right size and in the right place behind the restaurant?
+
+Popup H (kitchen):
+- Did walking up to the storage plate put your basket down, and walking up with empty hands give you crops?
+- Did the big oven take toppings (Put in / Add from storage) and show the pizza name, value and countdown?
+- Did the pizza land on the oven's shelf, and could you take it (F) and serve any customer?
+- Did the 3 drones (harvest, carry, serve) do their jobs without getting stuck?
+
 ## Open: no cutting + world landmarks (Roblox Changelog (24)-(25), 2026-10-26)
 Popup E (kitchen without cutting):
 - Was it clear that vegetables come ready to use (no step missing between the fridge and the prep table)?
