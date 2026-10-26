@@ -11,6 +11,14 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot machine visible in Studio's Edit mode
+- **Manuel:** "make everything visible, thats invisible right now (slot machine upgrader etc.)".
+- **Why it was invisible:** the slot machine (drum, upgrade board, odds board, lever) is built by the script when the game **runs**, so in Edit mode there was nothing to see. In a play test it was always there.
+- **New:** `Workspace.StarterRestaurant.SlotMachinePreview`, a full copy of the machine (boards filled in, nothing clickable) that you can see in Edit mode. When the game runs it goes to ServerStorage together with the starter restaurant, so it never shows twice.
+- **Bonus:** move or turn the preview in Studio and every restaurant's machine stands there in the game (`placeCF` in `Server.SlotMachine`).
+- If the machine's look changes later, the preview has to be rebuilt (`SlotMachine.buildPreview`); ask Manuel's Claude.
+- **Test:** Edit mode shows the machine; play test → the real machine at the same spot, no double. 0 errors.
+
 ### Slot reels spin separately + rarity LEDs
 - **Manuel:** "make the wheels spin seperatly, first middle, left from middle right from middle and so on, but only a really short time span in between, and make LEDS that glow in the color same as the rarity which will drop in that exact spin".
 - **Changed:** `Server.SlotMachine`.
