@@ -13,6 +13,24 @@ Some changes touch scripts other people own (Jan's `Server.Farm`, the shared `Sh
 
 ## 2026-10-26
 
+### Werewolf roaming the map
+- **Sebastian:** "make it so a werewolf is roaming and screaming around the map even in editor mode".
+- **New:** `ReplicatedStorage.Shared.Werewolf`: a ~12-stud werewolf made of parts (glowing yellow eyes, fangs, claws, mane, tail) that walks around the lobby and out into the grass gaps between the plots. Every 20–45 s, and at the end of each gap trip, it stops, rears up and howls ("Werewolf Howl" from the Creator Store, `rbxassetid://126184468091152`). It is moved by CFrame: no physics, it walks through things.
+- **In the game:** `ServerScriptService.Werewolf` starts one for everyone. The howl is a 3D sound you hear up to ~320 studs away. Set `ENABLED = false` in that script to take it out.
+- **In Edit mode:** `Werewolf.startEditPreview()` puts one under your own camera: only you see and hear it, and it's never saved. It runs until Studio closes. To have it start on its own, install the small local plugin `Werewolf.lua` in your Roblox Plugins folder.
+- **Test:** play test: it walks at 9 studs/s, sound loads, 0 errors. The Edit-mode one is running.
+- **Update:** "only roams our plot which we constantly work on": it now only walks on Plot 1 (TestBuildPizzaHut): restaurant, yard and farm (`onPlot` / `plan`, plot x −56..56, z −56..182). It howls at the end of about half of its walks.
+- **Update:** "it should do the griddy when near it": when a player (in Edit mode: your camera) comes within 25 studs (`GRIDDY_RANGE`), it stops, turns to face them and does the griddy (quick knee lifts, pumping arms, bounce and sway, and every 4 s the "goggles" hands). It walks on when they leave. Play-tested with a player 12 studs away, 0 errors.
+- **Update:** "can it too say 67 and make the dance": while someone is near, it switches between 4 s of griddy and 3 s of **"6 7!"**: a speech bubble, the voice line ("67 Six seven", `rbxassetid://96108773303678`) and the 67 hands (palms up, going up and down in turns, head tilting). Play-tested: bubble shows, sound loads.
+- **Update:** "it's gambling addicted too, and constantly licks the slot machine": about every other walk ends at the slot machine (Edit mode: `StarterRestaurant.SlotMachinePreview`; in the game: Plot 1's `SlotMachine`). It hugs the machine and licks it with a pink tongue for 8–14 s, with a bubble like "just one more spin 🎰" or "*slurp* 👅" (`LICK_LINES`). Play-tested: licked the machine from 7.4 studs away, bubble shown.
+
+### Big oven: indoors, no roof or lamps
+- Rebuilt `builders.big_oven` after Sebastian's reference picture: a round cream stone body, 4 arched mouths with fire, hearth ledges with firewood niches, 4 stone chimneys with terracotta caps and smoke, ivy, barrels, a sack and a pot, on a cobbled base (20 × 20). Then "the oven is indoor and doesn't need either a roof nor lamps": the tile roof and the lanterns are gone; the top is a flat stone crown with a rim. Jan's names (`Shelf`, `Spot1`–`Spot4`, `Mouth`, `Chimney`) are kept.
+
+### Harvest drone station outside, storage table under the pipe
+- `dock_harvest` in `Workspace.StarterRestaurant` moved outside in front of the back wall, right of the back door (28, 94.5), facing the fields. `Config.DroneDocks.harvest` points there too (only for restaurants that don't have a harvest station yet).
+- `crop_table` centred under the crop pipe's spout inside (-28, 88).
+
 ### Farm: wooden planters, 3 × 3 crop fields, signs facing the middle path, dirt paths
 - **Sebastian:** "the signs are supposed to face the big path in the middle, make it so only a specific crop can be planted in one field, make the path more dirtlike … with planks (not like a normal floor)", then "instead of bricks, outside the fields make it planks and let the dirt inside look more dynamic".
 - **Farm beds** (`builders.farm_bed` in `Shared.PieceBuilder`): a wooden garden planter, 2 rows of plank boards per side in different wood colours, a top board, dark corner posts, ivy on the front corners and a painted maiolica tile with lemons. Inside: 3 raised planting rows, dark furrows, clumps and pebbles. The part `Soil` is unchanged (same size, top still 1.15), so Jan's planting code works as before. The 4 starter beds in `Workspace.StarterRestaurant` were rebuilt.

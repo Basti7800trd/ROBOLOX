@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 20:07 (Vienna) · 88 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 20:30 (Vienna) · 93 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -49,9 +49,9 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Manuel** | Head pizzaiolo | **422** | 0 | 0 | 38 | 722 |
-| 🥈 | **Jan** | Sous-chef | **334** | 0 | 0 | 22 | 1471 |
-| 🥉 | **Sebastian** | Dishwasher | **317** | 3 | 0 | 13 | 4109 |
+| 🥇 | **Manuel** | Head pizzaiolo | **442** | 0 | 0 | 40 | 733 |
+| 🥈 | **Sebastian** | Sous-chef | **348** | 3 | 0 | 16 | 4127 |
+| 🥉 | **Jan** | Dishwasher | **334** | 0 | 0 | 22 | 1471 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
 > [!quote] Night oven: Sebastian
@@ -70,6 +70,11 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 20:30 | Sebastian | Sebastian Changelog: werewolf says 67 and licks the slot machine | +2 −0 |
+| 26 Oct 20:19 | Manuel | Manuel Changelog: decor behind fence stored | +5 −0 |
+| 26 Oct 20:18 | Sebastian | Sebastian Changelog: werewolf only on plot 1, does the griddy | +2 −0 |
+| 26 Oct 20:16 | Manuel | Manuel Changelog: old farm paths out | +6 −0 |
+| 26 Oct 20:14 | Sebastian | Sebastian Changelog: werewolf, indoor oven, harvest station outside | +14 −0 |
 | 26 Oct 20:06 | Manuel | Manuel Changelog: farm wider, further, higher | +7 −0 |
 | 26 Oct 19:59 | Manuel | Manuel Changelog: slot machine preview fixed | +6 −0 |
 | 26 Oct 19:56 | Manuel | Manuel Changelog: farm fence in Edit mode | +5 −0 |
@@ -80,11 +85,6 @@ Open **7** · In the oven **0** · Blocked **0** · Served **3**
 | 26 Oct 19:19 | Manuel | Manuel Changelog: farm 8/16/24/32 beds | +6 −0 |
 | 26 Oct 19:16 | Manuel | Manuel Changelog: farm levels counted from 1 | +5 −0 |
 | 26 Oct 19:11 | Manuel | Manuel Changelog: garden moved behind the white floor | +8 −0 |
-| 26 Oct 19:06 | Manuel | Manuel: 7 seeds removed (changelog + checklist) | +15 −7 |
-| 26 Oct 18:35 | Sebastian | Todo: starter restaurant restored from v122; highlight removed | +3 −2 |
-| 26 Oct 18:20 | Sebastian | Todo: starter restaurant is empty (who/when/how to restore) | +1 −0 |
-| 26 Oct 18:15 | Manuel | Manuel Changelog: farm upgrades (4 beds, sign, 2nd floor) | +16 −0 |
-| 26 Oct 18:04 | Jan | vault backup: 2026-10-26 17:04:48 | +13 −1 |
 
 ---
 

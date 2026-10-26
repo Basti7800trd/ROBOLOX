@@ -11,6 +11,17 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Nothing invisible behind the farm fence
+- **Manuel** (screenshot with outlines of invisible trees behind the fence): "this part too".
+- `Server.Farm`: trees, bushes and flowers behind the fence are now **stored** in `ServerStorage > FarmStash` instead of being made invisible, and come back when an upgrade moves the fence. So there's nothing left behind the fence (no outlines). Same in Edit mode.
+- **Test:** Level 1 stores 111 pieces on Plot 1; Level 2 brings all of them back. 0 errors.
+
+### Old farm paths taken out
+- **Manuel** (screenshot with blue outlines of invisible parts behind the farm): "this part too".
+- The old stone paths, arches and path flowers of the farm area were invisible since the new layout but still in the game (Studio drew outlines around them when selected). ~2,450 parts per plot moved to `ServerStorage > Backups > OldFarmPaths_Manuel`.
+- Trees and hedges behind the fence stay: they come back with the Level 2 upgrade.
+- **Test:** play test fine, 0 errors.
+
 ### Farm further away, more room, higher 2nd floor
 - **Manuel:** "move the garden again 1 chunk away from the restaurant, and make more room in between of the beds and the 2nd floor higher".
 - First bed row 16 studs further back (z 120); rows 20 apart (8-stud paths), wider gaps between the beds and a wide middle lane. 2nd floor at 18 studs (was 12), stairs longer to match.
