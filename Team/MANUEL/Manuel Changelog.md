@@ -11,6 +11,15 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot machine: one reel per roll, locked reels covered
+- **Manuel** (screenshot: grey covers over unused reels): "make the slots that r not used like that …, if i upgrade roll amount, 1 of the rolls unlocks".
+- **Changed:** `Server.SlotMachine`
+  - The drum has **8 reels** (= `Config.Slot.MaxRolls`), each one roll wide; the drum is now 17.6 studs long, and the caps, counter, lever and both boards moved out to make room (`DRUM_LEN`, `REELS`, `reelX`).
+  - Every reel you haven't unlocked has a **grey cover** (a cylinder with two lighter rims) that doesn't turn. You start with reel 1 open (the viewer's left).
+  - Buying **Roll Amount** opens the next reel: its cover grows a little and fades away, with a "pop" sound (`refresh` → `m.covers`). After loading a save, the right number of reels is open.
+  - Each result now stands **above its own reel**.
+- **Test:** new player = 1 open reel, 7 covers; 2 Roll Amount clicks ($1K + $3K) opened reels 2 and 3; a 3-roll pull put Pepperoni, Mushroom and Pineapple above reels 1-3. 0 errors.
+
 ### PC: locked toppings are mystery cards
 - **Manuel:** "lock all the toppings in the computer, so that the player doesent know what toppings exist".
 - **Changed:** `ClientMain` (`Views.pc.card` + `Views.pc.update`): a topping you haven't unlocked shows a **"?"** instead of its picture, **"???"** as name and price, the lock and "🎰 slot machine". Locked cards move to the end of the list; when one is unlocked it shows normally again. The "+" message now says "Unlock this topping at the 🎰 slot machine first" without the name.
