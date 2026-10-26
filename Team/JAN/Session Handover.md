@@ -3,7 +3,7 @@
 Part of [[Roblox Home]]. To start a fresh Claude Code session that knows everything without re-reading the whole history: open VS Code in `D:\HAVIL\-Roblox\` (that folder also loads Claude's memory files), open the Claude tab and paste the box below. Claude refreshes this note at the end of every session (last: 2026-10-26, after changelog (21)).
 
 ```
-Continue my ROBLOX project: my first Roblox game, with 2 friends, all 3 new to Roblox Studio; we work mostly on weekends. Phase 1 = how we start and work together, not the game yet. Working folder: D:\HAVIL\-Roblox\ . My Roblox Obsidian vault is your long-term memory: C:\Users\schmu\Documents\Roblox Vault\
+Continue my ROBLOX project: my first Roblox game, with 2 friends, all 3 new to Roblox Studio; we work mostly on weekends. Phase 1 = how we start and work together, not the game yet. Working folder: D:\HAVIL\-Roblox\ . My Roblox Obsidian vault is your long-term memory: C:\Users\schmu\Documents\GitHub\ROBOLOX\Team\JAN\ (since 2026-10-26; the old Roblox Vault is an archive)
 
 Read now, nothing else:
 0. FIRST: my friends work in Studio between our sessions. Read PART 1 of our shared team notebook in Studio (ServerStorage.TeamGuide.0_TEAM_NOTEBOOK, newest on top). Then compare every Studio script with the disk copy (sizes in Roblox Changelog (13) + (14)) and copy their changes to disk before you edit anything. Also ask me what my friends changed in the team repo, https://github.com/Basti7800trd/ROBOLOX. Claude commits there through the Obsidian Git plugin once you have cloned it (Changelog (17)). JanPrompting is Jan's own collaborator account (Changelog (18)).

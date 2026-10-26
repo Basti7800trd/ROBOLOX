@@ -4,6 +4,15 @@ Part of [[Roblox Home]]. Everything done in the Roblox project, numbered. **The 
 
 ## 2026-10-26
 
+### (22) Our notes are in the team repo: `Team/JAN/` (14 notes, same content); from now on we write here
+- **User:** "put all of our stuff in Jan". Asked whether PowerShell was needed for the copy: "you can just edit the md file on my pc ... even without powershell no?" So the notes were written with the file tools (Read, then Write), no PowerShell.
+- **Copied:** 14 notes from the Roblox Vault into `C:\Users\schmu\Documents\GitHub\ROBOLOX\Team\JAN\`, folders kept, `.obsidian` skipped. Checked: every note has the same line count as its original (987 lines on each side).
+- **Not copied:** the Jan notepad HTML page (the repo is markdown only; its content is in these notes) and the game scripts (large; Studio stays the source of truth).
+- **From now on:** we write only in `Team/JAN/` (this copy). The old `Roblox Vault` folder is an archive with no more edits.
+- **Team/JAN.md** (Jan's page) got a link list to the notes. A long line someone else added to that page was left untouched.
+- **Not pushed yet:** the automatic sync (every minute) commits and pushes the new files.
+- **Notes:** memory `project-roblox-team`, [[Session Handover]].
+
 ### (21) Obsidian Git set up with PowerShell: commit-and-sync every 1 minute, `.obsidian` kept out of automatic commits
 - **User:** "can we do it at like 1 so it updates each 1 minute instead because 10 is too long"; then "usepowershell to set it up for me". PowerShell was allowed for this job only.
 - **Checked first (read only):** the plugin is installed (main.js, manifest.json, styles.css, data.json). The repo's `.gitignore` already ignores the plugin's code and `workspace.json`. The Git identity is set globally: JanPrompting with Jan's Gmail (from GitHub Desktop's Author tab). The open Obsidian window is "Settings - ROBOLOX - Obsidian 1.14.5", so the clone is the open vault. `git status` showed Obsidian's own settings as modified or untracked (`app.json`, `community-plugins.json`, `core-plugins.json`, `appearance.json`, `graph.json`, `themes/`). An automatic commit would have sent them to the team.
