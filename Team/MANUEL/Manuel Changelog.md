@@ -11,6 +11,15 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Our own hotbar + bag
+- **Manuel** (2 screenshots from another game): "img1 is the hotbar, img2 is the opened bag, but dont add 'sprays, potions, cleanse, tools'".
+- **New:** `StarterPlayerScripts.Inventory` (LocalScript). Roblox's own backpack is switched off.
+  - **Hotbar** (bottom middle, kept clear of the money + goal bar): a blue **BAG** button + **10 slots** on a dark brown bar, numbered 1–9 and 0. Slot 1 = Build, then the seeds in the order you got them. Slot colour = rarity (white Common, green Uncommon, blue Rare, purple Epic, …; other tools light blue), a red badge with the count (from 2), a gold outline on the item you hold. Keys 1–0 or a click = hold / put away.
+  - **Bag** (the BAG button, X closes it): tabs **All** and **Seeds** only, "BACKPACK" + item counter, a tan grid with every item (also the ones that don't fit in the hotbar), and a taped info card on the right: "PICK AN ITEM" → hover = preview, click = keep it on the card; picture, name, rarity, "You have N", **EQUIP / UNEQUIP**.
+  - Works with any Tool, so Jan's garden tools show up too (picture = the Tool's TextureId, otherwise its first letter). Shrinks on small screens.
+- **Fixes on the way:** the olive emoji 🫒 is invisible in Roblox (it showed as an empty slot) → 🟢 in `UIAssets` and `Config`, until there's a picture. Moving the mouse to EQUIP used to switch the card to another item → click now keeps the item on the card.
+- **Test:** 12 items (Build, 8 seed types, 3 test tools): hotbar showed the first 10 with colours + badges, the bag showed all 12; key 3 = Pepper Seed held; EQUIP = Basil Seed held. 0 errors.
+
 ### Test tools: speed slider + infinite money (Studio only)
 - **Manuel:** "add a slide bar on the side so i can move faster while testing, also give me infinite money".
 - **New (both switch themselves off outside Studio, `RunService:IsStudio()`, so real players never get them):**
