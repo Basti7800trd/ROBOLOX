@@ -11,6 +11,11 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### No more plants inside the restaurant
+- **Manuel:** "remove all the grass bushes trees etc that r in the restaurant".
+- On all 6 plots, every garden decoration inside the building (arches, bushes, trees, flowers, grass tufts, stepping stones, a sunflower, bees) was moved to `ServerStorage > Backups > RestaurantGreenery_Manuel` (not deleted).
+- The grass blades sticking up through the floor came from the ground (terrain) under the restaurant: there it's plain ground now, so no blades. The garden outside is unchanged.
+
 ### Farm: 8 / 16 / 24 / 32 beds
 - **Manuel:** "i meant lvl1 8 fields, lvl 2 16 and so on, but make it like before, that the garden expands with the upgrade" (+ keep the 2nd floor).
 - `Config.Farm.StarterBeds = 8` (4 more starter beds in `Workspace.StarterRestaurant`). Level 1 = 8 (2 rows), Level 2 = 16 (2 new rows further back), Level 3 = 24 (2nd floor over all 4 rows + 8 beds), Level 4 = 32 (16 upstairs). Prices unchanged.
