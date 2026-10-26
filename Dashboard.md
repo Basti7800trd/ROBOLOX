@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 15:45 (Vienna) · 57 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 15:57 (Vienna) · 58 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -37,7 +37,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Jan** | Head pizzaiolo | **273** | 0 | 0 | 17 | 1331 |
+| 🥇 | **Jan** | Head pizzaiolo | **287** | 0 | 0 | 18 | 1376 |
 | 🥈 | **Manuel** | Sous-chef | **183** | 0 | 0 | 15 | 495 |
 | 🥉 | **Sebastian** | Dishwasher | **175** | 1 | 0 | 10 | 3981 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 15:56 | Jan | vault backup: 2026-10-26 14:56:31 | +42 −3 |
 | 26 Oct 15:44 | Manuel | vault backup: 2026-10-26 15:44:14 | +6 −0 |
 | 26 Oct 15:34 | Manuel | Manuel Changelog: back door to the farm | +7 −0 |
 | 26 Oct 15:33 | Jan | vault backup: 2026-10-26 14:33:01 | +3 −3 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 13:49 | Sebastian | SEBASTIAN: idea for later - buy weather chances with Robux | +8 −0 |
 | 26 Oct 13:40 | Jan | vault backup: 2026-10-26 12:40:55 | +22 −0 |
 | 26 Oct 13:34 | Claude | Dashboard: count MonsterAddicted's commits as MANUEL | +0 −0 |
-| 26 Oct 13:16 | Jan | vault backup: 2026-10-26 12:16:04 | +57 −3 |
 
 ---
 
