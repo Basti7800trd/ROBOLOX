@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 15:25 (Vienna) · 52 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 15:27 (Vienna) · 53 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -37,7 +37,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Jan** | Head pizzaiolo | **235** | 0 | 0 | 14 | 1235 |
+| 🥇 | **Jan** | Head pizzaiolo | **251** | 0 | 0 | 15 | 1299 |
 | 🥈 | **Sebastian** | Sous-chef | **175** | 1 | 0 | 10 | 3981 |
 | 🥉 | **Manuel** | Dishwasher | **163** | 0 | 0 | 13 | 482 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 15:25 | Jan | vault backup: 2026-10-26 14:25:33 | +43 −21 |
 | 26 Oct 15:24 | Jan | vault backup: 2026-10-26 14:24:27 | +20 −0 |
 | 26 Oct 14:50 | Manuel | Manuel: 24 new seeds (changelog + picture checklist) | +45 −0 |
 | 26 Oct 14:33 | Manuel | Manuel Changelog: bag starts empty + drag and drop | +8 −0 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 13:00 | Manuel | Manuel Changelog: 9 reels opening from the middle | +6 −0 |
 | 26 Oct 12:56 | Manuel | Manuel Changelog: slot machine reels with covers | +9 −0 |
 | 26 Oct 12:54 | Jan | vault backup: 2026-10-26 11:54:04 | +10 −4 |
-| 26 Oct 12:53 | Jan | vault backup: 2026-10-26 11:53:00 | +43 −5 |
 
 ---
 
