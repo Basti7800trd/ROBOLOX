@@ -10,6 +10,28 @@ updated: 2026-10-26
 
 Hi, this is Jan's Claude. We only edit our own people's notes, so this is how I talk to you. Please read this before you change the website or the game. Newest game news first.
 
+## NEW CORE LOOP (2026-10-26, Jan's design; being built right now)
+
+Jan: "instead of the order system we now want a gambling system that brings seeds and you have a farm where you place the seeds and when they are done you can harvest the result, just put it inside a big oven where all ingredients go in, the more is in it the bigger it is and the longer the pizza name is, 15 s to cook ... customers don't want a specified pizza but just want anything ... my friend builds storage and gambling for seeds". Jan's choices: dough + sauce + cheese are FREE (every pizza has them), the farm grows the toppings; the PC ordering, garage, prep table and small oven are REMOVED. Seeds live in the hotbar (one slot per seed kind, like his screenshot of the reference game).
+
+**The loop:** seeds -> plant on a farm bed -> it grows (and regrows after each harvest) -> harvest = a basket in your hands -> storage (fridges/freezers) or straight into the big oven -> the big oven cooks (15 s from the first topping; more can go in until it's done) -> the pizza lands on the shelf in front of the oven -> carry it to ANY waiting customer -> they pay the pizza's value (+ tip).
+
+**Who builds what:**
+- **Jan's Claude:**
+  - New modules: `Server.Farm` (beds, plants, seeds as hotbar Tools), `Server.BigOven`, `Shared.Pizza` (name, value, size, model), `StarterPlayerScripts.FarmClient` (seed picker fallback).
+  - Changed modules: Customers (any pizza), Drones (3 jobs: harvest, carry, serve), Quests (new tutorial), Config, Carry, Main.
+  - Stations: the PC, the prep table and the small oven come out.
+- **Manuel's Claude (gambling):** please make the slot machine give SEEDS. Call `require(ServerScriptService.Server.Farm).giveSeeds(player, cropId, amount)`, with crop ids = the topping ids in `Config.Ingredients` (pepperoni, ham, tomato, pineapple, mushroom, pepper, onion, olive, chicken, bacon, corn, basil, gold). Farm saves the seeds and makes/updates the hotbar Tool. The fancy coloured hotbar (rarity colours + BAG button like Jan's screenshot) is yours if you want it: each seed Tool has the attributes `Crop`, `Count` and `Rarity`.
+- **Sebastian's Claude (storage):**
+  - Harvest baskets are Carry items of kind `"box"` (`{ kind = "box", ingredient, amount }`), so your fridges'/freezers' "Store box" prompt takes them as they are.
+  - I added `Stations.takeStock(plot, ingredient, amount)` (it takes fridge food first through your `takeFresh`). The big oven and the carry drones use it.
+  - If you add a "Take" action to the storage, hand the player `{ kind = "box", ingredient, amount }`: the big oven accepts that.
+  - Until then, the big oven has a stand-in prompt "Add from storage".
+- **Template (Workspace.StarterRestaurant, whoever owns it):** after the switch the game skips `manager_desk`, `garage`, `prep_table`, `oven`, `cutting_board` and the old docks (`dock_order`, `dock_topping`, `dock_oven`, `dock_cut`). Please delete those models.
+  - New pieces you can place: `big_oven` (10 x 9 x 7, the middle of the kitchen), `farm_bed` (8 x 1.4 x 8, in the yard), `dock_harvest`.
+  - Until they're in the template, the game adds them by itself when a player joins: the oven in the kitchen middle, 4 beds where the garage was, and the harvest dock at (-48, 25). If a spot is blocked, the piece goes into the player's backpack.
+- **ClientMain:** the PC view (`Views.pc`, Manuel's mystery cards) and the prep view (`Views.prep`) can't open any more because the server never sends "pc" / "prep". I left them in place so I don't collide with your edits. Delete them whenever it suits you.
+
 ## Game: no more cutting (2026-10-26, Jan asked for it)
 
 - **Vegetables and fruit arrive already cut.** Tomato, pineapple, mushroom, pepper, onion and olive boxes hold 8 ready portions (`Config.Ingredients[...].box = 8`, no `cut` field any more). One stock item = one pizza's worth, for every ingredient.
