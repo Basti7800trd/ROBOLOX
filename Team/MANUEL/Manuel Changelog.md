@@ -11,6 +11,12 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot machine preview fixed
+- **Manuel:** "why is the slot machine disorted".
+- Someone had scaled the slot machine preview in Studio (to 0.76×) and moved it to the other side of the restaurant. The drum and reels hang on separate invisible axles, so they stayed behind at the old spot, floating over the wall.
+- **Fix:** rebuilt the preview in one piece at the new spot; `SCALE = 1.52` in `Server.SlotMachine` (= 2 × 0.76), so the game uses the same size and spot. Broken copy in `ServerStorage > Backups > SlotMachinePreview_old`.
+- **Test:** play test → machine in the same place and size. 0 errors.
+
 ### Farm fence also in Edit mode
 - **Manuel:** "update it in no simulation mode too".
 - Studio's Edit mode now shows the Level 1 look on all 6 plots: fence after the 8 beds, the part behind it hidden, hedges and ground shortened, Jan's green bed squares behind the fence hidden. Every changed part remembers its original, so upgrades in the game still bring it all back.
