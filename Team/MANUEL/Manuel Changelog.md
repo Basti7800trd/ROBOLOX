@@ -11,6 +11,31 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### The slot machine gives SEEDS (for Jan's garden)
+- **Manuel:** "remove the ingredients, add seeds that i can plant in the garden jan is making right now … the player has to pull on the machine for seeds, plant those seeds in the garden, harvest the fruits and vegetables and make the pizza, u and me just should focus on the slot machine and the seeds now".
+- **Manuel's choices:** non-plants (dough, sauce, cheese, meat, gold leaf) are Jan's part, skip them · seeds go into the **hotbar**, and into the **backpack** when the hotbar is full (Manuel sends a picture of the bag later) · the **PC stays until Jan's garden works**.
+- **Seeds** (`Config.Slot.Items`, price = the seed's value):
+
+| Seed | Rarity | oneIn | Price |
+|---|---|---|---|
+| Tomato | Common | 3 | $10 |
+| Mushroom | Common | 4 | $12 |
+| Pepper | Uncommon | 8 | $25 |
+| Pineapple | Uncommon | 10 | $30 |
+| Onion | Uncommon | 12 | $35 |
+| Corn | Rare | 30 | $120 |
+| Olives | Rare | 40 | $160 |
+| Basil | Epic | 100 | $500 |
+
+- **Changed:**
+  - `Shared.Config`: `Config.Slot.Items` = the 8 plant seeds (with `price`); `Config.StarterToppings` now also has pepperoni, ham, chicken, bacon, gold (Jan's part, so they count as unlocked; a pizza unlocks once you've got the seeds of its plants).
+  - `Server.SlotMachine`: every roll = **1 seed** (repeats add more). Each seed type is a **Tool** "Tomato Seed x3" (attributes `SeedId` + `Count`, held as a coloured seed packet with the plant's picture). Build stays slot 1; Roblox's backpack holds the tools after the 10 hotbar slots. The first seed of a plant still unlocks its topping, so the PC and recipes keep working. Results say "Tomato Seed" + "NEW!" or "+1 seed"; message "🌱 +N seeds"; celebration "New seed!". Odds board shows the seed names, prices and how many you have. Sign: "🎰 SEED SLOTS 🌱".
+  - Seeds are saved (`"slot"` save) and come back after respawning.
+  - **For Jan's garden:** `SlotMachine.getSeeds(player)`, `SlotMachine.takeSeed(player, id, n)`, `SlotMachine.giveSeed(player, id, n)`; the held seed = the equipped Tool's `SeedId`. Written in PART 1 of the team notebook for Jan's Claude.
+- **Test:** 2 pulls → Build | Tomato Seed x4 | Onion Seed x1 | Mushroom Seed x1 | Corn Seed x2 (BBQ Chicken + Meat Lovers unlocked); same after respawn and after DevTools Rejoin. 0 errors.
+- **Pictures needed (Manuel, ChatGPT):** 8 seed packets for the hotbar (Tomato, Mushroom, Pepper, Pineapple, Onion, Corn, Olive, Basil). Until then the hotbar shows the tool names as text.
+- Jan is already building the garden side: a weather system ("Rain! Crops grow 20% faster") showed up in the test.
+
 ### Slot machine: 9 reels, opening from the middle
 - **Manuel:** "make it 9 rolls, and it should start from the middle (roll amount 1 = the middle roll), and upgrade from the middle, (roll amount 2 = left from middle, roll amount 3 = right from middle) and so on".
 - **Changed:** `Config.Slot.MaxRolls = 9` (so 9 reels and max 9 rolls). `Server.SlotMachine`: new `reelOf(k)` = which reel roll k uses: 1 → reel 5 (middle), 2 → 4, 3 → 6, 4 → 3, 5 → 7, 6 → 2, 7 → 8, 8 → 1, 9 → 9 (reels counted from the viewer's left). The covers and the results use it.

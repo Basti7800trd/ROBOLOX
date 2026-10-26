@@ -135,6 +135,17 @@ These 3 are **WHITE** (the game colours them), so **WITHOUT STYLE**:
 
 **Total: 90 slots**
 
+## New: seed packets for the hotbar (2026-10-26) · 8
+For the seed tools from the slot machine. Not in UIAssets yet: when they're made, Manuel's Claude puts them on the tools (TextureId).
+- [ ] **seed.tomato**: A small paper seed packet with a tomato on the front, STYLE
+- [ ] **seed.mushroom**: A small paper seed packet with a mushroom on the front, STYLE
+- [ ] **seed.pepper**: A small paper seed packet with a green pepper on the front, STYLE
+- [ ] **seed.pineapple**: A small paper seed packet with a pineapple on the front, STYLE
+- [ ] **seed.onion**: A small paper seed packet with an onion on the front, STYLE
+- [ ] **seed.corn**: A small paper seed packet with a corn cob on the front, STYLE
+- [ ] **seed.olive**: A small paper seed packet with olives on the front, STYLE
+- [ ] **seed.basil**: A small paper seed packet with basil leaves on the front, STYLE
+
 ---
 
 **Related:** [[Manuel Home]] · [[Manuel Changelog]] · [[MANUEL]]
