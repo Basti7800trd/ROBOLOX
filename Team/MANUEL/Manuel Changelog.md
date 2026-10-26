@@ -11,6 +11,12 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Garden moved one floor tile further back
+- **Manuel:** "move the whole garden a bit further 1 chunk (1 chunk = 1 floor size)".
+- Everything of the farm moved 16 studs back on all 6 plots: bed spots (rows now z 104 / 120 / 136 / 152), starter beds + Jan's preview, paths, stones, grass edges, arches. Trees/bushes/flowers around stay.
+- Path pieces that would now stick out past the back hedge are in `ServerStorage > Backups > FarmDecorTrimmed2_Manuel`.
+- **Test:** all 4 levels' beds at the new rows. 0 errors.
+
 ### No more plants inside the restaurant
 - **Manuel:** "remove all the grass bushes trees etc that r in the restaurant".
 - On all 6 plots, every garden decoration inside the building (arches, bushes, trees, flowers, grass tufts, stepping stones, a sunflower, bees) was moved to `ServerStorage > Backups > RestaurantGreenery_Manuel` (not deleted).
