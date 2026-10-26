@@ -2,6 +2,8 @@
 """Reads the vault (Todo, checklists, git history) and writes _site/index.html.
 Runs in GitHub Actions on every push. Standard library only."""
 import json, os, re, subprocess, datetime as dt
+from zoneinfo import ZoneInfo
+VIE = ZoneInfo("Europe/Vienna")
 from collections import defaultdict
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -67,11 +69,13 @@ for block in log.split(SEP)[1:]:
         if len(parts) != 3:
             continue
         a, d, f = parts
-        if f.startswith(".obsidian") or f.startswith(".github"):
+        if f.startswith(".obsidian") or f.startswith(".github") or f == "Dashboard.md":
             continue  # settings and the dashboard itself don't count as work
         files.append(f)
         if a != "-":
             added += int(a); deleted += int(d)
+    if author in ("dashboard-bot", "github-actions[bot]"):
+        continue
     commits.append({"hash": h[:7], "author": author, "person": who(author), "date": date,
                     "subject": subject, "added": added, "deleted": deleted, "files": files})
 
@@ -130,8 +134,72 @@ data = {
     "repo": os.environ.get("GITHUB_REPOSITORY", "Basti7800trd/ROBOLOX"),
 }
 
-os.makedirs(os.path.join(ROOT, "_site"), exist_ok=True)
-html = open(os.path.join(HERE, "template.html"), encoding="utf-8").read()
-payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-open(os.path.join(ROOT, "_site", "index.html"), "w", encoding="utf-8").write(html.replace("/*__DATA__*/null", payload))
+
+# ---------- write Dashboard.md
+def nm(p): return p.capitalize() if p in TEAM else p
+def link(p): return f"[[{p}]]" if p in TEAM else p
+def bar(done, total, width=20):
+    if not total: return "`" + "░" * width + "`"
+    n = round(width * done / total)
+    return "`" + "█" * n + "░" * (width - n) + "`"
+count = {s: sum(t["status"] == s for t in tasks) for s in STATUSES}
+total = len(tasks)
+pct = round(100 * count["done"] / total) if total else 0
+LABEL = {"open": "Open", "doing": "In the oven", "blocked": "Blocked", "done": "Served"}
+TITLES = ["Head pizzaiolo", "Sous-chef", "Dishwasher", "Delivery drone"]
+MEDAL = ["🥇", "🥈", "🥉"]
+stamp = dt.datetime.now(VIE).strftime("%d %b %Y, %H:%M")
+
+L = []
+L += ["---", "tags:", "  - dashboard", f"updated: {dt.date.today().isoformat()}", "---", ""]
+L += ["# Dashboard", "",
+      f"> [!info] Updated automatically on every push · last update {stamp} (Vienna) · {len(commits)} changes so far",
+      "> Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.", ""]
+L += ["## Kitchen status", "",
+      f"**{pct}%** done — {count['done']} of {total} tasks served", "",
+      bar(count["done"], total, 30), "",
+      " · ".join(f"{LABEL[s]} **{count[s]}**" for s in STATUSES), ""]
+
+L += ["## Order rail", ""]
+if not tasks:
+    L += ["> [!tip] No tasks yet", "> Add one to [[Todo]]: `- [ ] Build the drone menu — [[MANUEL]] #open`", ""]
+else:
+    for s, icon in [("doing", "🔥"), ("blocked", "⛔"), ("open", "📝"), ("done", "✅")]:
+        rows = [t for t in tasks if t["status"] == s]
+        if not rows: continue
+        L += [f"### {icon} {LABEL[s]} ({len(rows)})", ""]
+        for t in rows:
+            owners = ", ".join(link(o) for o in t["owners"]) or "*no owner*"
+            due = f" · due {t['due']}" if t["due"] else ""
+            L.append(f"- {'~~' + t['title'] + '~~' if s == 'done' else t['title']} — {owners}{due}")
+        L.append("")
+
+L += ["## Kitchen crew", "", "| | Tasks served | In the oven | Blocked | Own checklist |", "| --- | --- | --- | --- | --- |"]
+for p in TEAM:
+    mine = [t for t in tasks if p in t["owners"]]
+    by = {s: sum(t["status"] == s for t in mine) for s in STATUSES}
+    cl = checklists[p]
+    clt = f"{bar(cl['done'], cl['total'], 10)} {cl['done']}/{cl['total']}" if cl["total"] else "—"
+    L.append(f"| {link(p)} | {by['done']} / {len(mine)} | {by['doing']} | {by['blocked']} | {clt} |")
+L.append("")
+
+L += ["## Employee of the month", "", "*Extremely scientific.*", "",
+      "| | Who | Title | Points | Tasks | Boxes | Commits | Lines |", "| --- | --- | --- | ---: | ---: | ---: | ---: | ---: |"]
+for i, r in enumerate(board):
+    rank = MEDAL[i] if i < 3 else str(i + 1)
+    L.append(f"| {rank} | **{nm(r['name'])}** | {TITLES[min(i, len(TITLES)-1)]} | **{r['points']}** | {r['tasks_done']} | {r['boxes']} | {r['commits']} | {r['lines']} |")
+L.append("")
+for a in awards:
+    L += [f"> [!quote] {a['title']}: {nm(a['who'])}", f"> {a['why']}", ""]
+L += ["> [!note]- How points work",
+      "> Finished task in [[Todo]] **50** · ticked box on your own page **15** · commit **10** + 1 per 10 lines changed (max 20 per commit, so spamming “AYOOOO” doesn't win). Settings files and this note don't count.", ""]
+
+L += ["## Order log", "", "| When | Who | What | Lines |", "| --- | --- | --- | ---: |"]
+for c in commits[:15]:
+    when = dt.datetime.fromisoformat(c["date"]).astimezone(VIE).strftime("%d %b %H:%M")
+    subj = c["subject"].replace("|", "\\|")
+    L.append(f"| {when} | {nm(c['person']) if c['person'] else c['author']} | {subj} | +{c['added']} −{c['deleted']} |")
+L.append("")
+L += ["---", "", "**Related:** [[Home]] · [[Todo]] · [[Team]]", ""]
+open(os.path.join(ROOT, "Dashboard.md"), "w", encoding="utf-8").write("\n".join(L))
 print(f"tasks={len(tasks)} commits={len(commits)} leader={board[0]['name']}")

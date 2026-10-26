@@ -1,34 +1,34 @@
-name: Progress dashboard
+name: Update Dashboard note
 
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - Dashboard.md
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: dashboard
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  update:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Build dashboard from the vault
+      - name: Build Dashboard.md from the vault
         run: python3 .github/dashboard/build.py
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-      - id: deploy
-        uses: actions/deploy-pages@v4
+      - name: Commit it back
+        run: |
+          git config user.name "dashboard-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Dashboard.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Update Dashboard"
+          git pull --rebase -X theirs || true
+          git push
