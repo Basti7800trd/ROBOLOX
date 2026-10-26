@@ -11,6 +11,38 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Topping slot machine (replaces buying recipes)
+- **Manuel** (2 screenshots from another game): "remove the system how to unlock new toppings, i want a slot machine where u can unlock them, u need to pull a lever to spin, … u start with only 1 roll, and have to upgrade ur roll amount and luck boost …, give each item a rarity and a pull chance and also a custom price".
+- **Manuel's choices:** a roll **only unlocks** (repeats give nothing) · pizzas unlock **by themselves** when all their toppings are unlocked · pulling is **free, no waiting** (one spin = 3 s) · new players start with the **Margherita** toppings (dough, sauce, cheese, tomato).
+- **How it plays:** every restaurant has a slot machine in its yard (east side, facing the restaurant). Click the red lever ball (or the "Pull" prompt) → the drum spins → one result per roll on the counter: name, rarity, real chance, price, "NEW!" or "✔ have it". New toppings get a message + celebration (fanfare from Epic up). Next to it: a board with **Luck Boost** (green) and **Roll Amount** (blue), clicked like the drone boards, and an **ODDS** board with every topping (✅ = unlocked).
+- **The toppings** (`Config.Slot.Items`; price = the PC box price):
+
+| Topping | Rarity | oneIn | Price |
+|---|---|---|---|
+| Pepperoni | Common | 3 | $10 |
+| Ham | Common | 3 | $12 |
+| Mushroom | Common | 4 | $12 |
+| Pineapple | Uncommon | 8 | $15 |
+| Pepper | Uncommon | 10 | $15 |
+| Onion | Uncommon | 12 | $18 |
+| Corn | Rare | 30 | $25 |
+| Olives | Rare | 40 | $30 |
+| Chicken | Epic | 100 | $60 |
+| Basil | Epic | 150 | $60 |
+| Bacon | Legendary | 500 | $120 |
+| Gold Leaf | Mythic | 2500 | $500 |
+
+  The game shows the **real** chance, worked out from all of them (e.g. Pepperoni 1 in 4, Gold Leaf about 1 in 3.2K at luck x1.0).
+- **Upgrades:** Luck Boost: 10 levels, each +10 % (x1.0 → x2.0); rarer tiers get more of it (chance × luck^tier). Price $500, ×2.2 per level. Roll Amount: 1 → 8 rolls; $1K for the 2nd, ×3 per roll.
+- **Changed (in Studio):**
+  - `Shared.Config`: new `Config.StarterToppings` + `Config.Slot` (rarities, items, upgrade numbers); box prices by rarity; `unlock`/`stars` in `Config.Menu` marked as not used; quest template `unlockRecipe` weight 0.
+  - `Server.Recipes` rewritten: `plot.toppings` (unlocked toppings) → `plot.recipes` worked out from it; `Recipes.unlockTopping`; owner attributes `Recipes` + `Toppings`; old saves (a list of bought pizzas) are converted to their toppings, so nobody loses a pizza. `neededIngredients` = dough + unlocked toppings (what the PC sells and drones order).
+  - **New** `Server.SlotMachine`: builds the machine per plot, the spin, results, upgrades, odds board; saved as `"slot"` = { luck, rolls }.
+  - `Main`: requires + inits `SlotMachine`, registers the `"slot"` save.
+  - `ClientMain`: the PC locks by topping ("🎰 slot machine"); the Recipe Book shows **Missing toppings** + "Spin the slot machine!" instead of stars / price / UNLOCK; the goal bar and red dot no longer point at recipes.
+- **Test:** new player = only Margherita; real mouse clicks on the lever: Pepperoni (Common, 1 in 4, $10, NEW!) → the Pepperoni pizza joined the menu by itself; Roll Amount 1 → 5 and Luck x1.2 bought by clicking (right prices taken); a 5-roll pull showed 5 results with readable cards; Recipe Book showed the missing toppings; DevTools Rejoin kept toppings, pizzas, rolls and luck. 0 errors.
+- **Good to know:** the drum and result icons use the ingredient pictures from UIAssets, so they change as soon as those pictures are added ([[Picture Checklist]]). Ordering drones now order every unlocked topping, also ones no pizza uses yet. The machine isn't in the tutorial yet.
+
 ### Clickable drone upgrade boards
 - **Manuel** (with a screenshot from another tycoon): "there are drone upgrade buttons, i want it to work exactly like that, so u can upgrade the drone by just clicking that buttons".
 - **Changed:** `ServerScriptService.Server.Drones`
