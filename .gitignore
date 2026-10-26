@@ -6,3 +6,6 @@
 .trash/
 .DS_Store
 _site/
+
+# Obsidian settings are per person (they caused merge errors)
+.obsidian/

@@ -8,7 +8,8 @@ Obsidian vault for the team (JAN · MANUEL · SEBASTIAN). Start at **Home.md**.
 2. GitHub Desktop → **File → Clone repository** → pick this repo.
 3. Obsidian → **Open folder as vault** → the cloned folder.
 4. Obsidian → Settings → Community plugins → **Turn on** → Browse → install **Git** (by Vinzent) → Enable.
-   It pulls when you open the vault and commits + pushes every 10 minutes.
+   Then in its settings: **Auto commit-and-sync interval = 10**, **Pull on startup = on**.
+   Obsidian settings are personal and not synced, so everyone does this once.
 
 ## Claude
 
