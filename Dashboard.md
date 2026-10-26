@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 02:38 (Vienna) · 6 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 02:38 (Vienna) · 7 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -37,7 +37,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Sebastian** | Head pizzaiolo | **125** | 1 | 0 | 5 | 3987 |
+| 🥇 | **Sebastian** | Head pizzaiolo | **135** | 1 | 0 | 6 | 3989 |
 | 🥈 | **Jan** | Sous-chef | **0** | 0 | 0 | 0 | 0 |
 | 🥉 | **Manuel** | Dishwasher | **0** | 0 | 0 | 0 | 0 |
 
@@ -57,6 +57,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 02:38 | Sebastian | Dashboard as a self-updating Obsidian note instead of a website | +1 −1 |
 | 26 Oct 02:37 | Sebastian | Add progress dashboard (GitHub Pages, rebuilt on every push) | +1 −0 |
 | 26 Oct 02:26 | Sebastian | I made shit | +1 −1 |
 | 26 Oct 02:23 | Sebastian | Update JAN.md | +3 −0 |
