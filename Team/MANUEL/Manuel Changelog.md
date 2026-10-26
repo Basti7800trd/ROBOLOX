@@ -11,6 +11,14 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Garden moved behind the white floor
+- **Manuel** (top-down screenshot, the beds overlapping the white floor behind the restaurant): "move the field a bit more outwards, so the whole garden starts after the white floor".
+- The white floor (loose `floor_kitchen` pieces in Workspace) ends at z 76; the garden's front path started at z 70 and the beds at z 74.
+- **Moved everything 8 studs further back:** the bed spots (`Config.Farm.BedSpots`: rows at z 88, 104, …), the 4 starter beds and Jan's bed preview in `Workspace.StarterRestaurant`, and the dirt paths + stones (`FarmPath`, `FarmStone`) on **all 6 plots**. The upgrade sign and the 2nd floor follow by themselves.
+- At the far end, ~29 path/stone pieces per plot would have stuck through the back hedge: they're kept in `ServerStorage > Backups > FarmDecorTrimmed_Manuel`, and the middle lane got a bit shorter.
+- Restaurants that are already saved keep their beds where they were.
+- **Test:** 16 beds (all upgrades) at z 88 / 104, 2nd floor above them, sign just after the floor. 0 errors.
+
 ### 7 seeds removed (25 left)
 - **Manuel:** "remove galaxy mushroom, crystal berry, ghost pumpkin, moon melon, rainbow carrot, golden apple, candy corn".
 - **Changed:** removed from `Config.Ingredients`, `Config.Slot.Items` and `UIAssets.Ingredients`. **25 seeds** are left. There are no **Legendary** or **Mythic** seeds any more: the rarest now are the Epic ones (Basil, Ghost Pepper, Dragon Fruit, Star Fruit).
