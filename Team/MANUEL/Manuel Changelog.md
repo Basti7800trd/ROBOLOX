@@ -11,6 +11,12 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot machine double size, odds board removed
+- **Manuel:** "make it double the size". Asked where it should go (it doesn't fit the office any more): "keep in office, but remove the odds board completely".
+- **Changed:** `Server.SlotMachine`: `SCALE = 2` (about 24 studs tall, drum about 14 high), `SHOW_ODDS = false` (the odds board isn't built any more; the platform under the machine got shorter to match).
+- **Position:** still in the office, back to the outer wall, centred on the room. It sticks out through the roof and about 10 studs past both ends of the office. Studio preview rebuilt.
+- **Test:** pull → Pepper Seed, pepper in front. 0 errors.
+
 ### Slot machine size, 2nd try: back to full size, shorter lever
 - **Manuel** (new reference picture, player standing right next to the machine): "try again, here is a new pic".
 - **Measured** against the player (~5 studs): the reference machine is ~12 studs tall, its drum ~6.5–7 high, its reels ~1.9 wide. That's our **original** size, so the first guess (0.65, from an angled picture) was too small. `SCALE` is back to **1**.
