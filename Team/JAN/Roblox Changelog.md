@@ -4,6 +4,24 @@ Part of [[Roblox Home]]. Everything done in the Roblox project, numbered. **The 
 
 ## 2026-10-26
 
+### (24) No more cutting: vegetables and fruit arrive already cut (game)
+- **User:** "remove the cut vegetables step so the things are automatically cut when they arrive first and manuel will add a gambling system to receive fruits instead of the current way its built right now so dont do anything there". Also: "we now all use the robolox obsidian vault to automatically share knowledge by using our own tab and only creating notes connected to our name ... you can read the notes by the others to communicate with them".
+- **First, the team's changes (the rule from (13)):** Manuel's Claude had changed 8 scripts since my last copy, and built a **topping slot machine** while I worked (new `Server.SlotMachine`, `Config.Slot`, `Config.StarterToppings`, new box prices, rewritten `Recipes`, a new starter restaurant template `Workspace.StarterRestaurant`). A helper copied every changed script to disk byte for byte (checked with a checksum) before I edited anything. I didn't touch the slot machine, the PC, the garage or the deliveries.
+- **What changed in the game:**
+  - Vegetable and fruit boxes (tomato, pineapple, mushroom, pepper, onion, olives) now hold **8 ready portions** instead of 4 whole ones. Before, 4 whole = 8 portions after cutting, so the prices and the number of pizzas per box stay the same.
+  - Gone: the **cutting board** (station, "Cut vegetables" prompt, CUTTING BOARD menu, "needs 🍅 cut" / "cut 🍅!" bubbles), the **cutting drones** (5 drone types now: ordering, carrying, toppings, oven, serving; prices unchanged), the tutorial step **"Cut a tomato"** (10 steps now, $385 of rewards before the first drone), and the endless quest **"Cut N vegetables"**.
+  - The prep table, the drones and the hints use the fridge stock directly. The message "Not enough Tomato (cut it first 🔪)" is now "Not enough Tomato".
+  - Old saves: cut portions ("tomato_cut") count as plain "tomato" when a save loads. Saved cutting boards, cutting docks and "cut" drones are skipped (the save code already skips unknown pieces and drone types).
+  - `Config.StarterLayout` (used when there's no template): a counter where the cutting board stood, no cutting dock.
+- **Scripts (one quick edit per script, so nobody's work gets overwritten):** Config, Stations, Drones, Quests, ClientMain, Main, SaveService, PieceBuilder. Notes in Studio: 0_TEAM_NOTEBOOK (a PART 1 line, PART 3 + 4 updated, "his" -> names), 1_READ_ME, 2_IMAGE_PROMPTS (drone.cut, station.cut, stat.veggiesCut marked "not needed any more").
+- **Left alone on purpose:**
+  - `Workspace.StarterRestaurant` (the new template on Plot 1; someone is still working on it) still has a `cutting_board` and a `dock_cut` model. The game skips them now. I asked the team in PART 1 to delete them.
+  - Unused slots: UIAssets `drone.cut`, `station.cut`, `stat.veggiesCut`; the `chop` sound; the `cut` colour in UIKit. Harmless.
+- **Tested (Studio playtest, 0 errors, 0 warnings):** the plot has no cutting board or cutting dock; tutorial order -> fill the fridge -> open -> make -> bake -> serve; a Margherita made by hand straight from the fridge (fridge 80 -> 76); all 5 drone types bought and working for 50 s (ordered 3 boxes, stored 3, made 1 pizza, served 2); buying a "cut" drone is refused.
+- **Backups:** `D:\HAVIL\-Roblox\PizzaRestaurant\backup\before-24\` (my versions from before this session) and `backup\before-24-team-version\` (Manuel's versions right before my edits). Also Studio: right-click a script > View Script History.
+- **Not tested yet:** loading a real old save with cut portions (needs API access in Studio); the template leftovers on a fresh server once someone deletes them.
+- **Also started (the user: "use more subagents also to continue what i stopped you with yesterday as long as you dont interrupt other editors", popup answer: world landmarks):** 3 helpers draft the windmill + farm, the bridge + dock + path lamps, and fences + flowers + hot-air balloons as code on disk (`PizzaRestaurant\work\landmarks\`). I build them in Studio after review: see (25).
+
 ### (23) The website got a Stats Lab: XP, quests, Dough, a casino, insider jokes
 - **User:** "can you just make it 100x cooler including humor and cool statistics", then: insider jokes (Manu loves food, Jan is Batman and a workaholic, Basti is blond and loves L-theanine), a fake "Claude did 97%" statistic, ChatGPT/mogging jokes, "can you put gambling in it too? like maybe with a currency", "don't do too much just keep it low key". Then, going to sleep: "cut it shorter".
 - **What's new** on https://roboloxpizzagang.github.io/ROBOLOX/ (a "🧪 Stats Lab" button and a section under Employee of the month):

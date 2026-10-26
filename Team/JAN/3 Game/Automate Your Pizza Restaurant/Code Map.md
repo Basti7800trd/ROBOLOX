@@ -32,14 +32,15 @@ Part of [[Roblox Home]] -> 3 Game. Where everything lives in the Studio place (s
 | `Server.Economy` | leaderstats `Cash` + `Earned`; `spend`, `earn`, `refund`; all stats (`stat`, `statMin`, `onStat` hooks). |
 | `Server.Carry` | The ONE item in a player's hands (box or pizza) + the model in front of them. |
 | `Server.Plots` | Plot owners, `assign(player, savedLayout)` (builds the saved restaurant, or the starter one), placing pieces, the seating rule, stock + fridge capacity, `home(player)`. |
-| `Server.Stations` | Kitchen machines: PC (order panel), fridge, cutting board, prep table, oven (bake/burn), trash, shelves; the signs + "needs ..." bubbles over them. |
+| `Server.Stations` | Kitchen machines: PC (order panel), fridge, prep table, oven (bake/burn), trash, shelves; the signs + "needs ..." bubbles over them. No cutting board since [[Roblox Changelog]] (24): vegetables arrive already cut. |
+| `Server.SlotMachine` | Made by Manuel's Claude (2026-10-26): the topping slot machine in every yard; toppings are unlocked there instead of buying recipes. See Manuel's notes. |
 | `Server.Deliveries` | Orders from the PC (players + ordering drones) -> boxes land in the garage after `Config.Timers.Delivery`. |
 | `Server.Customers` | NPC customers: walk in, sit at a table, order (patience ring), eat, pay + tip, leave; special customers (VIP, Food Critic, Birthday Kid, Grumpy); tutorial orders. |
 | `Server.Rating` | Stars 1-5 (average of the last 30 visits): more stars = more customers + bigger tips. |
 | `Server.Recipes` | The Recipe Book: which pizzas a restaurant sells; unlocks cost money + stars. |
 | `Server.Build` | The build shop (buy into the backpack), placing from the backpack, turn / move / store. Rules shared with the client in `Shared.Placement`. |
-| `Server.Drones` | 6 drone areas (order, carry, cut, topping, oven, serve), up to 5 drones each, upgrades (speed, capacity, battery), dibs so two drones never grab the same thing, jobs by priority. |
-| `Server.Quests` | The 11-step tutorial (ends with the first drone) and endless quests sized to the player's pace. |
+| `Server.Drones` | 5 drone areas (order, carry, topping, oven, serve; the cutting drones went in (24)), up to 5 drones each, upgrades (speed, capacity, battery), dibs so two drones never grab the same thing, jobs by priority. |
+| `Server.Quests` | The 10-step tutorial (ends with the first drone; "Cut a tomato" went in (24)) and endless quests sized to the player's pace. |
 | `Server.SaveService` | DataStore saving: one key per player (`PizzaProfiles_v1`, `Player_<UserId>`), session lock, autosave every 2 min, save on leave + shutdown, offline drone earnings. Studio without API access = test profiles (nothing kept after Stop). |
 | `Server.GlobalBoards` | The data for the 3 boards across all servers (OrderedDataStores; the weekly board resets Monday 00:00 UTC). |
 | `Server.Leaderboard` | Draws every Map model with the attribute `Board`: top 10, medals, "Be the first! 🍕", weekly countdown. |
@@ -47,7 +48,7 @@ Part of [[Roblox Home]] -> 3 Game. Where everything lives in the Studio place (s
 ## Client (`StarterPlayer.StarterPlayerScripts`)
 | Script | What it does |
 |---|---|
-| `ClientMain` | The whole screen: 6 big buttons (OPEN, HOME, RECIPES, BUILD, DRONES, STATS), money + stars + next-goal bar, quest pill with CLAIM, guide beam, all panels (PC, cutting board, prep table, Recipe Book, drone dock, drones list, stats), messages, flying coins, celebrations. Phone / tablet / PC layouts. |
+| `ClientMain` | The whole screen: 6 big buttons (OPEN, HOME, RECIPES, BUILD, DRONES, STATS), money + stars + next-goal bar, quest pill with CLAIM, guide beam, all panels (PC, prep table, Recipe Book, drone dock, drones list, stats), messages, flying coins, celebrations. Phone / tablet / PC layouts. |
 | `BuildClient` | Build mode: shop as one scroll list with 3D previews, backpack, the green/red ghost, turn / move / store, big touch buttons on phones. |
 
 ## Shared (`ReplicatedStorage.Shared`)
