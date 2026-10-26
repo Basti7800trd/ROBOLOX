@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 16:03 (Vienna) · 60 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 16:11 (Vienna) · 61 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -38,7 +38,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Jan** | Head pizzaiolo | **287** | 0 | 0 | 18 | 1376 |
-| 🥈 | **Manuel** | Sous-chef | **203** | 0 | 0 | 17 | 508 |
+| 🥈 | **Manuel** | Sous-chef | **213** | 0 | 0 | 18 | 515 |
 | 🥉 | **Sebastian** | Dishwasher | **175** | 1 | 0 | 10 | 3981 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
@@ -58,6 +58,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 16:10 | Manuel | Manuel Changelog: new slot drum look | +7 −0 |
 | 26 Oct 16:03 | Manuel | Manuel Changelog: slot drum matches the result | +6 −0 |
 | 26 Oct 15:59 | Manuel | Manuel Changelog: slot machine moved into the office | +7 −0 |
 | 26 Oct 15:56 | Jan | vault backup: 2026-10-26 14:56:31 | +42 −3 |
@@ -72,7 +73,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 14:13 | Manuel | Manuel Changelog: own hotbar + bag | +9 −0 |
 | 26 Oct 13:59 | Manuel | Manuel Changelog: Studio test tools (speed slider, infinite money) | +8 −0 |
 | 26 Oct 13:55 | Manuel | Manuel: slot machine gives seeds (changelog + 8 seed packet pictures to make) | +36 −0 |
-| 26 Oct 13:49 | Sebastian | SEBASTIAN: idea for later - buy weather chances with Robux | +8 −0 |
 
 ---
 
