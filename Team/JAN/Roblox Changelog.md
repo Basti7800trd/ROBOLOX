@@ -15,6 +15,36 @@ Part of [[Roblox Home]]. Everything done in the Roblox project, numbered. **The 
 - **Scripts:** Carry (rewritten), Config, PieceBuilder (deeper plate, `wall_hopper`), KitchenStorage (board, hopper, drop point), BigOven (ring), Farm (harvest onto the board), Stations (fridges + hatch use the board / front), Drones (drop at the hopper), SaveService, Main (DevTools Loop `pizza`).
 - **Tested (playtest):** 3 harvests stacked 2 -> 4 -> 6 tomatoes on the board; walking up to the plate put them down / picked them up; the ring took 6 -> "Mega Tomato Pizza" $40; pizza in front + 2 tomatoes on the back at the same time (screenshot); the drones filled the plate through the hopper and the oven by themselves; walked through the back door. 0 errors.
 - **For Manu + Basti:** all my models are placeholders (big oven, farm bed, storage plate, hopper wall, the carry board in `Server.Carry`); the part names the code needs are in [[Notes for other Claudes]].
+- **Not tested yet:** Jan's own run with real keys and clicks (popup I in [[Playtest Questions]]), phones, 2 players, real saving with DataStores (Studio API access is still off).
+- **The team, at the same time:** Manuel's Claude moved the slot machine **inside, into the office** (Manuel's choice; the office plant and chair now stand right next to it, move them if you like). Then it made the drum stop on whole tiles that match what you pulled, gave it a new look (white tiles in red frames) and made the reels spin one after another with rarity LEDs ([[Manuel Changelog]]).
+- **Disk copy** (a helper, after the notes above; it only read Studio): all 24 changed scripts are in `D:\HAVIL\-Roblox\PizzaRestaurant\src\` and match Studio exactly (length + checksum). A full listing then showed all 46 scripts in the 6 folders identical. 8 of them are the team's scripts that had no disk copy yet (only copied): `Shared.CropDrone` + `DroneRotors` (Sebastian's crop drone), `Server.CropStorage`, `Server.Weather` + `WeatherClient` (the weather), `Inventory` (Manuel's hotbar + BAG), `DevTestTools` + `DevSpeed` (Manuel's Studio-only test helpers: $1T cash, a walk speed slider). The 16 older disk files: `PizzaRestaurant\backup\before-27\`. Still only on disk (Jan decides): `Server\Deliveries.luau` and the 3 old German TeamGuide files. Manuel's Claude changed `Server.SlotMachine` 3 more times after this copy, so its disk copy is older than Studio until the next copy (the rule: copy before editing).
+
+| Script (at the copy, 2026-10-26 ~16:00) | bytes | checksum |
+|---|---|---|
+| `Shared.Config` | 43713 | 1011481414 |
+| `Shared.PieceBuilder` | 54862 | 1300544057 |
+| `Shared.CropDrone` | 15952 | 560656021 |
+| `Shared.Sounds` | 3682 | 2076561753 |
+| `Shared.UIAssets` | 10497 | 199747340 |
+| `Server.Carry` | 12110 | 1229356243 |
+| `Server.KitchenStorage` | 15792 | 1521008531 |
+| `Server.BigOven` | 56604 | 926172664 |
+| `Server.Farm` | 57453 | 705626335 |
+| `Server.Stations` | 29994 | 988785821 |
+| `Server.SaveService` | 58625 | 2004751001 |
+| `Server.Drones` | 51511 | 660510493 |
+| `Server.CropStorage` | 16538 | 1391805097 |
+| `Server.Weather` | 10481 | 1903132273 |
+| `Server.Plots` | 8170 | 965542821 |
+| `Server.SlotMachine` (changed again since) | 32236 | 1049913643 |
+| `Main` | 12481 | 152498691 |
+| `DayNightCycle` | 12911 | 235222325 |
+| `DevTestTools` | 724 | 115364430 |
+| `StarterPlayerScripts.DevSpeed` | 4096 | 676139001 |
+| `StarterPlayerScripts.DroneRotors` | 792 | 1261352283 |
+| `StarterPlayerScripts.Inventory` | 25192 | 395258757 |
+| `StarterPlayerScripts.WeatherClient` | 14407 | 2003516169 |
+| `TeamGuide.0_TEAM_NOTEBOOK` | 39265 | 1462479323 |
 
 ### (26) The new core loop: seeds -> farm -> storage plate -> big oven -> any customer, 3 drones (game)
 - **User:** "instead of the order system we now want to have a gambling system that brings seeds and you have a farm where you place the seeds and when they are done you can harvest the result just put it inside a big oven where al ingredients go in and the more is in it the bigger it is and the longer the pizza name is, it takes 15s at the beginning to cook 1 pizza then its placed infront of itself where it can be picked up to serve to customers, from now on customers dont want a specified pizza but just want anything and pay anything ... 1 drone has the task to carry from storage to oven and 1 has the task to serve it out to customers adn 1 for harvesting and putting it in the storage". Popups: **free base + farm toppings**, **remove the old kitchen**, **build now with stand-ins**. Later: a screenshot of the seed hotbar; "i dont see anything yet ... place the farms and oven and storage so its visible to my friends"; "wrong side, crops go behind the building"; "2 rows of 2 always with a row in between you have 4 crops at the beginning and can unlock more"; a drawing + "basically like that and a lot of rows behind (bigger than in my image each)"; "can you go faster and focus on just the design for now". Popup answer: "**basti will do the 3d models and general design ui etc just make sure to build the functions, put a storage in the top right corner of my kitchen facing from the entrance just like a plate that the vegetables etc will lay and you can pick them up just by walking up to them**".

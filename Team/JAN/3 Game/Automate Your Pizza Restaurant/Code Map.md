@@ -2,21 +2,24 @@
 
 Part of [[Roblox Home]] -> 3 Game. Where everything lives in the Studio place (state after [[Roblox Changelog]] (12), 2026-10-25). Claude wrote every script through the Studio MCP. Design: [[Beta Plan]]. The team's version (English, for beginners) is in Studio: `ServerStorage.TeamGuide.0_TEAM_NOTEBOOK` PART 4 and `1_READ_ME`.
 
-**Disk copy:** every script is also in `D:\HAVIL\-Roblox\PizzaRestaurant\src\` with Rojo-style paths (`ServerScriptService\Server\*.luau`, `ReplicatedStorage\Shared\*.luau`, `StarterPlayer\StarterPlayerScripts\*.client.luau`, `ServerScriptService\*.server.luau`, `ServerStorage\...`). Studio = disk, byte for byte, at the end of (12). Older versions: `D:\HAVIL\-Roblox\PizzaRestaurant\backup\before-11\` and `ServerStorage.Backups.UI_v1`.
+**Disk copy:** every script is also in `D:\HAVIL\-Roblox\PizzaRestaurant\src\` with Rojo-style paths (`ServerScriptService\Server\*.luau`, `ReplicatedStorage\Shared\*.luau`, `StarterPlayer\StarterPlayerScripts\*.client.luau`, `ServerScriptService\*.server.luau`, `ServerStorage\...`). Studio = disk, byte for byte, after the copy in (27) (2026-10-26; the team may have changed scripts since, so compare first: the table at the end of [[Roblox Changelog]] (27)). Older versions: `D:\HAVIL\-Roblox\PizzaRestaurant\backup\before-*\` (newest `before-27`) and `ServerStorage.Backups`.
 
-## The new core loop (2026-10-26, [[Roblox Changelog]] (26)): newest first, the tables below are older
+## The new core loop (2026-10-26, [[Roblox Changelog]] (26)-(27)): newest first, the tables below are older
 | Where | What |
 |---|---|
 | `Server.Farm` | Farm beds behind the restaurant (`Config.Farm.BedSpots`: rows of 2 beds, a lane, 2 beds), plants that grow and regrow, Plant / Harvest / Remove plant, the seed picker remote `FarmAction`, the locked beds + "Unlock farm bed" (`refreshLocked`), saving `"farm"`. Seeds = Manuel's slot machine (`SlotMachine.getSeeds/takeSeed/giveSeed`). Sebastian added the 3 x 3 plant fields, signposts and a demo. |
 | `Server.Carry` | (rewritten 2026-10-26, (27)) The carry board on every player's back: crops stack on it (`Config.Carry.BackCapacity`), a pizza in front. API `front, back, backCount, backRoom, addBack, takeBack, clearBack, respawn`; the old `get/set` still work (pizza, else the top of the board). |
 | `Server.KitchenStorage` | The storage plate (`storage_plate`, station `"plate"`): crops lie on it; walk up = everything on your board goes on it / with an empty board you pick crops up; the hopper wall behind it (`wall_hopper`, `hopperOf`, `dropPoint`) where drones drop crops in from outside; API `platesOf, count, space, put, take, total`; saving `"storage"` (+ the crops on your board). |
-| `Server.BigOven` | The big oven (`big_oven`, station `"bigoven"`): toppings in, 15 s countdown, the pizza on its shelf, the upgrade board, saving `"oven"`. |
+| `Server.BigOven` | The big oven (`big_oven`, station `"bigoven"`): toppings in, 15 s countdown, the pizza on its shelf, the upgrade board, saving `"oven"`. The orange ring around it (`makeRing`, `ringCheck`, `Config.Oven.RingRadius`): walk in = the crops on your board go in. |
 | `Shared.Pizza` | A pizza's name, value, size, item and 3D model. |
 | `StarterPlayerScripts.FarmClient` | The seed picker, tap a bed with a seed in hand, the spinning ready cubes. |
 | `Server.Drones` | 3 jobs: harvest (farm -> plate), carry (plate -> oven), serve (shelf -> customers); `Drones.ensureDocks` (SaveService `"docks"`). |
 | `Server.CropStorage` | Sebastian's harvest tables (the drones and the oven use them after the plate). |
 | `Server.Weather` | Sebastian's weather: `Workspace.CropGrowth` makes the plants grow faster. |
-| `Server.SlotMachine` + `StarterPlayerScripts.Inventory` | Manuel's seed slot machine and the own hotbar + BAG. |
+| `Server.SlotMachine` + `StarterPlayerScripts.Inventory` | Manuel's seed slot machine (in the office since (27)) and the own hotbar + BAG. |
+| `Shared.CropDrone` + `StarterPlayerScripts.DroneRotors` | Sebastian's crop drone model (basket, claws) and its spinning rotors. |
+| `StarterPlayerScripts.WeatherClient` | The weather on the screen: rain, lightning, the event badge, the rainbow event. |
+| `DevTestTools` + `StarterPlayerScripts.DevSpeed` | Manuel's Studio-only test helpers: $1T cash, a walk speed slider. |
 | Gone | PC, garage, `Server.Deliveries`, prep table, small oven: `ServerStorage.Backups.BeforeNewLoop` + `OldKitchenTemplate`. |
 | DevTools (Studio only) | `Loop:Invoke(player, step)`, `Seeds`, `Ripe`, `Fill`, `ServeAll`, `Quest`, `Rejoin`, `Weather`, `CropDemo`. |
 
