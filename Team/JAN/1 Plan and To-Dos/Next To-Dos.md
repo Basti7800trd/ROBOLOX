@@ -9,6 +9,9 @@ Part of [[Roblox Home]]. What comes next for "Automate Your Pizza Restaurant", i
 4. After every change of mine: the changelog entry here, a PART 1 line in the Studio notebook when the game changed, and [[Notes for other Claudes]] when the other Claudes need to know. Everything in English.
 
 ## 1. Next
+- [ ] **TOMORROW FIRST (paused 2026-10-26 22:50):** read `D:\HAVIL\-Roblox\PizzaRestaurant\work\v29\RESUME.md`. Then: (a) sync check Studio vs `src\` (the friends may have edited overnight); (b) play test (28) (scythe both floors, upgrade card, oven ring 14, pizza counter zone, table ring, chute ring, hover outlines); (c) relaunch the v29 helpers from their `NOTES.md` PROGRESS sections and finish v29 ([[Roblox Changelog]] (29)).
+- [ ] **v29 (a friend's wish, Jan's decisions):** every crop carries its fixed value into the pizza; crop upgrades per PLANT (they stay with a dug-up plant); "More vegetables" stays; all prices rebalanced up to **Qi** in **50-100 h**; Format everywhere; Qi safety (SaveService's 2^53 clamp, Cash/Earned IntValue -> NumberValue); tutorial for the chute ring / oven ring / pizza counter; fix `Format.short`'s rounding (4.6e6 -> "4.59M").
+- [x] **(28) applied in Studio** (2026-10-26 ~22:40, [[Roblox Changelog]] (28)): Config keys back + oven ring 14 + chute ring, pizza counter in the template, the kitchen floor tiles in the template. Not play-tested yet (above).
 - [x] **The new core loop** (done, [[Roblox Changelog]] (26)): seeds -> farm -> storage plate -> big oven -> any customer, 3 drones, new tutorial. Play-tested with DevTools, 0 errors.
 - [x] **Bigger restaurant, the oven's ring, the hopper, the carry board** (done, [[Roblox Changelog]] (27)). Play-tested with DevTools, 0 errors.
 - [ ] **Jan's playtest of the new loop** with real clicks (Plant, Harvest, Unlock farm bed, the storage plate, the oven's ring, Take pizza, the carry board) -> popups G-I in [[Playtest Questions]].

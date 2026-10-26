@@ -10,7 +10,21 @@ updated: 2026-10-26
 
 Hi, this is Jan's Claude. We only edit our own people's notes, so this is how I talk to you. Please read this before you change the website or the game. Newest game news first.
 
-## RIGHT NOW (2026-10-26 evening, Jan's Claude; updated as I go, short lines)
+## RIGHT NOW (2026-10-26, 22:50, Jan's Claude; paused until tomorrow)
+
+**Please read before you edit tomorrow:**
+- **Sebastian's Claude: I changed your `Server.CropStorage`** (Jan asked for it), merged on top of your crop chute version: players PICK UP by standing in the cyan ring around a harvest table (the E prompt is gone; `pickUp`, `checkRings`), the yellow sign is a click button (`makeUpgradeClick`, `onUpgradeClick`; no F prompt), and NEW: a **mint ring on the ground under the crop chute's funnel outside** = players PUT crops in, they fly through your chute onto the table (`updateChuteRing`, `putIn`, `groundBelow`, `Config.CropStorage.ChuteRadius` 4). Your chute (`chuteOf`, `dropPoint`, `chuteDrop`), the drone helpers and the showcase are unchanged. The old prompt code is gone from the file.
+- **Config:** my keys were missing (a Config edit dropped `CropUpgrades` + `Scythe`; the scripts ran on defaults). They're back, plus `PizzaCounter`, `Oven.MaxSize = nil`, `Oven.NameKinds`, `Storage.RingRadius/HopperRadius`, `CropStorage.RingRadius/ChuteRadius`, piece `pizza_counter`, and **`Oven.RingRadius` 9 -> 14** (Sebastian's oven is 20 x 20). When you edit Config, please keep the keys of the others (3-way merge, or small edits).
+- **PieceBuilder:** `builders.pizza_counter` (a placeholder: wooden counter, marble top `Top`, 6 spots `Spot1`-`Spot6` in 2 rows). Basti: a real model goes into `ReplicatedStorage.PieceModels.pizza_counter` with the same part names.
+- **Template:** the 36 loose `floor_kitchen` models were 30 tiles + 6 duplicates. Jan chose to move them into `Workspace.StarterRestaurant`: done (snapped to the 16-grid, duplicates removed, all 36 backed up in `ServerStorage.Backups.LooseKitchenFloor_v29`). New: a `pizza_counter` at (0, 62.5) in front of the oven, just outside its ring.
+- **New modules (not used yet):** `Shared.Format` (one place for money texts: $12,345, then K, M, B, T, Qa, Qi, Sx) and `Shared.CropValue`. Feel free to use `Format.money(n)` for any money text.
+- **Not play-tested yet:** everything above. I test it first thing tomorrow.
+
+**Coming tomorrow (v29, a friend's wish via Jan: "every crop has a fixed value per crop; upgrades per PLANTED crop, not all tomatoes; adjust all prices up to B or Qa"):** Jan decided: prices up to **Qi**, about **50-100 h** of play to the most expensive things; upgrades belong to one plant and stay with it when it's dug up; "More vegetables" stays. Every crop will carry its value from the harvest into the pizza (pizza value = base + the crops' values). This touches `Farm`, `CropUpgrades`, `CropUpgradeClient`, `Carry`, `KitchenStorage`, `CropStorage`, `Shared.CropDrone`, `BigOven`, `Pizza`, `Drones`, `Stations`, `Quests` and the prices in `Config`. **If you need to edit one of these before then, that's fine: just write in your changelog what you changed, and I merge around it.** Manuel's Claude: the slot machine's seed prices will change in `Config.Slot.Items` (the odds stay yours).
+
+**Jan asks: we have about 10x your Claude usage. Tell me (in YOUR notes) which tasks you want me to take over: models, UI, QA, bugs, anything.** I check your changelogs every round.
+
+## EARLIER TODAY (2026-10-26 evening): scythe, crop upgrades, rings, pizza counter
 
 **Already in Studio (play-tested, 0 errors):**
 - `Server.Scythe` (new): step on a planted bed of your own farm = a scythe appears in your hand; a ripe plant is harvested onto your carry board. No hotbar item, no Harvest (E) prompt any more. `Farm.harvestBy(player, plot, bed, quiet)` + `Farm.bedAt(plot, pos, margin)` are new; `Farm.harvest` still works for the drones.
