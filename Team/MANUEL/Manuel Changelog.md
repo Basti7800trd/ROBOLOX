@@ -11,6 +11,22 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Farm upgrades: 4 beds, upgrade sign, 2nd floor
+- **Manuel** (screenshot of the farm with all the green locked fields): "i want there to be only 4, then there should be a upgrade sign, where u can upgrade ur plot, 1st upgrade doubles them, 2nd upgrade adds 2nd floor, 3rd upgrade doubles the 2nd floor (4 to 8)".
+- ⚠️ **This changed Jan's script `Server.Farm`** (and `Config.Farm`). Backup of both from before: `ServerStorage > Backups > BeforeFarmUpgrades_Manuel`. Explained for Jan in the team notebook.
+- **Start:** 4 beds. The green locked beds and buying single beds are gone.
+- **FARM UPGRADE sign** at the front left of the farm (click it, or the "Upgrade farm" prompt). It shows the level, what's next and the price (green = you can pay, red = not enough, grey MAX):
+
+| Level | What you get | Price |
+|---|---|---|
+| 1 | 8 beds (a 2nd row on the ground) | $2,500 |
+| 2 | **2nd floor** (wooden deck 12 studs up on posts, railing, stairs on the left) + 4 beds on it | $20,000 |
+| 3 | 8 beds on the 2nd floor | $75,000 |
+
+- Prices are in `Config.Farm.Upgrades`. The level is saved. Plants upstairs are saved separately from the beds under them.
+- The scythe only harvests the bed on the floor you stand on.
+- **Test:** all 3 upgrades → 8 + 8 beds, sign MAX; the character walked up the stairs onto the deck; planting upstairs works; scythe check on both floors right. 0 errors.
+
 ### 32 seed pictures in the game
 - **Manuel** (one ChatGPT sheet with all 32 seeds): "those are all pics for the slot machine, change the other ones and paste the new ones in".
 - **Done:** the sheet was cut into 32 separate 256×256 pictures with transparent backgrounds (small bits of neighbouring pictures removed), uploaded to Roblox, and the ids pasted into `ReplicatedStorage.Shared.UIAssets` (`Ingredients`): the 8 old seeds got their picture, the 24 new seeds got their own lines with picture + emoji.
