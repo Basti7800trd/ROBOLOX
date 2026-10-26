@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 03:13 (Vienna) · 22 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 03:25 (Vienna) · 23 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -39,8 +39,9 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Sebastian** | Head pizzaiolo | **145** | 1 | 0 | 7 | 3957 |
 | 🥈 | **JanPrompting** | Sous-chef | **134** | 0 | 0 | 6 | 1009 |
-| 🥉 | **Jan** | Dishwasher | **0** | 0 | 0 | 0 | 0 |
-| 4 | **Manuel** | Delivery drone | **0** | 0 | 0 | 0 | 0 |
+| 🥉 | **Claude** | Dishwasher | **11** | 0 | 0 | 1 | 12 |
+| 4 | **Jan** | Delivery drone | **0** | 0 | 0 | 0 | 0 |
+| 5 | **Manuel** | Delivery drone | **0** | 0 | 0 | 0 | 0 |
 
 > [!quote] Night oven: Sebastian
 > most commits between 23:00 and 05:00
@@ -58,6 +59,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 03:21 | Claude | Update links to the RoboloxPizzaGang organization | +6 −6 |
 | 26 Oct 03:11 | JanPrompting | vault backup: 2026-10-26 02:11:17 | +0 −0 |
 | 26 Oct 03:10 | JanPrompting | vault backup: 2026-10-26 02:10:16 | +10 −0 |
 | 26 Oct 03:09 | JanPrompting | vault backup: 2026-10-26 02:09:14 | +164 −1 |
@@ -72,7 +74,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 02:53 | Sebastian | KEINE AHNUNG | +0 −0 |
 | 26 Oct 02:51 | Sebastian | Website: per-person stats, activity chart, notes overview, repo/vault links | +0 −0 |
 | 26 Oct 02:44 | Sebastian | Add progress website (GitHub Pages) next to the Dashboard note | +1 −1 |
-| 26 Oct 02:44 | Sebastian | vault auto-backup: 2026-10-26 02:44:21 (DESKTOP-9LO1P8M) | +0 −0 |
 
 ---
 
