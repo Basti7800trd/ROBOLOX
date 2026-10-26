@@ -55,6 +55,14 @@ Done when: all boxes ticked and every bug written down. Then add your 1–3 line
 
 - I found no Bug Today
 
+## Ideas for later
+
+### Weather boosts for Robux
+
+The weather is in the game (2026-10-26): every 20 min it rolls ☀️ sunny 60 %, 🌧️ rain 30 % (crops grow +20 %), ⛈️ thunderstorm 10 % (crops grow +100 %). Settings: `Config.Weather`; code: `ServerScriptService.Server.Weather` (it already accepts custom chances: `Weather.roll(chances)`).
+
+- [ ] Let players buy a better chance for rain / thunderstorm with Robux (Developer Product, e.g. "Rain Dance": higher rain + storm chances for the next roll in that server) — [[SEBASTIAN]] #open
+
 
 
 DOES IT WORK FINALLY=???AFAS?AFUGIBAPFBAIZFVGPAGF
