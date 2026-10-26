@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 18:06 (Vienna) · 74 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 18:16 (Vienna) · 75 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -48,7 +48,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **1**
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Jan** | Head pizzaiolo | **334** | 0 | 0 | 22 | 1471 |
-| 🥈 | **Manuel** | Sous-chef | **299** | 0 | 0 | 26 | 626 |
+| 🥈 | **Manuel** | Sous-chef | **310** | 0 | 0 | 27 | 642 |
 | 🥉 | **Sebastian** | Dishwasher | **197** | 1 | 0 | 11 | 4103 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 
@@ -68,6 +68,7 @@ Open **7** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 18:15 | Manuel | Manuel Changelog: farm upgrades (4 beds, sign, 2nd floor) | +16 −0 |
 | 26 Oct 18:04 | Jan | vault backup: 2026-10-26 17:04:48 | +13 −1 |
 | 26 Oct 18:01 | Jan | vault backup: 2026-10-26 17:01:33 | +8 −0 |
 | 26 Oct 17:52 | Jan | vault backup: 2026-10-26 16:52:55 | +15 −0 |
@@ -82,7 +83,6 @@ Open **7** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 16:27 | Jan | vault backup: 2026-10-26 15:27:32 | +46 −12 |
 | 26 Oct 16:16 | Manuel | vault backup: 2026-10-26 16:16:20 | +7 −0 |
 | 26 Oct 16:10 | Manuel | Manuel Changelog: new slot drum look | +7 −0 |
-| 26 Oct 16:03 | Manuel | Manuel Changelog: slot drum matches the result | +6 −0 |
 
 ---
 
