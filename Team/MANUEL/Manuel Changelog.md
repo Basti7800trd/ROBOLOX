@@ -11,6 +11,13 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### New slot drum look (tiles with red frames)
+- **Manuel** (reference picture from another game): "make the design of the wheel approximately like the one in the img., make sure to make a border for each seed so it cant land in between of 2 seeds".
+- **Changed:** `Server.SlotMachine` (the drum in `build`). Every reel is now an 8-sided drum of **white square tiles**, each in its **own red frame** (red bars between the tiles, red rims on the sides) with **grey bolts** in the corners. Dark gaps between the reels, dark core. The grey covers on locked reels are a bit bigger so they still hide everything.
+- The drum always stops on a whole tile (since the last change), and the red bars make that easy to see.
+- About 500 parts per machine.
+- **Test:** pull → stopped exactly on one tile, tomato in front = "Tomato Seed". 0 errors.
+
 ### Slot drum shows what you pulled
 - **Manuel:** "make the drops of the pull equal to the picture on the wheel, right now it doesent match".
 - **Before:** the drum stopped at a random angle with fixed pictures, and the results were picked separately.
