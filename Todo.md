@@ -17,7 +17,7 @@ Click a tag (e.g. #doing) to see every task with it. Each person's page also lis
 
 ## Open
 
-- [ ] ⚠️ **Starter restaurant is empty (2026-10-26, between 18:07 and ~18:10):** `Workspace.StarterRestaurant` only holds `SlotMachinePreview` + `FarmPreview`; walls, floors, big oven, tables, farm beds, harvest table are gone, 5 loose `floor_kitchen` models lie directly in Workspace. New players get an EMPTY restaurant until it's back — don't publish. Not written down by anyone; Sebastian's Claude did not delete it. Working near it then: Manuel's Claude (farm upgrades), Jan's Claude (pizza counter / harvest table rings), Laser_Gaming0214. Whoever did it: check your undo history. Otherwise restore via Studio **File → Version History** (a version from before 18:07). Details in the team notebook (PART 1) — [[JAN]] [[MANUEL]] [[SEBASTIAN]] #blocked
+- [ ] Delete (or put back) the 5 loose `floor_kitchen` models lying directly in Workspace since the starter restaurant was emptied — whoever moved them — [[JAN]] [[MANUEL]] #open
 - [ ] Task — [[JAN]] #open
 - [ ] Task — [[MANUEL]] #open
 - [ ] Task — [[SEBASTIAN]] #open
@@ -26,9 +26,10 @@ Click a tag (e.g. #doing) to see every task with it. Each person's page also lis
 - [ ] Decide with Jan: should the oven take crops from the harvest table, and should the drone jobs use the new crop drone? — [[SEBASTIAN]] #open
 - [ ] Decide: is the fridge/freezer spoilage still used with the new harvest-basket loop? — [[SEBASTIAN]] #open
 - [ ] Find free sounds for rain and thunder (`Sounds.ids.weather_rain`, `thunder`) — [[SEBASTIAN]] #open
-- [ ] Before publishing: move or hide the test plot's yellow highlight (plot 1, TestBuildPizzaHut) — [[SEBASTIAN]] #open
 - [ ] Let players buy better weather chances with Robux (see [[SEBASTIAN#Ideas for later]]) — [[SEBASTIAN]] #open
 
 ## Done
 
+- [x] ⚠️ Starter restaurant was emptied (2026-10-26, between 18:07 and ~18:10; who is unknown) — restored at 18:35 from version 122 (6:08 PM), all 135 pieces rebuilt, play-tested. Details in the team notebook (PART 1) — [[SEBASTIAN]] #done
+- [x] Remove the test plot's yellow highlight (plot 1, TestBuildPizzaHut) — [[SEBASTIAN]] #done
 - [x] Move the team notebook from Claude Docs to this vault — [[SEBASTIAN]] #done
