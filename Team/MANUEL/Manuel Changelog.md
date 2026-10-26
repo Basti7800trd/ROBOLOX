@@ -11,6 +11,13 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Farm further away, more room, higher 2nd floor
+- **Manuel:** "move the garden again 1 chunk away from the restaurant, and make more room in between of the beds and the 2nd floor higher".
+- First bed row 16 studs further back (z 120); rows 20 apart (8-stud paths), wider gaps between the beds and a wide middle lane. 2nd floor at 18 studs (was 12), stairs longer to match.
+- The old stone paths didn't fit the new spacing, so they're hidden (not deleted) and the farm lays its own dirt paths: a lane from the back door, a path in front of each row and along the fence. Fence and paths grow with the upgrades.
+- Edit mode shows the same Level 1 look.
+- **Test:** Level 1 (8 beds) and Level 4 (16 + 16), walked up the stairs. 0 errors.
+
 ### Slot machine preview fixed
 - **Manuel:** "why is the slot machine disorted".
 - Someone had scaled the slot machine preview in Studio (to 0.76×) and moved it to the other side of the restaurant. The drum and reels hang on separate invisible axles, so they stayed behind at the old spot, floating over the wall.
