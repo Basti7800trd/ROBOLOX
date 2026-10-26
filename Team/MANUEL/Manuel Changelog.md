@@ -11,6 +11,13 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Slot reels spin separately + rarity LEDs
+- **Manuel:** "make the wheels spin seperatly, first middle, left from middle right from middle and so on, but only a really short time span in between, and make LEDS that glow in the color same as the rarity which will drop in that exact spin".
+- **Changed:** `Server.SlotMachine`.
+  - Every reel has its own axle. The reels you use start and stop **one after another** in roll order (middle, left of it, right of it, …), **0.12 s apart**, with a little pop when each one stops.
+  - The grey bolts in the red borders are **LEDs** now: when a reel starts spinning, its LEDs glow in the **rarity colour** of the seed it will land on (Common white-grey, Uncommon green, Rare blue, Epic purple, Legendary orange, Mythic pink). They go grey again at the next pull.
+- **Test:** 5 rolls → reels turned separately, LEDs glowed (4× Common, 1× Rare blue), all 5 front pictures = the 5 results. 0 errors.
+
 ### New slot drum look (tiles with red frames)
 - **Manuel** (reference picture from another game): "make the design of the wheel approximately like the one in the img., make sure to make a border for each seed so it cant land in between of 2 seeds".
 - **Changed:** `Server.SlotMachine` (the drum in `build`). Every reel is now an 8-sided drum of **white square tiles**, each in its **own red frame** (red bars between the tiles, red rims on the sides) with **grey bolts** in the corners. Dark gaps between the reels, dark core. The grey covers on locked reels are a bit bigger so they still hide everything.
