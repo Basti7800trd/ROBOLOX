@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-340 -340 680 680" font-family="sans-serif">
+<rect x="-340" y="-340" width="680" height="680" fill="#cfe8b0"/>
+<circle r="92" fill="#d9d9d4"/><circle r="86" fill="#46484f"/><circle r="66" fill="#aa785a"/><circle r="64" fill="#ead8ba"/>
+<circle r="11" fill="#50aae6"/><circle cy="26" r="7" fill="#ce3e32"/>
+<line x1="32.0" y1="55.4" x2="85.5" y2="148.1" stroke="#d6c8b0" stroke-width="12"/>
+<g transform="translate(117.5,203.5) rotate(150.0)"><rect x="-64" y="-64" width="128" height="128" fill="#8cc06a" stroke="#4f7a3a" stroke-width="4"/><rect x="-10" y="56" width="20" height="10" fill="#9a8f80"/></g>
+<text x="117.5" y="209.5" text-anchor="middle" font-size="18" font-weight="bold" fill="#1d3315">Plot1</text>
+<line x1="64.0" y1="0.0" x2="171.0" y2="0.0" stroke="#d6c8b0" stroke-width="12"/>
+<g transform="translate(235,0) rotate(90.0)"><rect x="-64" y="-64" width="128" height="128" fill="#8cc06a" stroke="#4f7a3a" stroke-width="4"/><rect x="-10" y="56" width="20" height="10" fill="#9a8f80"/></g>
+<text x="235" y="6" text-anchor="middle" font-size="18" font-weight="bold" fill="#1d3315">Plot2</text>
+<line x1="32.0" y1="-55.4" x2="85.5" y2="-148.1" stroke="#d6c8b0" stroke-width="12"/>
+<g transform="translate(117.5,-203.5) rotate(30.0)"><rect x="-64" y="-64" width="128" height="128" fill="#8cc06a" stroke="#4f7a3a" stroke-width="4"/><rect x="-10" y="56" width="20" height="10" fill="#9a8f80"/></g>
+<text x="117.5" y="-197.5" text-anchor="middle" font-size="18" font-weight="bold" fill="#1d3315">Plot3</text>
+<line x1="-32.0" y1="-55.4" x2="-85.5" y2="-148.1" stroke="#d6c8b0" stroke-width="12"/>
+<g transform="translate(-117.5,-203.5) rotate(-30.0)"><rect x="-64" y="-64" width="128" height="128" fill="#8cc06a" stroke="#4f7a3a" stroke-width="4"/><rect x="-10" y="56" width="20" height="10" fill="#9a8f80"/></g>
+<text x="-117.5" y="-197.5" text-anchor="middle" font-size="18" font-weight="bold" fill="#1d3315">Plot4</text>
+<line x1="-64.0" y1="0.0" x2="-171.0" y2="0.0" stroke="#d6c8b0" stroke-width="12"/>
+<g transform="translate(-235,0) rotate(270.0)"><rect x="-64" y="-64" width="128" height="128" fill="#8cc06a" stroke="#4f7a3a" stroke-width="4"/><rect x="-10" y="56" width="20" height="10" fill="#9a8f80"/></g>
+<text x="-235" y="6" text-anchor="middle" font-size="18" font-weight="bold" fill="#1d3315">Plot5</text>
+<line x1="-32.0" y1="55.4" x2="-85.5" y2="148.1" stroke="#d6c8b0" stroke-width="12"/>
+<g transform="translate(-117.5,203.5) rotate(210.0)"><rect x="-64" y="-64" width="128" height="128" fill="#8cc06a" stroke="#4f7a3a" stroke-width="4"/><rect x="-10" y="56" width="20" height="10" fill="#9a8f80"/></g>
+<text x="-117.5" y="209.5" text-anchor="middle" font-size="18" font-weight="bold" fill="#1d3315">Plot6</text>
+<rect x="-7" y="-47" width="14" height="6" fill="#6e462d"/>
+<rect x="-47" y="-43" width="14" height="6" fill="#6e462d"/>
+<rect x="33" y="-43" width="14" height="6" fill="#6e462d"/>
+<text x="0" y="-100" text-anchor="middle" font-size="14" fill="#333">Lobby (0, 0)</text>
+<text x="-330" y="330" font-size="12" fill="#333">Top-down · x → right, z ↓ down · 1 px = 1 stud · gates face the lobby</text></svg>

@@ -1,0 +1,1 @@
+- [ ] {{title}} — [[OWNER]] #open
