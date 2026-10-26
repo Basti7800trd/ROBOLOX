@@ -165,13 +165,13 @@ One picture per seed: the vegetable/fruit itself (256x256). It's used on the hot
 - [x] **ing.ghost_pepper**: A wrinkly orange-red ghost pepper with small flames around it, STYLE
 - [x] **ing.dragonfruit**: A pink dragon fruit with green spikes, cut open showing white inside with black seeds, STYLE
 - [x] **ing.starfruit**: A yellow star-shaped fruit slice with sparkles, STYLE
-- [x] **ing.candy_corn**: Three candy corn sweets (yellow, orange, white stripes), STYLE
-- [x] **ing.golden_apple**: A shiny golden apple with sparkles and a gold leaf, STYLE
-- [x] **ing.rainbow_carrot**: A carrot with rainbow stripes and green leaves, STYLE
-- [x] **ing.moon_melon**: A round pale-blue melon with a glowing crescent moon pattern, STYLE
-- [x] **ing.ghost_pumpkin**: A white glowing pumpkin with a cute ghost face, STYLE
-- [x] **ing.crystal_berry**: A berry made of shiny light-blue crystal, STYLE
-- [x] **ing.galaxy_mushroom**: A mushroom with a dark purple cap full of stars, like a galaxy, STYLE
+- ~~**ing.candy_corn**: Three candy corn sweets (yellow, orange, white stripes), STYLE~~ (seed removed from the game 2026-10-26)
+- ~~**ing.golden_apple**: A shiny golden apple with sparkles and a gold leaf, STYLE~~ (seed removed from the game 2026-10-26)
+- ~~**ing.rainbow_carrot**: A carrot with rainbow stripes and green leaves, STYLE~~ (seed removed from the game 2026-10-26)
+- ~~**ing.moon_melon**: A round pale-blue melon with a glowing crescent moon pattern, STYLE~~ (seed removed from the game 2026-10-26)
+- ~~**ing.ghost_pumpkin**: A white glowing pumpkin with a cute ghost face, STYLE~~ (seed removed from the game 2026-10-26)
+- ~~**ing.crystal_berry**: A berry made of shiny light-blue crystal, STYLE~~ (seed removed from the game 2026-10-26)
+- ~~**ing.galaxy_mushroom**: A mushroom with a dark purple cap full of stars, like a galaxy, STYLE~~ (seed removed from the game 2026-10-26)
 
 ---
 

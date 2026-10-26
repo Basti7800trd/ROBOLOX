@@ -11,6 +11,14 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### 7 seeds removed (25 left)
+- **Manuel:** "remove galaxy mushroom, crystal berry, ghost pumpkin, moon melon, rainbow carrot, golden apple, candy corn".
+- **Changed:** removed from `Config.Ingredients`, `Config.Slot.Items` and `UIAssets.Ingredients`. **25 seeds** are left. There are no **Legendary** or **Mythic** seeds any more: the rarest now are the Epic ones (Basil, Ghost Pepper, Dragon Fruit, Star Fruit).
+- Saved seeds or plants of those kinds are simply skipped when a player loads.
+- **Fix on the way:** with 25 seeds the drum only showed 5 different pictures (it picked them in steps of 5). It now uses a step that always reaches every seed.
+- `Seeds.txt` on the Desktop updated; [[Picture Checklist]]: the 7 pictures crossed out.
+- **Test:** pull with 9 reels → only existing seeds, all 25 on the drum. 0 errors.
+
 ### Farm upgrades: 4 beds, upgrade sign, 2nd floor
 - **Manuel** (screenshot of the farm with all the green locked fields): "i want there to be only 4, then there should be a upgrade sign, where u can upgrade ur plot, 1st upgrade doubles them, 2nd upgrade adds 2nd floor, 3rd upgrade doubles the 2nd floor (4 to 8)".
 - ⚠️ **This changed Jan's script `Server.Farm`** (and `Config.Farm`). Backup of both from before: `ServerStorage > Backups > BeforeFarmUpgrades_Manuel`. Explained for Jan in the team notebook.
