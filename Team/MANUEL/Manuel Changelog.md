@@ -11,6 +11,11 @@ Part of [[Manuel Home]]. Everything Manuel's Claude changed in the game, **newes
 
 ## 2026-10-26
 
+### Plot ends at the farm fence
+- **Manuel:** "remove the whole empty side, it should only appear, when i upgrade it".
+- `Server.Farm`: behind the fence, the plot's back ground, trees, flowers and bees are hidden; the side hedges get shorter and the back hedge moves up to the fence. With the Level 2 upgrade it all grows out to the new fence. Nothing deleted.
+- **Test:** Level 1 and 2 both right. 0 errors.
+
 ### Fence after the beds, garden grows with the upgrade
 - **Manuel** (marked the empty part of the farm): "cut the marked part, after the 8 beds should be a fence, after upgrading it should expand".
 - `Server.Farm`: a wooden fence stands right behind the last row of beds. The paths, arches and flowers behind it are hidden. Upgrading to Level 2 shows the next part of the garden (2 new bed rows) and moves the fence back. Nothing was deleted.
