@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 12:06 (Vienna) · 33 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 12:23 (Vienna) · 34 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -29,7 +29,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | --- | --- |
 | [[JAN]] | 0 / 0 | 0 | 0 | — |
 | [[MANUEL]] | 0 / 0 | 0 | 0 | — |
-| [[SEBASTIAN]] | 1 / 1 | 0 | 0 | `███░░░░░░░` 4/15 |
+| [[SEBASTIAN]] | 1 / 1 | 0 | 0 | `░░░░░░░░░░` 0/15 |
 
 ## Employee of the month
 
@@ -37,7 +37,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | | Who | Title | Points | Tasks | Boxes | Commits | Lines |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 🥇 | **Sebastian** | Head pizzaiolo | **215** | 1 | 4 | 8 | 3965 |
+| 🥇 | **Sebastian** | Head pizzaiolo | **165** | 1 | 0 | 9 | 3973 |
 | 🥈 | **Jan** | Sous-chef | **159** | 0 | 0 | 8 | 1061 |
 | 🥉 | **MonsterAddicted** | Dishwasher | **53** | 0 | 0 | 3 | 322 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
@@ -59,6 +59,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 12:22 | Sebastian | vault backup: 2026-10-26 12:22:58 | +4 −4 |
 | 26 Oct 12:05 | MonsterAddicted | vault backup: 2026-10-26 12:05:30 | +0 −0 |
 | 26 Oct 11:55 | MonsterAddicted | Manuel's folder: Manuel Home, Manuel Changelog, Picture Checklist, Manuel Setup and Fixes; MANUEL.md links to them (like JAN) | +261 −30 |
 | 26 Oct 11:09 | MonsterAddicted | Manuel's page: today's game changes (drone boards, tutorial customers, hotbar Build, buttons) + setup | +30 −1 |
@@ -73,7 +74,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 03:11 | Jan | vault backup: 2026-10-26 02:11:17 | +0 −0 |
 | 26 Oct 03:10 | Jan | vault backup: 2026-10-26 02:10:16 | +10 −0 |
 | 26 Oct 03:09 | Jan | vault backup: 2026-10-26 02:09:14 | +164 −1 |
-| 26 Oct 03:08 | Jan | vault backup: 2026-10-26 02:08:13 | +280 −0 |
 
 ---
 
