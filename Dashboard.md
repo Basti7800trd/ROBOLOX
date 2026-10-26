@@ -6,7 +6,7 @@ updated: 2026-10-26
 
 # Dashboard
 
-> [!info] Updated automatically on every push · last update 26 Oct 2026, 12:57 (Vienna) · 40 changes so far
+> [!info] Updated automatically on every push · last update 26 Oct 2026, 13:01 (Vienna) · 41 changes so far
 > Don't edit this note by hand — it gets overwritten. Change [[Todo]] instead.
 
 ## Kitchen status
@@ -39,7 +39,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 🥇 | **Jan** | Head pizzaiolo | **184** | 0 | 0 | 10 | 1123 |
 | 🥈 | **Sebastian** | Sous-chef | **165** | 1 | 0 | 9 | 3973 |
-| 🥉 | **MonsterAddicted** | Dishwasher | **96** | 0 | 0 | 7 | 370 |
+| 🥉 | **MonsterAddicted** | Dishwasher | **106** | 0 | 0 | 8 | 376 |
 | 4 | **Claude** | Delivery drone | **11** | 0 | 0 | 1 | 12 |
 | 5 | **Manuel** | Delivery drone | **0** | 0 | 0 | 0 | 0 |
 
@@ -59,6 +59,7 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 
 | When | Who | What | Lines |
 | --- | --- | --- | ---: |
+| 26 Oct 13:00 | MonsterAddicted | Manuel Changelog: 9 reels opening from the middle | +6 −0 |
 | 26 Oct 12:56 | MonsterAddicted | Manuel Changelog: slot machine reels with covers | +9 −0 |
 | 26 Oct 12:54 | Jan | vault backup: 2026-10-26 11:54:04 | +10 −4 |
 | 26 Oct 12:53 | Jan | vault backup: 2026-10-26 11:53:00 | +43 −5 |
@@ -73,7 +74,6 @@ Open **0** · In the oven **0** · Blocked **0** · Served **1**
 | 26 Oct 04:33 | Jan | vault backup: 2026-10-26 03:33:19 | +30 −0 |
 | 26 Oct 04:32 | Jan | Stats Lab: casino, weekly quests, player lore, Claude vs ChatGPT | +0 −0 |
 | 26 Oct 04:29 | Jan | vault backup: 2026-10-26 03:29:08 | +0 −0 |
-| 26 Oct 03:37 | Sebastian | Update SEBASTIAN.md | +4 −4 |
 
 ---
 
